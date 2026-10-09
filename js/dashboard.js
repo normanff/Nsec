@@ -9,7 +9,6 @@
 
   function initDashboard() {
     renderVulnerabilities();
-    setupTabNavigation();
     setupFilterButtons();
     setupSearchInput();
     setupVulnerabilityDrawer();
@@ -64,7 +63,7 @@
 
       return `
         <tr data-vuln-id="${item.id}" class="vuln-row group cursor-pointer hover:bg-emerald-500/[0.04] transition-colors">
-          <td class="font-mono text-xs text-gray-400 font-semibold group-hover:text-emerald-400 transition-colors">${item.id}</td>
+          <td class="font-mono text-xs text-gray-400 font-semibold group-hover:text-emerald-400 transition-colors"><button type="button" aria-label="Inspecionar ${item.id}" class="underline underline-offset-4">${item.id}</button></td>
           <td>
             <div class="font-medium text-gray-200 group-hover:text-white transition-colors flex items-center gap-2">
               <span>${item.title}</span>
@@ -89,31 +88,20 @@
     });
   }
 
-  function setupTabNavigation() {
-    const tabButtons = document.querySelectorAll('.saas-tab-btn');
-    tabButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabButtons.forEach(b => {
-          b.classList.remove('bg-white/10', 'text-white', 'border-emerald-500/50');
-          b.classList.add('text-gray-400');
-        });
-        btn.classList.remove('text-gray-400');
-        btn.classList.add('bg-white/10', 'text-white', 'border-emerald-500/50');
-      });
-    });
-  }
-
   function setupFilterButtons() {
     const filterButtons = document.querySelectorAll('.saas-filter-btn');
     filterButtons.forEach(btn => {
+      btn.setAttribute('aria-pressed', String(btn.dataset.filter === currentFilter));
       btn.addEventListener('click', () => {
         filterButtons.forEach(b => {
-          b.classList.remove('bg-emerald-500/20', 'text-emerald-400', 'border-emerald-500/40');
+          b.classList.remove('bg-red-500/20', 'text-red-400', 'border-red-500/40');
           b.classList.add('bg-white/5', 'text-gray-400', 'border-white/10');
+          b.setAttribute('aria-pressed', 'false');
         });
         btn.classList.remove('bg-white/5', 'text-gray-400', 'border-white/10');
-        btn.classList.add('bg-emerald-500/20', 'text-emerald-400', 'border-emerald-500/40');
+        btn.classList.add('bg-red-500/20', 'text-red-400', 'border-red-500/40');
 
+        btn.setAttribute('aria-pressed', 'true');
         currentFilter = btn.dataset.filter || 'All';
         renderVulnerabilities();
       });
@@ -170,12 +158,12 @@
       sevEl.className = `sev-pill ${sevClass}`;
     }
 
-    drawer.classList.add('active');
+    window.NSEC_DIALOG.open(drawer);
   }
 
   function closeVulnDrawer() {
     const drawer = document.getElementById('vuln-drawer');
-    if (drawer) drawer.classList.remove('active');
+    window.NSEC_DIALOG.close();
   }
 
   document.addEventListener('DOMContentLoaded', initDashboard);

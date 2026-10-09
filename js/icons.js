@@ -1,0 +1,2 @@
+import { createIcons, Menu, ArrowRight, CheckCircle2, Globe, Shield, Layout, ShieldCheck, Code2, X, Check, Crosshair, Network, CloudLightning, Smartphone, Cpu, ShieldAlert, Key, HardDrive, Bot } from 'lucide';
+window.lucide = { createIcons: () => createIcons({ icons: { Menu, ArrowRight, CheckCircle2, Globe, Shield, Layout, ShieldCheck, Code2, X, Check, Crosshair, Network, CloudLightning, Smartphone, Cpu, ShieldAlert, Key, HardDrive, Bot }, attrs: { 'aria-hidden': 'true' } }) };
