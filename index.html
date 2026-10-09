@@ -1,1042 +1,140 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark scroll-smooth">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NSEC | Hacking Ético, Pentest e Segurança Ofensiva</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="A NSEC é especializada em Hacking Ético, Pentest Web, Pentest de APIs, Red Team, Cloud Security e Segurança Ofensiva para identificar e corrigir vulnerabilidades antes que ocorram incidentes.">
-  <meta name="keywords" content="Pentest, Pentest Brasil, Cibersegurança, Segurança Ofensiva, Red Team, Hacking Ético, Pentest Web, Pentest API, Cybersecurity, Vulnerabilidade">
-  <meta name="author" content="NSEC Offensive Security">
-  <link rel="canonical" href="https://nsec-tawny.vercel.app/">
-
-  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NSEC — Pentest de aplicações, APIs e infraestrutura</title>
+  <meta name="description" content="Testes de segurança em aplicações, APIs e infraestrutura. Conheça o escopo, as etapas e o que você recebe em uma avaliação da NSEC.">
+  <meta name="theme-color" content="#111110">
+  <link rel="canonical" href="https://www.nsectech.com.br/">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://nsec-tawny.vercel.app/">
-  <meta property="og:title" content="NSEC | Hacking Ético, Pentest e Segurança Ofensiva">
-  <meta property="og:description" content="Encontre suas vulnerabilidades antes dos atacantes. Segurança ofensiva para descobrir, validar e corrigir falhas reais em aplicações, APIs e redes.">
-<!-- Twitter / X Card -->
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://www.nsectech.com.br/">
+  <meta property="og:title" content="NSEC — Segurança ofensiva">
+  <meta property="og:description" content="Pentest de aplicações, APIs e infraestrutura. Escopo definido, evidências e orientação para corrigir.">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:url" content="https://nsec-tawny.vercel.app/">
-  <meta name="twitter:title" content="NSEC | Hacking Ético, Pentest e Segurança Ofensiva">
-  <meta name="twitter:description" content="Segurança ofensiva de alta precisão para proteger aplicações, APIs, redes e infraestrutura cloud.">
-
-  <!-- Schema.org JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "NSEC Offensive Security",
-    "url": "https://nsec-tawny.vercel.app/",
-    "description": "Empresa especializada em Hacking Ético, Pentest Web, Pentest de APIs, Red Team e Segurança Ofensiva.",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "contato@nsec.com.br",
-      "contactType": "customer service",
-      "availableLanguage": "Portuguese"
-    }
-  }
-  </script>
-
-  <meta name="theme-color" content="#070707">
-  <link rel="preload" as="image" href="assets/hero-jellyfish.webp" fetchpriority="high">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/utilities.css">
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/refinements.css">
-  <link rel="stylesheet" href="css/art-direction.css">
-</head>
-<body class="bg-[#070707] text-[#F3F4F6] font-sans antialiased selection:bg-[#ff3b30] selection:text-black min-h-screen flex flex-col justify-between">
-
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-  <!-- HEADER / NAVIGATION -->
-  <header class="w-full">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-
-      <!-- Brand Logo -->
-      <a href="#inicio" aria-label="NSEC — início" class="flex items-center gap-3 group">
-        <div class="w-9 h-9 rounded-lg bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 font-mono font-bold text-lg group-hover:shadow-[0_0_15px_rgba(255,59,48,0.4)] transition-all">
-          N
-        </div>
-        <div class="flex flex-col">
-          <span class="font-extrabold text-xl tracking-tight text-white group-hover:text-red-400 transition-colors">NSEC</span>
-          <span class="font-mono text-[10px] text-gray-400 tracking-widest uppercase -mt-1">OFFENSIVE SECURITY</span>
-        </div>
-      </a>
-
-      <!-- Navigation Links -->
-      <nav aria-label="Navegação principal" class="desktop-nav hidden xl:flex items-center gap-5">
-        <a href="#servicos" class="nav-link nav-link-featured">Serviços</a>
-        <a href="#metodologia" class="nav-link">Metodologia</a>
-        <a href="#plataforma" class="nav-link">Plataforma</a>
-        <a href="#security-lab" class="nav-link">Security Lab</a>
-        <a href="#contato" class="nav-link">Contato</a>
-      </nav>
-
-      <!-- Primary Action CTA -->
-      <div class="hidden sm:flex items-center gap-4">
-        <button class="btn-primary btn-open-modal">
-          Solicitar Pentest
-        </button>
-      </div>
-
-      <!-- Mobile Hamburger Button -->
-      <button id="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-nav-menu" class="xl:hidden text-gray-400 hover:text-white p-2">
-        <i data-lucide="menu" class="w-6 h-6"></i>
-      </button>
-
-    </div>
-
-    <!-- Mobile Dropdown Navigation Menu -->
-    <div id="mobile-nav-menu" class="hidden xl:hidden bg-[#121212] border-b border-white/10 px-6 py-6 space-y-4">
-      <div class="mb-4">
-        <div class="status-pill">
-          <span class="pulse-dot"></span>
-          OPERATIONAL 24/7
-        </div>
-      </div>
-      <a href="#servicos" class="block text-gray-300 hover:text-red-400 py-2 font-medium">Serviços</a>
-      <a href="#metodologia" class="block text-gray-300 hover:text-red-400 py-2 font-medium">Metodologia</a>
-      <a href="#plataforma" class="block text-gray-300 hover:text-red-400 py-2 font-medium">Plataforma</a>
-      <a href="#calculadora" class="block text-gray-300 hover:text-red-400 py-2 font-medium">Calculadora de Escopo</a>
-      <a href="#security-lab" class="block text-gray-300 hover:text-red-400 py-2 font-medium">Security Lab</a>
-      <a href="#sobre" class="block text-gray-300 hover:text-red-400 py-2 font-medium">Sobre</a>
-      <a href="#contato" class="block text-gray-300 hover:text-red-400 py-2 font-medium">Contato</a>
-      <div class="pt-4 border-t border-white/10">
-        <button class="w-full btn-primary btn-open-modal">
-          Solicitar Pentest
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- MAIN CONTENT -->
-  <main id="conteudo" tabindex="-1" class="flex-grow pt-[var(--header-height)]">
-
-    <!-- HERO SECTION -->
-    <section id="inicio" class="hero-section relative min-h-[85vh] flex items-center tech-grid-bg py-16 lg:py-24 overflow-hidden">
-      <img class="hero-art" src="assets/hero-jellyfish.webp" width="1536" height="1024" alt="" fetchpriority="high" decoding="async">
-      <div class="hero-shade" aria-hidden="true"></div>
-
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-
-          <!-- Hero Text -->
-          <div class="hero-copy lg:col-span-7 space-y-8">
-
-            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full text-xs font-mono text-red-400">
-              <span class="w-2 h-2 rounded-full bg-red-400"></span>
-              Inteligência ofensiva. Proteção real.
-            </div>
-
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
-              Antecipe ameaças.<br>Proteja o que<br><span class="accent-title">importa.</span>
-            </h1>
-
-            <p class="text-gray-300 text-lg sm:text-xl leading-relaxed max-w-2xl">
-              Descubra as vulnerabilidades antes dos atacantes. Pentests com profundidade técnica para proteger suas aplicações, APIs e infraestrutura.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
-              <button class="btn-primary btn-open-modal">
-                <span>Solicitar Pentest</span>
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </button>
-              <a href="#servicos" class="btn-secondary">
-                Explorar serviços
-              </a>
-            </div>
-
-            <!-- Bullet Points -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-white/10 text-xs font-mono text-gray-400">
-              <div class="flex items-center gap-2">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-red-400"></i>
-                <span>Validação manual</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-red-400"></i>
-                <span>Evidências técnicas</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-red-400"></i>
-                <span>Reteste incluído</span>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Hero Interactive Visual (Attack Surface Analyzer Dashboard) -->
-          <div class="hero-visual lg:col-span-5">
-            <div class="terminal-card relative">
-              <div class="animate-scan"></div>
-
-              <!-- Terminal Window Header -->
-              <div class="terminal-header">
-                <div class="flex items-center gap-2">
-                  <span class="terminal-dot bg-red-500"></span>
-                  <span class="terminal-dot bg-amber-500"></span>
-                  <span class="terminal-dot bg-red-500"></span>
-                  <span class="font-mono text-xs text-gray-400 ml-2">nsec / attack surface</span>
-                </div>
-                <div id="simulator-status-badge" class="status-pill text-[10px] py-0.5 px-2">
-                  DEMO
-                </div>
-              </div>
-
-              <!-- Simulator Dashboard Content -->
-              <div class="p-5 sm:p-6 space-y-6">
-
-                <!-- Live Severities Metrics Bar -->
-                <div class="grid grid-cols-4 gap-2 text-center">
-                  <div class="bg-red-500/10 border border-red-500/20 p-2.5 rounded-lg">
-                    <div class="font-mono text-lg font-bold text-red-400">02</div>
-                    <div class="font-mono text-[10px] text-red-300 uppercase tracking-wider">CRITICAL</div>
-                  </div>
-                  <div class="bg-amber-500/10 border border-amber-500/20 p-2.5 rounded-lg">
-                    <div class="font-mono text-lg font-bold text-amber-400">05</div>
-                    <div class="font-mono text-[10px] text-amber-300 uppercase tracking-wider">HIGH</div>
-                  </div>
-                  <div class="bg-yellow-500/10 border border-yellow-500/20 p-2.5 rounded-lg">
-                    <div class="font-mono text-lg font-bold text-yellow-400">12</div>
-                    <div class="font-mono text-[10px] text-yellow-300 uppercase tracking-wider">MEDIUM</div>
-                  </div>
-                  <div class="bg-cyan-500/10 border border-cyan-500/20 p-2.5 rounded-lg">
-                    <div class="font-mono text-lg font-bold text-cyan-400">08</div>
-                    <div class="font-mono text-[10px] text-cyan-300 uppercase tracking-wider">LOW</div>
-                  </div>
-                </div>
-
-                <!-- Evaluated Assets List (Mock data) -->
-                <div class="space-y-2">
-                  <div class="text-xs font-mono text-gray-400 flex items-center justify-between mb-1">
-                    <span>SUPERFÍCIE DE ATAQUE AVALIADA</span>
-                    <span class="text-red-400">3 ATIVOS PRINCIPAIS</span>
-                  </div>
-
-                  <div class="bg-white/5 p-3 rounded-lg flex items-center justify-between border border-white/5 text-xs font-mono">
-                    <div class="flex items-center gap-2">
-                      <i data-lucide="globe" class="w-3.5 h-3.5 text-red-400"></i>
-                      <span class="text-gray-200">api.nsec-labs.com</span>
-                    </div>
-                    <span class="sev-pill sev-critical">CRITICAL (BOLA)</span>
-                  </div>
-
-                  <div class="bg-white/5 p-3 rounded-lg flex items-center justify-between border border-white/5 text-xs font-mono">
-                    <div class="flex items-center gap-2">
-                      <i data-lucide="shield" class="w-3.5 h-3.5 text-red-400"></i>
-                      <span class="text-gray-200">auth.example.com</span>
-                    </div>
-                    <span class="sev-pill sev-high">HIGH (OAuth)</span>
-                  </div>
-
-                  <div class="bg-white/5 p-3 rounded-lg flex items-center justify-between border border-white/5 text-xs font-mono">
-                    <div class="flex items-center gap-2">
-                      <i data-lucide="layout" class="w-3.5 h-3.5 text-red-400"></i>
-                      <span class="text-gray-200">app.example.com</span>
-                    </div>
-                    <span class="sev-pill sev-medium">MEDIUM (SSRF)</span>
-                  </div>
-                </div>
-
-                <!-- Simulated Live Threat Ticker -->
-                <div class="bg-black/60 rounded-lg p-3 border border-white/10 font-mono">
-                  <div class="text-[10px] text-gray-500 mb-2 flex items-center justify-between">
-                    <span>SIMULAÇÃO LOCAL</span>
-                    <span class="animate-pulse text-red-400">● DEMO</span>
-                  </div>
-                  <p class="text-xs text-gray-400 mb-3">Demonstração com dados fictícios. Nenhuma varredura real é executada.</p>
-                  <div id="simulator-log-feed" class="space-y-1 max-h-32 overflow-hidden text-xs">
-                    <!-- Dynamic logs generated by simulator.js -->
-                  </div>
-                </div>
-
-                <!-- Interactive Simulator Button -->
-                <button id="btn-run-simulation" class="w-full py-2.5 bg-white/5 hover:bg-white/10 text-red-400 border border-red-500/30 rounded-lg font-mono text-xs font-semibold transition-all">
-                  Executar Simulador de Varredura
-                </button>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION DE AUTORIDADE / METRICAS -->
-    <section class="authority-strip py-16 bg-[#090909] border-y border-white/5">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-
-          <div class="glass-panel p-6 sm:p-8 text-center relative overflow-hidden group">
-            <div class="font-mono text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white group-hover:text-red-400 transition-colors mb-2">+100</div>
-            <div class="text-sm font-semibold text-gray-300 mb-1">Projetos Analisados</div>
-            <div class="text-xs text-gray-500 font-mono">Aplicações web, APIs e infraestrutura</div>
-          </div>
-
-          <div class="glass-panel p-6 sm:p-8 text-center relative overflow-hidden group">
-            <div class="font-mono text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white group-hover:text-red-400 transition-colors mb-2">+500</div>
-            <div class="text-sm font-semibold text-gray-300 mb-1">Vulnerabilidades Identificadas</div>
-            <div class="text-xs text-gray-500 font-mono">Validadas manualmente com evidências</div>
-          </div>
-
-          <div class="glass-panel p-6 sm:p-8 text-center relative overflow-hidden group">
-            <div class="font-mono text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white group-hover:text-red-400 transition-colors mb-2">24/7</div>
-            <div class="text-sm font-semibold text-gray-300 mb-1">Monitoramento e Análise</div>
-            <div class="text-xs text-gray-500 font-mono">Mapeamento contínuo de superfície</div>
-          </div>
-
-          <div class="glass-panel p-6 sm:p-8 text-center relative overflow-hidden group">
-            <div class="font-mono text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white group-hover:text-red-400 transition-colors mb-2">100%</div>
-            <div class="text-sm font-semibold text-gray-300 mb-1">Foco em Segurança Ofensiva</div>
-            <div class="text-xs text-gray-500 font-mono">Engenharia de precisão e ética</div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <section class="editorial-intro" aria-labelledby="intro-title">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 editorial-grid">
-        <div class="section-index"><span class="red-dot"></span> A perspectiva NSEC <span class="index-number">/ 01</span></div>
-        <h2 id="intro-title">Entendemos como<br>um atacante pensa.<br><span>Para proteger o que</span><br>faz sua empresa avançar.</h2>
-      </div>
-    </section>
-
-    <!-- SECTION "O QUE FAZEMOS" (SERVIÇOS) -->
-    <section id="servicos" class="py-20 sm:py-28 relative">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <!-- Section Header -->
-        <div class="max-w-3xl mb-16 space-y-4 animate-on-scroll">
-          <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-3 py-1 rounded-full text-xs font-mono text-red-400">
-            NOSSOS SERVIÇOS / 02
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
-            Segurança de ponta a ponta.
-          </h2>
-          <p class="text-gray-400 text-base sm:text-lg">
-            Combinamos análise humana avançada e automação sob medida para descobrir falhas de segurança antes que atacantes reais as explorem.
-          </p>
-        </div>
-
-        <!-- Dynamic Services Grid (rendered by app.js) -->
-        <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 animate-on-scroll">
-          <!-- Rendered dynamically -->
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECTION "COMO FUNCIONA" (METODOLOGIA E TIMELINE) -->
-    <section id="metodologia" class="py-20 bg-[#090909] border-t border-white/5 relative">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div class="max-w-3xl mb-16 space-y-4 animate-on-scroll">
-          <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-3 py-1 rounded-full text-xs font-mono text-red-400">
-            PROCESSO DE TRABALHO
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
-            Da descoberta à correção.
-          </h2>
-          <p class="text-gray-400 text-base sm:text-lg">
-            Um fluxo transparente, estruturado e seguro para garantir diagnósticos precisos sem riscos operacionais para o seu negócio.
-          </p>
-        </div>
-
-        <!-- Interactive Workflow Step Timeline (rendered by app.js) -->
-        <div id="workflow-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-on-scroll">
-          <!-- Rendered dynamically -->
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECTION "PENSE COMO UM ATACANTE" (OFFENSIVE MINDSET) -->
-    <section class="py-20 relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div class="glass-panel-accent p-8 sm:p-12 rounded-2xl relative">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-
-            <div class="lg:col-span-6 space-y-6">
-              <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-3 py-1 rounded-full text-xs font-mono text-red-400">
-                MINDSET OFENSIVO
-              </div>
-              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-snug">
-                Defender sem entender como um atacante pensa deixa pontos cegos.
-              </h2>
-              <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                A segurança tradicional baseia-se em defesas estáticas e varreduras superficiais. A NSEC adota a perspectiva adversária real, simulando vetores sofisticados de invasão para expor caminhos críticos de ataque antes de incidentes de impacto.
-              </p>
-            </div>
-
-            <!-- Attack Chain Diagram Grid -->
-            <div class="lg:col-span-6 space-y-3">
-              <div class="text-xs font-mono text-gray-400 mb-2">CADEIA DE ATAQUE ADVERSÁRIA (ATTACK CHAIN)</div>
-              <div id="attack-chain-grid" class="space-y-3">
-                <!-- Rendered dynamically -->
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SUPERFÍCIES TESTADAS (GRID) -->
-    <section class="py-20 bg-[#090909] border-t border-white/5">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div class="max-w-3xl mb-12 space-y-4">
-          <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-3 py-1 rounded-full text-xs font-mono text-red-400">
-            COBERTURA DE ATIVOS
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
-            Superfícies de ataque avaliadas.
-          </h2>
-          <p class="text-gray-400 text-base">
-            Testes rigorosos aplicados a toda a extensão do ecossistema tecnológico corporativo.
-          </p>
-        </div>
-
-        <div id="surfaces-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <!-- Rendered dynamically -->
-        </div>
-
-      </div>
-    </section>
-
-    <!-- METODOLOGIAS & FRAMEWORKS -->
-    <section class="py-16 border-t border-white/5">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
-          <h3 class="text-xl font-bold text-white">Metodologias e Padrões Globais</h3>
-          <p class="text-xs text-gray-400 font-mono">Nossos testes seguem as melhores diretrizes internacionais da indústria de segurança cibernética.</p>
-        </div>
-
-        <div id="methodologies-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-          <!-- Rendered dynamically -->
-        </div>
-
-      </div>
-    </section>
-
-    <!-- DASHBOARD SAAS PREVIEW (PLATAFORMA NSEC) -->
-    <section id="plataforma" class="py-24 bg-[#090909] border-t border-white/5 relative">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div class="max-w-3xl mb-12 space-y-4">
-          <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-3 py-1 rounded-full text-xs font-mono text-red-400">
-            VISÃO GERAL DA PLATAFORMA
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
-            Clareza para decidir.<br>Precisão para corrigir.
-          </h2>
-          <p class="text-gray-400 text-base sm:text-lg">
-            Acompanhe o progresso do seu pentest em tempo real, acesse evidências detalhadas, priorize riscos e solicite retestes diretamente no portal do cliente. Clique em qualquer linha para inspecionar o PoC técnico.
-          </p>
-        </div>
-
-        <!-- SaaS Interface Mockup Card -->
-        <div class="glass-panel overflow-hidden border-red-500/30 shadow-[0_0_50px_rgba(0,0,0,0.8)]">
-
-          <!-- Top Bar Navigation -->
-          <div class="bg-[#171717] p-4 sm:p-6 border-b border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-
-            <div class="flex items-center gap-3">
-              <div class="w-8 h-8 rounded bg-red-500/20 border border-red-500/40 flex items-center justify-center text-red-400 font-mono font-bold text-xs">
-                N
-              </div>
-              <div>
-                <div class="font-bold text-white text-sm">Plataforma NSEC Client Portal</div>
-                <div class="text-xs text-gray-500 font-mono">Workspace: Empresa Fictícia Ltda.</div>
-              </div>
-            </div>
-
-            <!-- Tab Buttons -->
-            <div class="flex items-center gap-1 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 font-mono text-xs">
-
-              <span class="demo-nav-active">Vulnerabilidades</span>
-
-            </div>
-
-          </div>
-
-          <!-- Dashboard Content -->
-          <div class="p-6 space-y-6">
-
-            <!-- Cards Header -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div class="bg-red-500/10 border border-red-500/20 p-4 rounded-xl">
-                <div class="text-xs font-mono text-red-400 uppercase tracking-wider mb-1">CRITICAL</div>
-                <div class="text-2xl font-bold text-white">02</div>
-                <div class="text-[11px] text-gray-400 font-mono mt-1">Ação Imediata Necessária</div>
-              </div>
-              <div class="bg-amber-500/10 border border-amber-500/20 p-4 rounded-xl">
-                <div class="text-xs font-mono text-amber-400 uppercase tracking-wider mb-1">HIGH</div>
-                <div class="text-2xl font-bold text-white">05</div>
-                <div class="text-[11px] text-gray-400 font-mono mt-1">Em Remediação</div>
-              </div>
-              <div class="bg-yellow-500/10 border border-yellow-500/20 p-4 rounded-xl">
-                <div class="text-xs font-mono text-yellow-400 uppercase tracking-wider mb-1">MEDIUM</div>
-                <div class="text-2xl font-bold text-white">12</div>
-                <div class="text-[11px] text-gray-400 font-mono mt-1">Prioridade Média</div>
-              </div>
-              <div class="bg-cyan-500/10 border border-cyan-500/20 p-4 rounded-xl">
-                <div class="text-xs font-mono text-cyan-400 uppercase tracking-wider mb-1">LOW</div>
-                <div class="text-2xl font-bold text-white">08</div>
-                <div class="text-[11px] text-gray-400 font-mono mt-1">Informativo</div>
-              </div>
-            </div>
-
-            <!-- Controls & Filter Toolbar -->
-            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-2">
-              <div class="flex items-center gap-2 overflow-x-auto font-mono text-xs">
-                <button data-filter="All" class="saas-filter-btn px-3 py-1.5 rounded-md bg-red-500/20 text-red-400 border border-red-500/40">Todos</button>
-                <button data-filter="Open" class="saas-filter-btn px-3 py-1.5 rounded-md bg-white/5 text-gray-400 border border-white/10 hover:text-white">Abertos</button>
-                <button data-filter="In remediation" class="saas-filter-btn px-3 py-1.5 rounded-md bg-white/5 text-gray-400 border border-white/10 hover:text-white">Em Remediação</button>
-                <button data-filter="Resolved" class="saas-filter-btn px-3 py-1.5 rounded-md bg-white/5 text-gray-400 border border-white/10 hover:text-white">Resolvidos</button>
-              </div>
-
-              <div class="relative w-full sm:w-64">
-                <input id="saas-search-input" aria-label="Buscar vulnerabilidade, ativo, ID ou CWE" type="search" placeholder="Filtrar por vulnerabilidade ou ativo..." class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-xs text-white placeholder-gray-500 outline-none focus:border-red-400">
-              </div>
-            </div>
-
-            <!-- Vulnerabilities Table -->
-            <div class="table-scroll overflow-x-auto border border-white/10 rounded-xl" tabindex="0" role="region" aria-label="Tabela de vulnerabilidades; role horizontalmente para ver todas as colunas">
-              <table class="saas-table">
-                <caption class="sr-only">Vulnerabilidades fictícias da demonstração. Abra os detalhes pelo botão do identificador.</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Vulnerabilidade / CWE</th>
-                    <th scope="col">Ativo Testado</th>
-                    <th scope="col">Severidade</th>
-                    <th scope="col">Status</th>
-                  </tr>
-                </thead>
-                <tbody id="saas-table-body">
-                  <!-- Rendered dynamically by dashboard.js -->
-                </tbody>
-              </table>
-            </div>
-
-            <div class="text-xs font-mono text-gray-500 text-center pt-2">
-              Dados fictícios ilustrativos para pré-visualização da plataforma de gestão da NSEC. Clique em qualquer linha para abrir a PoC técnica.
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CALCULADORA DE ESCOPO E DURAÇÃO (ESTIMATOR WIDGET) -->
-    <section id="calculadora" class="py-20 bg-[#090909] border-t border-white/5">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div class="glass-panel p-8 sm:p-12 border-red-500/30">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-
-            <div class="lg:col-span-6 space-y-4">
-              <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-3 py-1 rounded-full text-xs font-mono text-red-400">
-                ESTIMADOR DE ESCOPO
-              </div>
-              <h2 class="text-3xl font-extrabold text-white">
-                Simule o prazo estimado para o seu Pentest.
-              </h2>
-              <p class="text-gray-300 text-sm leading-relaxed">
-                Insira a quantidade de ativos que sua empresa pretende avaliar e receba uma estimativa instantânea de prazo e nível de complexidade do projeto.
-              </p>
-
-              <div class="space-y-4 pt-4">
-                <div>
-                  <label for="calc-web-count" class="form-label flex justify-between">
-                    <span>Aplicações Web (SPAs, Portais, Dashboards)</span>
-                  </label>
-                  <input type="number" id="calc-web-count" min="0" max="20" value="1" class="form-input">
-                </div>
-
-                <div>
-                  <label for="calc-api-count" class="form-label flex justify-between">
-                    <span>Endpoints de API (REST / GraphQL)</span>
-                  </label>
-                  <input type="number" id="calc-api-count" min="0" max="100" value="5" class="form-input">
-                </div>
-
-                <div>
-                  <label for="calc-cloud-count" class="form-label flex justify-between">
-                    <span>Contas Cloud / Ambientes de Infraestrutura</span>
-                  </label>
-                  <input type="number" id="calc-cloud-count" min="0" max="10" value="1" class="form-input">
-                </div>
-              </div>
-
-            </div>
-
-            <div class="lg:col-span-6">
-              <div class="bg-[#121212] border border-red-500/40 p-8 rounded-2xl text-center space-y-6 shadow-[0_0_40px_rgba(255,59,48,0.08)]">
-                <div class="text-xs font-mono text-gray-400 uppercase tracking-widest">ESTIMATIVA PRELIMINAR · SUJEITA À ANÁLISE</div>
-
-                <div>
-                  <div id="calc-result-days" role="status" aria-live="polite" class="text-3xl sm:text-4xl font-extrabold text-red-400 font-mono">5 a 8 dias úteis</div>
-                  <div id="calc-result-complexity" class="text-xs text-gray-400 font-mono mt-2">Avançado (Multi-Camadas)</div>
-                </div>
-
-                <div class="p-4 bg-white/5 rounded-xl border border-white/10 text-xs text-gray-400 text-left space-y-2">
-                  <div class="flex items-center gap-2 text-red-400 font-semibold">
-                    <i data-lucide="shield-check" class="w-4 h-4"></i>
-                    <span>O que está incluído nesta estimativa:</span>
-                  </div>
-                  <p>• Planejamento e definição de regras de engajamento</p>
-                  <p>• Execução de testes manuais e prova de conceito (PoC)</p>
-                  <p>• Emissão de relatório técnico completo e executivo</p>
-                  <p>• Validação formal de reteste após correções</p>
-                </div>
-
-                <button class="w-full btn-primary btn-open-modal py-3">
-                  Solicitar Proposta Formal
-                </button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- DIFERENCIAIS NSEC -->
-    <section class="py-20 border-t border-white/5">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div class="max-w-3xl mb-16 space-y-4">
-          <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-3 py-1 rounded-full text-xs font-mono text-red-400">
-            DIFERENCIAIS TÉCNICOS
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
-            Por que confiar na NSEC.
-          </h2>
-          <p class="text-gray-400 text-base sm:text-lg">
-            Abordagem focada em precisão técnica, validação de impacto real e parceria contínua para remediação efetiva.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-          <div class="glass-panel p-8 space-y-4">
-            <div class="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 font-mono font-bold">
-              01
-            </div>
-            <h3 class="text-xl font-bold text-white">Profundidade Técnica</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">
-              Não entregamos relatórios brutos de scanners automatizados. Cada falha relatada passa por exploração e validação manual por especialistas.
-            </p>
-          </div>
-
-          <div class="glass-panel p-8 space-y-4">
-            <div class="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 font-mono font-bold">
-              02
-            </div>
-            <h3 class="text-xl font-bold text-white">Evidências Claras</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">
-              Fornecemos provas de conceito (PoC) passo a passo com trechos de código e requisições HTTP para que seu time de desenvolvimento reproduza sem dúvidas.
-            </p>
-          </div>
-
-          <div class="glass-panel p-8 space-y-4">
-            <div class="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 font-mono font-bold">
-              03
-            </div>
-            <h3 class="text-xl font-bold text-white">Prioridade Baseada em Risco</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">
-              Classificamos vulnerabilidades com base no impacto real de negócio para sua organização, permitindo focar esforços onde realmente importa.
-            </p>
-          </div>
-
-          <div class="glass-panel p-8 space-y-4">
-            <div class="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 font-mono font-bold">
-              04
-            </div>
-            <h3 class="text-xl font-bold text-white">Comunicação Direta</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">
-              Canal de suporte direto com os engenheiros de segurança que conduziram os testes para sanar dúvidas de implementação de correções.
-            </p>
-          </div>
-
-          <div class="glass-panel p-8 space-y-4 md:col-span-2">
-            <div class="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 font-mono font-bold">
-              05
-            </div>
-            <h3 class="text-xl font-bold text-white">Reteste Técnico Incluso</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">
-              Após a aplicação das correções por sua equipe, revalidamos formalmente cada vulnerabilidade para garantir o encerramento seguro do ciclo de vida do risco.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SEÇÃO DE CONFIANÇA (COMPROMISSO ÉTICO) -->
-    <section id="sobre" class="py-20 bg-[#090909] border-t border-white/5">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div class="glass-panel p-8 sm:p-12 border-red-500/30">
-          <div class="max-w-3xl space-y-6">
-            <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-3 py-1 rounded-full text-xs font-mono text-red-400">
-              AUTORIDADE E RESPONSABILIDADE
-            </div>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
-              Segurança ofensiva exige responsabilidade.
-            </h2>
-            <p class="text-gray-300 text-base leading-relaxed">
-              A NSEC atua rigorosamente dentro das diretrizes legais e éticas da indústria de cibersegurança. Todos os testes são realizados exclusivamente mediante autorização prévia por escrito e dentro do escopo estritamente estabelecido em contrato.
-            </p>
-
-            <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 pt-4 font-mono text-xs text-center">
-              <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-red-400">Ética</div>
-              <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-red-400">Transparência</div>
-              <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-red-400">Confidencialidade</div>
-              <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-red-400">Responsabilidade</div>
-              <div class="bg-white/5 p-3 rounded-lg border border-white/10 text-red-400">Precisão Técnica</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- NSEC SECURITY LAB (BLOG / RESEARCH) -->
-    <section id="security-lab" class="py-24 border-t border-white/5">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div class="max-w-3xl mb-16 space-y-4">
-          <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-3 py-1 rounded-full text-xs font-mono text-red-400">
-            PESQUISA &amp; PUBLICAÇÕES
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
-            NSEC Security Lab.
-          </h2>
-          <p class="text-gray-400 text-base sm:text-lg">
-            Artigos técnicos, pesquisas de vulnerabilidades e inteligência de ameaças produzidos pelo nosso time de segurança ofensiva. Clique no card para ler a publicação completa.
-          </p>
-        </div>
-
-        <!-- Topics Pills -->
-        <div class="flex flex-wrap gap-2 mb-10 font-mono text-xs">
-          <span class="bg-red-500/20 text-red-400 border border-red-500/40 px-3 py-1 rounded-full">Pentest</span>
-          <span class="bg-white/5 text-gray-400 border border-white/10 px-3 py-1 rounded-full">Red Team</span>
-          <span class="bg-white/5 text-gray-400 border border-white/10 px-3 py-1 rounded-full">Linux</span>
-          <span class="bg-white/5 text-gray-400 border border-white/10 px-3 py-1 rounded-full">Python</span>
-          <span class="bg-white/5 text-gray-400 border border-white/10 px-3 py-1 rounded-full">Web Security</span>
-          <span class="bg-white/5 text-gray-400 border border-white/10 px-3 py-1 rounded-full">Cloud Security</span>
-          <span class="bg-white/5 text-gray-400 border border-white/10 px-3 py-1 rounded-full">OSINT</span>
-          <span class="bg-white/5 text-gray-400 border border-white/10 px-3 py-1 rounded-full">Threat Intelligence</span>
-          <span class="bg-white/5 text-gray-400 border border-white/10 px-3 py-1 rounded-full">Vulnerabilidades</span>
-          <span class="bg-white/5 text-gray-400 border border-white/10 px-3 py-1 rounded-full">CTF</span>
-        </div>
-
-        <!-- Dynamic Articles Grid (rendered by app.js) -->
-        <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Rendered dynamically -->
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CTA FINAL -->
-    <section class="py-24 bg-[#090909] border-t border-white/5 relative tech-grid-bg">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
-
-        <div class="w-16 h-16 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-400 flex items-center justify-center mx-auto shadow-[0_0_30px_rgba(255,59,48,0.2)]">
-          <i data-lucide="shield-check" class="w-8 h-8"></i>
-        </div>
-
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-          O próximo passo<br>é estar à frente.
-        </h2>
-
-        <p class="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-          Identifique vulnerabilidades antes que elas se transformem em incidentes. Fale com nossos engenheiros e receba uma proposta de avaliação personalizada.
-        </p>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-          <button class="btn-primary btn-open-modal px-8 py-4 text-base">
-            Solicitar Pentest
-          </button>
-          <a href="mailto:contato@nsec.com.br" class="btn-secondary px-8 py-4 text-base">
-            Falar com a NSEC
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer id="contato" class="bg-[#040507] border-t border-white/10 py-16 text-sm text-gray-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-
-        <!-- Brand Info -->
-        <div class="md:col-span-5 space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-lg bg-red-500/20 border border-red-500/40 flex items-center justify-center text-red-400 font-mono font-bold text-sm">
-              N
-            </div>
-            <span class="font-extrabold text-xl text-white">NSEC</span>
-          </div>
-          <p class="text-xs text-gray-400 leading-relaxed max-w-sm">
-            Hacking Ético • Pentest • Red Team • Cybersecurity
-            <br>
-            Segurança ofensiva de alta precisão para proteger aplicações web, APIs, redes e ambientes cloud.
-          </p>
-        </div>
-
-        <!-- Links Group 1 -->
-        <div class="md:col-span-3 space-y-3 font-mono text-xs">
-          <div class="text-white font-bold uppercase tracking-wider mb-2">Serviços</div>
-          <div><a href="#servicos" class="hover:text-red-400 transition-colors">Pentest Web</a></div>
-          <div><a href="#servicos" class="hover:text-red-400 transition-colors">Pentest de APIs</a></div>
-          <div><a href="#servicos" class="hover:text-red-400 transition-colors">Red Team Simulation</a></div>
-          <div><a href="#servicos" class="hover:text-red-400 transition-colors">Cloud Security Audit</a></div>
-        </div>
-
-        <!-- Links Group 2 -->
-        <div class="md:col-span-2 space-y-3 font-mono text-xs">
-          <div class="text-white font-bold uppercase tracking-wider mb-2">Institucional</div>
-          <div><a href="#metodologia" class="hover:text-red-400 transition-colors">Metodologia</a></div>
-          <div><a href="#plataforma" class="hover:text-red-400 transition-colors">Plataforma</a></div>
-          <div><a href="#calculadora" class="hover:text-red-400 transition-colors">Calculadora</a></div>
-          <div><a href="#security-lab" class="hover:text-red-400 transition-colors">Security Lab</a></div>
-          <div><a href="#sobre" class="hover:text-red-400 transition-colors">Sobre</a></div>
-        </div>
-
-        <!-- Contact Info & Socials -->
-        <div class="md:col-span-2 space-y-3 font-mono text-xs">
-          <div class="text-white font-bold uppercase tracking-wider mb-2">Contato</div>
-          <div class="text-red-400">contato@nsec.com.br</div>
-          <div class="pt-2 flex items-center gap-3">
-            <a href="https://github.com/normanff/Nsec" target="_blank" rel="noopener noreferrer" class="footer-repo" aria-label="Repositório NSEC no GitHub"><i data-lucide="code-2" class="w-4 h-4"></i> GitHub</a>
-
-          </div>
-        </div>
-
-      </div>
-
-      <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-gray-500">
-        <div>&copy; 2026 NSEC Offensive Security. Todos os direitos reservados.</div>
-        <div class="flex gap-6">
-          <a href="mailto:contato@nsec.com.br" class="hover:text-red-400">Fale com a NSEC</a>
-
-        </div>
-      </div>
-
-    </div>
-  </footer>
-
-  <!-- MODAL DE SOLICITAÇÃO DE PENTEST -->
-  <div id="pentest-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="pentest-modal-title" tabindex="-1">
-    <div class="modal-content p-6 sm:p-8">
-
-      <!-- Modal Header -->
-      <div class="flex items-center justify-between pb-6 border-b border-white/10">
-        <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded bg-red-500/20 border border-red-500/40 flex items-center justify-center text-red-400 font-mono font-bold text-sm">
-            N
-          </div>
-          <div>
-            <h3 id="pentest-modal-title" class="text-lg font-bold text-white">Solicitar Proposta de Pentest</h3>
-            <p class="text-xs text-gray-400 font-mono">Receba o escopo recomendado e orçamento técnico.</p>
-          </div>
-        </div>
-        <button aria-label="Fechar solicitação" class="btn-close-modal text-gray-400 hover:text-white p-1">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <!-- Form Body -->
-      <form id="pentest-request-form" class="space-y-6 pt-6">
-        <p class="text-sm text-gray-400">Prepare seu pedido e envie pelo seu aplicativo de e-mail. Não inclua senhas ou dados confidenciais.</p>
-
-        <div>
-          <label class="form-label">Ambientes para Avaliação (Selecione um ou mais)</label>
-          <div class="grid grid-cols-2 gap-2 font-mono text-xs">
-            <label class="flex items-center gap-2 p-2.5 rounded bg-white/5 border border-white/10 cursor-pointer hover:border-red-400">
-              <input type="checkbox" name="scope" value="web" class="accent-red-400">
-              <span>Aplicações Web</span>
-            </label>
-            <label class="flex items-center gap-2 p-2.5 rounded bg-white/5 border border-white/10 cursor-pointer hover:border-red-400">
-              <input type="checkbox" name="scope" value="api" class="accent-red-400">
-              <span>APIs REST/GraphQL</span>
-            </label>
-            <label class="flex items-center gap-2 p-2.5 rounded bg-white/5 border border-white/10 cursor-pointer hover:border-red-400">
-              <input type="checkbox" name="scope" value="cloud" class="accent-red-400">
-              <span>Cloud Security</span>
-            </label>
-            <label class="flex items-center gap-2 p-2.5 rounded bg-white/5 border border-white/10 cursor-pointer hover:border-red-400">
-              <input type="checkbox" name="scope" value="redteam" class="accent-red-400">
-              <span>Red Team</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label for="contact-name" class="form-label">Nome Completo</label>
-            <input type="text" id="contact-name" name="name" autocomplete="name" maxlength="120" required placeholder="Seu nome" class="form-input">
-          </div>
-          <div>
-            <label for="contact-email" class="form-label">E-mail Corporativo</label>
-            <input type="email" id="contact-email" name="email" autocomplete="email" maxlength="254" required placeholder="nome@empresa.com.br" class="form-input">
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label for="company-name" class="form-label">Empresa</label>
-            <input type="text" id="company-name" name="company" autocomplete="organization" maxlength="160" required placeholder="Nome da empresa" class="form-input">
-          </div>
-          <div>
-            <label for="urgency" class="form-label">Prazo Desejado</label>
-            <select id="urgency" class="form-select">
-              <option value="immediate">Imediato (Início em até 7 dias)</option>
-              <option value="month">Neste mês</option>
-              <option value="planning">Planejamento trimestral</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label for="scope-details" class="form-label">Detalhes Adicionais do Escopo (Opcional)</label>
-          <textarea id="scope-details" maxlength="1500" rows="3" placeholder="Especifique quantidade aproximada de endpoints, IPs ou particularidades..." class="form-textarea"></textarea>
-        </div>
-
-        <div class="pt-2 flex items-center justify-end gap-3">
-          <button type="button" class="btn-close-modal btn-secondary py-2.5 text-xs">
-            Cancelar
-          </button>
-          <button type="submit" class="btn-primary py-2.5 text-xs">
-            Preparar e-mail
-          </button>
-        </div>
-
-      </form>
-
-      <div id="modal-success-box" class="hidden pt-6 space-y-4" role="status">
-        <h4 class="text-xl font-bold text-white" tabindex="-1" id="email-ready-title">Seu e-mail está pronto para revisão</h4>
-        <p class="text-sm text-gray-300">Abra a mensagem no seu aplicativo de e-mail, confira os dados e envie para contato@nsec.com.br. A solicitação ainda não foi enviada.</p>
-        <a id="request-email-link" class="btn-primary" href="mailto:contato@nsec.com.br">Abrir aplicativo de e-mail</a>
-        <label for="request-email-preview" class="form-label">Se o aplicativo não abrir, copie a mensagem abaixo:</label>
-        <textarea id="request-email-preview" class="form-textarea" rows="7" readonly></textarea>
-        <button id="btn-reset-modal" class="btn-secondary">Voltar e editar</button>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- INSPECTOR DRAWER DA PLATAFORMA SAAS (PENTEST POC DETAILS) -->
-  <div id="vuln-drawer" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="drawer-vuln-title" tabindex="-1">
-    <div class="modal-content max-w-2xl p-6 sm:p-8 space-y-6">
-
-      <div class="flex items-center justify-between pb-4 border-b border-white/10">
-        <div class="flex items-center gap-3">
-          <span id="drawer-vuln-sev" class="sev-pill sev-critical">CRITICAL</span>
-          <span id="drawer-vuln-id" class="font-mono text-xs text-gray-400">SEC-8902</span>
-        </div>
-        <button id="btn-close-drawer" aria-label="Fechar inspeção" class="text-gray-400 hover:text-white p-1">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <div class="space-y-2">
-        <h3 id="drawer-vuln-title" class="text-xl font-bold text-white">Title</h3>
-        <div class="flex items-center gap-4 text-xs font-mono text-gray-400">
-          <span>Ativo: <strong id="drawer-vuln-asset" class="text-red-400">api.example.com</strong></span>
-          <span>Classificação: <span id="drawer-vuln-cwe" class="text-gray-300">CWE-285</span></span>
-        </div>
-      </div>
-
-      <!-- Proof of Concept HTTP Snippet -->
-      <div class="space-y-2">
-        <div class="text-xs font-mono text-gray-400 uppercase tracking-wider flex items-center justify-between">
-          <span>PROVA DE CONCEITO (HTTP REQUEST POC)</span>
-          <span class="text-red-400">REPRODUÇÃO MANUAL</span>
-        </div>
-        <pre class="bg-black/80 p-4 rounded-xl border border-white/10 text-xs font-mono text-red-400 overflow-x-auto"><code id="drawer-vuln-poc">GET /api/v1/invoices HTTP/1.1</code></pre>
-      </div>
-
-      <!-- Technical Remediation -->
-      <div class="space-y-2">
-        <div class="text-xs font-mono text-gray-400 uppercase tracking-wider">ORIENTAÇÃO TÉCNICA DE REMEDIAÇÃO</div>
-        <div id="drawer-vuln-remediation" class="bg-white/5 p-4 rounded-xl border border-white/10 text-xs text-gray-300 leading-relaxed font-mono">
-          Implementar verificação de autorização.
-        </div>
-      </div>
-
-      <div class="pt-4 border-t border-white/10 flex justify-end gap-3">
-        <button data-close-dialog class="btn-secondary py-2 text-xs">
-          Fechar Inspeção
-        </button>
-        <button class="btn-primary btn-open-modal py-2 text-xs">
-          Solicitar Reteste
-        </button>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- MODAL LEITOR DE ARTIGOS DO SECURITY LAB -->
-  <div id="article-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="article-modal-title" tabindex="-1">
-    <div class="modal-content max-w-3xl p-6 sm:p-10 space-y-6">
-
-      <div class="flex items-center justify-between pb-4 border-b border-white/10">
-        <span id="article-modal-tag" class="text-xs font-mono text-red-400 bg-red-500/10 px-3 py-1 rounded border border-red-500/20">Pentest Web</span>
-        <button id="btn-close-article-modal" aria-label="Fechar artigo" class="text-gray-400 hover:text-white p-1">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <div class="space-y-2">
-        <h2 id="article-modal-title" class="text-2xl sm:text-3xl font-extrabold text-white leading-snug">Título</h2>
-        <div id="article-modal-meta" class="text-xs font-mono text-gray-500">12 Ago 2026 • 6 min de leitura</div>
-      </div>
-
-      <div id="article-modal-body" class="prose prose-invert max-w-none text-sm text-gray-300 space-y-4 leading-relaxed border-t border-white/5 pt-6">
-        <!-- Rendered dynamically by app.js -->
-      </div>
-
-      <div class="pt-6 border-t border-white/10 flex justify-end">
-        <button data-close-dialog class="btn-primary text-xs py-2 px-6">
-          Concluir Leitura
-        </button>
-      </div>
-
-    </div>
-  </div>
-
-  <noscript><p class="p-6">Ative o JavaScript para explorar as demonstrações. Para solicitar uma proposta, escreva para <a href="mailto:contato@nsec.com.br">contato@nsec.com.br</a>.</p></noscript>
-  <!-- JavaScript Scripts -->
-  <script defer src="js/icons.js"></script>
+  <link rel="stylesheet" href="css/site.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NSEC","url":"https://www.nsectech.com.br/","email":"normanff57@gmail.com"}</script>
   <script defer src="js/dialogs.js"></script>
-  <script defer src="js/data.js"></script>
-  <script defer src="js/simulator.js"></script>
-  <script defer src="js/dashboard.js"></script>
   <script defer src="js/modal.js"></script>
   <script defer src="js/app.js"></script>
+</head>
+<body>
+  <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="#inicio" aria-label="NSEC — início">NSEC<span class="wordmark-dot" aria-hidden="true">.</span></a>
+      <span class="header-caption">SEGURANÇA OFENSIVA</span>
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="#servicos">Serviços</a><a href="#metodo">Como trabalhamos</a><a href="#entregas">Entregas</a><a href="#contato">Contato <span aria-hidden="true">↗</span></a>
+      </nav>
+      <button id="mobile-menu-btn" class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav-menu" aria-label="Abrir menu">Menu <span aria-hidden="true">+</span></button>
+    </div>
+    <nav id="mobile-nav-menu" class="mobile-nav shell hidden" aria-label="Navegação móvel">
+      <a href="#servicos">Serviços</a><a href="#metodo">Como trabalhamos</a><a href="#entregas">Entregas</a><a href="#contato">Contato</a>
+    </nav>
+  </header>
+  <main id="conteudo" tabindex="-1">
+    <section id="inicio" class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-topline"><p>PENTEST / NSEC</p><p>WEB · APIs · INFRAESTRUTURA</p></div>
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <h1 id="hero-title">Até onde<br>uma falha<br>pode chegar?</h1>
+          <p class="hero-description">Testamos aplicações, APIs e infraestrutura para descobrir o que pode ser explorado, demonstrar o impacto e orientar a correção.</p>
+          <a class="button button-accent" href="#contato">Conversar sobre um teste <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="monogram-area">
+          <div class="monogram-stage" aria-hidden="true">
+            <div class="monogram" id="brand-monogram">
+              <span class="n-face" style="--depth:0px"></span>
+              <span class="n-face" style="--depth:1.5px"></span>
+              <span class="n-face" style="--depth:3px"></span>
+              <span class="n-face" style="--depth:4.5px"></span>
+              <span class="n-face" style="--depth:6px"></span>
+              <span class="n-face" style="--depth:7.5px"></span>
+              <span class="n-face" style="--depth:9px"></span>
+              <span class="n-face" style="--depth:10.5px"></span>
+              <span class="n-face" style="--depth:12px"></span>
+              <span class="n-face" style="--depth:13.5px"></span>
+              <span class="n-face" style="--depth:15px"></span>
+              <span class="n-face" style="--depth:16.5px"></span>
+              <span class="n-face" style="--depth:18px"></span>
+              <span class="n-face" style="--depth:19.5px"></span>
+              <span class="n-face" style="--depth:21px"></span>
+              <span class="n-face" style="--depth:22.5px"></span>
+              <span class="n-face" style="--depth:24px"></span>
+              <span class="n-face" style="--depth:25.5px"></span>
+              <span class="n-face" style="--depth:27px"></span>
+              <span class="n-face" style="--depth:28.5px"></span>
+              <span class="n-face" style="--depth:30px"></span>
+              <span class="n-face" style="--depth:31.5px"></span>
+              <span class="n-face" style="--depth:33px"></span>
+              <span class="n-face" style="--depth:34.5px"></span>
+              <span class="n-face" style="--depth:36px"></span>
+              <span class="n-face" style="--depth:37.5px"></span>
+              <span class="n-face" style="--depth:39px"></span>
+              <span class="n-face" style="--depth:40.5px"></span>
+              <span class="n-face n-front"></span>
+            </div>
+          </div>
+          <div class="monogram-caption"><span>N / SEGURANÇA OFENSIVA</span><button id="motion-toggle" class="js-only" type="button" aria-pressed="false">Pausar movimento</button></div>
+        </div>
+      </div>
+      <div class="hero-foot"><span>Testes autorizados. Escopo por escrito.</span><a href="#servicos">Conheça o trabalho <span aria-hidden="true">↓</span></a></div>
+    </section>
+
+    <section id="servicos" class="services shell section-space" aria-labelledby="services-title">
+      <div class="section-heading"><p class="eyebrow">01 / O QUE AVALIAMOS</p><h2 id="services-title">O teste começa<br>pelo seu ambiente.</h2><p>Cada sistema tem um contexto. Definimos os ativos e as perguntas que a avaliação precisa responder antes de escolher as técnicas.</p></div>
+      <div class="service-list">
+        <details class="service" open><summary><span class="row-number">01</span><h3>Aplicações web</h3><span class="service-hint">Sessão, acesso e regras de negócio</span><span class="expand" aria-hidden="true">+</span></summary><div class="service-body"><p>Uma conta consegue acessar dados de outra? É possível contornar uma aprovação ou alterar uma operação? Avaliamos autenticação, sessões, permissões e fluxos da aplicação.</p><p class="scope-note">Para definir o escopo: aplicações, perfis de usuário e fluxos críticos.</p></div></details>
+        <details class="service"><summary><span class="row-number">02</span><h3>APIs</h3><span class="service-hint">Autorização e exposição de dados</span><span class="expand" aria-hidden="true">+</span></summary><div class="service-body"><p>Verificamos como endpoints REST e GraphQL tratam identidade, acesso a objetos, limites de uso e dados de resposta. O foco é o que um usuário consegue fazer além do permitido.</p><p class="scope-note">Para definir o escopo: documentação, endpoints, perfis e integrações.</p></div></details>
+        <details class="service"><summary><span class="row-number">03</span><h3>Redes e infraestrutura</h3><span class="service-hint">Exposição e segmentação</span><span class="expand" aria-hidden="true">+</span></summary><div class="service-body"><p>Mapeamos serviços expostos e avaliamos configurações e caminhos entre ambientes. Testes internos e externos são delimitados de acordo com as redes e os acessos autorizados.</p><p class="scope-note">Para definir o escopo: endereços IP, segmentos e restrições operacionais.</p></div></details>
+        <details class="service"><summary><span class="row-number">04</span><h3>Cloud</h3><span class="service-hint">Identidades, permissões e recursos</span><span class="expand" aria-hidden="true">+</span></summary><div class="service-body"><p>Avaliamos permissões, armazenamento e exposição de recursos em AWS, Azure e Google Cloud. Investigamos combinações de acesso que podem ampliar o impacto de uma conta comprometida.</p><p class="scope-note">Para definir o escopo: contas, projetos, serviços e identidades disponíveis.</p></div></details>
+        <details class="service"><summary><span class="row-number">05</span><h3>Red Team</h3><span class="service-hint">Cenários adversários definidos</span><span class="expand" aria-hidden="true">+</span></summary><div class="service-body"><p>Uma simulação orientada a objetivos para avaliar prevenção, detecção e resposta. Os cenários, os limites e as condições de parada são combinados antes da execução.</p><p class="scope-note">Para definir o escopo: objetivo, sistemas envolvidos e regras de engajamento.</p></div></details>
+        <details class="service"><summary><span class="row-number">06</span><h3>Aplicativos móveis</h3><span class="service-hint">Android e iOS</span><span class="expand" aria-hidden="true">+</span></summary><div class="service-body"><p>Examinamos armazenamento local, comunicação e controles do aplicativo. A avaliação considera tanto o dispositivo quanto as APIs usadas pelo app.</p><p class="scope-note">Para definir o escopo: versões, plataformas, contas de teste e APIs.</p></div></details>
+        <details class="service"><summary><span class="row-number">07</span><h3>Sistemas com IA</h3><span class="service-hint">Dados, instruções e ferramentas</span><span class="expand" aria-hidden="true">+</span></summary><div class="service-body"><p>Avaliamos como instruções e conteúdos externos podem afetar aplicações com modelos de linguagem, incluindo o acesso a dados e o uso de ferramentas conectadas.</p><p class="scope-note">Para definir o escopo: fontes de dados, ferramentas, permissões e fluxos.</p></div></details>
+        <details class="service"><summary><span class="row-number">08</span><h3>Avaliação de vulnerabilidades</h3><span class="service-hint">Identificação e priorização</span><span class="expand" aria-hidden="true">+</span></summary><div class="service-body"><p>Levantamento de vulnerabilidades conhecidas com análise dos resultados e priorização. A profundidade de validação e a diferença em relação a um pentest ficam explícitas no escopo.</p><p class="scope-note">Para definir o escopo: inventário de ativos, acessos e cobertura esperada.</p></div></details>
+      </div>
+    </section>
+
+    <section id="entregas" class="deliverables" aria-labelledby="deliverables-title">
+      <div class="shell deliverables-layout">
+        <div><p class="eyebrow">02 / O QUE VOCÊ RECEBE</p><h2 id="deliverables-title">Um achado precisa<br>ser reproduzível.</h2><p class="section-description">O relatório deve dar à equipe de desenvolvimento o contexto necessário para entender a falha e trabalhar na correção.</p><a class="text-link" href="#metodo">Veja as etapas do trabalho <span aria-hidden="true">↘</span></a></div>
+        <div class="report-outline" aria-label="Estrutura dos achados no relatório">
+          <div class="report-top"><span>NSEC / RELATÓRIO TÉCNICO</span><span>ESTRUTURA</span></div>
+          <h3>Da evidência à correção</h3>
+          <dl><div><dt>Contexto</dt><dd>Ativo afetado, perfil de acesso e condições necessárias.</dd></div><div><dt>Evidência</dt><dd>Passos para reproduzir e registros que sustentam o achado.</dd></div><div><dt>Impacto</dt><dd>O que foi demonstrado e quais são os limites da avaliação.</dd></div><div><dt>Correção</dt><dd>Recomendação técnica e orientação para validar o ajuste.</dd></div></dl>
+          <p class="report-bottom">A entrega também inclui um resumo executivo e a priorização dos achados.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodo" class="method shell section-space" aria-labelledby="method-title">
+      <div class="section-heading"><p class="eyebrow">03 / COMO TRABALHAMOS</p><h2 id="method-title">Limites claros.<br>Do início ao reteste.</h2><p>Escopo, janela de execução, responsáveis e comunicação fazem parte do trabalho técnico.</p></div>
+      <ol class="method-list"><li><span class="row-number">01</span><div><h3>Definir antes de testar</h3><p>Identificamos os ativos, os acessos necessários e as restrições. A autorização e as regras de engajamento são registradas por escrito.</p></div></li><li><span class="row-number">02</span><div><h3>Investigar e validar</h3><p>Combinamos ferramentas e análise manual. Cada achado é avaliado dentro do escopo, com evidências e registro das limitações.</p></div></li><li><span class="row-number">03</span><div><h3>Explicar os resultados</h3><p>Apresentamos o impacto, a prioridade e as recomendações. A equipe responsável pela correção pode esclarecer dúvidas técnicas.</p></div></li><li><span class="row-number">04</span><div><h3>Conferir a correção</h3><p>No reteste, verificamos os achados corrigidos. A janela e as condições dessa etapa ficam definidas na proposta.</p></div></li></ol>
+      <div class="references"><p>Referências técnicas, conforme o escopo</p><a href="https://owasp.org/www-project-web-security-testing-guide/">OWASP WSTG <span aria-hidden="true">↗</span></a><a href="https://owasp.org/www-project-api-security/">OWASP API Security <span aria-hidden="true">↗</span></a><a href="https://attack.mitre.org/">MITRE ATT&amp;CK <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section id="escopo" class="scope-section shell section-space" aria-labelledby="scope-title">
+      <div class="section-heading"><p class="eyebrow">04 / ANTES DE COMEÇAR</p><h2 id="scope-title">O que precisamos<br>saber sobre o projeto.</h2></div>
+      <div class="scope-content"><p class="scope-intro">Quantidade de ativos é só uma parte do escopo. Perfis de acesso, regras de negócio e integrações também mudam o trabalho.</p><ul><li>Quais aplicações, APIs ou ambientes serão avaliados?</li><li>Há diferentes perfis de usuário e contas de teste?</li><li>O ambiente é de produção ou homologação?</li><li>Existe um prazo, uma auditoria ou uma entrega que motivou o teste?</li></ul><p class="scope-footnote">O prazo e o investimento são definidos depois dessa conversa.</p></div>
+    </section>
+
+    <section id="contato" class="contact shell" aria-labelledby="contact-title"><p class="eyebrow">VAMOS DEFINIR O ESCOPO</p><div class="contact-layout"><h2 id="contact-title">Qual ambiente<br>você precisa testar?</h2><div class="contact-details"><p>Escreva com uma descrição do projeto e o prazo desejado. Não envie senhas ou informações confidenciais no primeiro contato.</p><a class="email-link" href="mailto:normanff57@gmail.com">normanff57@gmail.com <span aria-hidden="true">↗</span></a><button class="button btn-open-modal js-only" type="button">Preparar pedido por e-mail <span aria-hidden="true">↗</span></button></div></div></section>
+  </main>
+  <footer class="shell site-footer"><a class="wordmark" href="#inicio" aria-label="NSEC — voltar ao início">NSEC<span class="wordmark-dot" aria-hidden="true">.</span></a><p>Segurança ofensiva<br>Testes realizados mediante autorização.</p><a href="https://github.com/normanff/Nsec">GitHub <span aria-hidden="true">↗</span></a><span>© 2026 NSEC</span></footer>
+
+  <div id="pentest-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="pentest-modal-title" tabindex="-1">
+    <div class="modal-content"><div class="modal-heading"><div><p class="eyebrow">CONTATO / NSEC</p><h2 id="pentest-modal-title">Conte sobre o projeto.</h2></div><button class="btn-close-modal close-button" aria-label="Fechar solicitação" type="button">×</button></div>
+      <form id="pentest-request-form">
+        <p>Prepare a mensagem aqui e envie pelo seu aplicativo de e-mail.</p>
+        <fieldset><legend>O que você precisa avaliar? <span>(opcional)</span></legend><div class="scope-options"><label><input type="checkbox" name="scope" value="web"> Aplicações web</label><label><input type="checkbox" name="scope" value="api"> APIs</label><label><input type="checkbox" name="scope" value="infra"> Infraestrutura / cloud</label><label><input type="checkbox" name="scope" value="outro"> Outro ambiente</label></div></fieldset>
+        <div class="form-grid"><div><label for="contact-name">Nome</label><input id="contact-name" name="name" autocomplete="name" maxlength="120" required></div><div><label for="contact-email">E-mail</label><input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required></div><div><label for="company-name">Empresa <span>(opcional)</span></label><input id="company-name" name="company" autocomplete="organization" maxlength="160"></div><div><label for="urgency">Prazo desejado</label><select id="urgency"><option>A definir</option><option>Neste mês</option><option>Nos próximos três meses</option><option>Tenho uma data específica</option></select></div></div>
+        <div><label for="scope-details">Descrição do projeto <span>(opcional)</span></label><textarea id="scope-details" rows="3" maxlength="1500" placeholder="Ambientes, perfis de acesso e objetivo do teste. Não inclua senhas."></textarea></div><div class="form-actions"><button class="button button-quiet btn-close-modal" type="button">Cancelar</button><button class="button button-accent" type="submit">Preparar e-mail</button></div>
+      </form>
+      <div id="modal-success-box" class="hidden" role="status"><h3 id="email-ready-title" tabindex="-1">Mensagem pronta para revisar.</h3><p>A solicitação ainda não foi enviada. Abra seu aplicativo de e-mail, confira o texto e envie para normanff57@gmail.com.</p><a id="request-email-link" class="button button-accent" href="mailto:normanff57@gmail.com">Abrir aplicativo de e-mail</a><label for="request-email-preview">Você também pode copiar a mensagem:</label><textarea id="request-email-preview" rows="7" readonly></textarea><button id="btn-reset-modal" class="button button-quiet" type="button">Voltar e editar</button></div>
+    </div>
+  </div>
 </body>
 </html>
