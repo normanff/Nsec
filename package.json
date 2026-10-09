@@ -17,12 +17,7 @@
   },
   "homepage": "https://github.com/normanff/Nsec#readme",
   "devDependencies": {
-    "@tailwindcss/cli": "4.3.0",
-    "esbuild": "0.25.12",
-    "tailwindcss": "4.3.0"
-  },
-  "dependencies": {
-    "lucide": "0.468.0"
+    "esbuild": "0.25.12"
   },
   "private": true
 }

@@ -1,19 +1,18 @@
-import { mkdir, copyFile, readdir } from 'node:fs/promises';
-import { execFileSync } from 'node:child_process';
+import { mkdir, copyFile, rm } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 import { build } from 'esbuild';
 
-await mkdir('dist/css', { recursive: true });
-await mkdir('dist/js', { recursive: true });
-await mkdir('dist/assets', { recursive: true });
-execFileSync(process.execPath, ['node_modules/@tailwindcss/cli/dist/index.mjs', '-i', 'css/tailwind.css', '-o', 'dist/css/utilities.css', '--minify'], { stdio: 'inherit' });
-await copyFile('index.html', 'dist/index.html');
-for (const file of await readdir('assets')) await copyFile(`assets/${file}`, `dist/assets/${file}`);
-for (const name of ['styles', 'refinements', 'art-direction']) {
-  await build({ entryPoints: [`css/${name}.css`], outfile: `dist/css/${name}.css`, minify: true });
+const root = fileURLToPath(new URL('../', import.meta.url));
+const output = path.resolve(root, 'dist');
+if (path.dirname(output) !== path.resolve(root) || path.basename(output) !== 'dist') throw new Error('Invalid build output path');
+// Only the generated dist directory under this project is replaced.
+await rm(output, { recursive: true, force: true });
+for (const folder of ['css', 'js', 'assets']) await mkdir(path.join(output, folder), { recursive: true });
+await copyFile(path.join(root, 'index.html'), path.join(output, 'index.html'));
+await copyFile(path.join(root, 'assets/favicon.svg'), path.join(output, 'assets/favicon.svg'));
+await build({ entryPoints: [path.join(root, 'css/site.css')], outfile: path.join(output, 'css/site.css'), minify: true });
+for (const name of ['dialogs', 'modal', 'app']) {
+  await build({ entryPoints: [path.join(root, `js/${name}.js`)], outfile: path.join(output, `js/${name}.js`), minify: true, target: 'es2020' });
 }
-const files = (await readdir('js')).filter(file => file.endsWith('.js') && file !== 'icons.js');
-for (const file of files) {
-  await build({ entryPoints: [`js/${file}`], outfile: `dist/js/${file}`, minify: true, target: 'es2020' });
-}
-await build({ entryPoints: ['js/icons.js'], outfile: 'dist/js/icons.js', bundle: true, minify: true, target: 'es2020' });
 console.log('Site compilado em dist/');

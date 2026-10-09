@@ -1,6 +1,6 @@
 # NSEC
 
-Site institucional estático, em português, com demonstrações locais de segurança ofensiva.
+Site institucional estático em português. HTML sem dependências de interface, CSS próprio e JavaScript limitado ao menu, controle de movimento e preparação do pedido por e-mail.
 
 ## Desenvolvimento
 
@@ -13,28 +13,32 @@ npm test
 npm run preview
 ```
 
-Abra http://127.0.0.1:4173. A pasta `dist/` é gerada pela compilação e não é versionada.
-Edite `index.html`, `css/` e `js/`, execute a compilação novamente e atualize a página.
-Tailwind e os ícones Lucide utilizados são compilados localmente; o navegador não depende de CDNs ou fontes externas.
+Abra http://127.0.0.1:4173. O build substitui apenas a pasta gerada `dist/` dentro deste projeto. Edite `index.html`, `css/site.css` e `js/`, compile e atualize a prévia.
 
 ## Publicação
 
-O arquivo `vercel.json` define `npm run build` e a pasta de saída `dist`.
-Revise o deploy de prévia antes de integrar alterações na branch de produção.
-As URLs canônicas apontam para https://nsec-tawny.vercel.app/; atualize os metadados ao configurar um domínio próprio.
+`vercel.json` define o comando de compilação e a saída `dist/`. Revise a prévia antes de integrar a mudança na branch de produção.
+O endereço canônico é https://www.nsectech.com.br/. O e-mail de contato confirmado é **normanff57@gmail.com**.
 
-## Contato e demonstrações
+## Conteúdo e contato
 
-O formulário prepara uma mensagem localmente e oferece um link `mailto:` para `contato@nsec.com.br`.
-O visitante precisa revisar e enviar a mensagem em seu aplicativo de e-mail. Não há backend de envio, armazenamento de dados nem confirmação falsa de recebimento.
-A mensagem também fica disponível para cópia manual, caso não exista um aplicativo de e-mail configurado.
-Confirme que essa caixa de e-mail recebe mensagens antes de usar o fluxo comercialmente.
+Os oito serviços estão no HTML e podem ser lidos sem JavaScript. A página explica escopo, processo e entregas; não apresenta números comerciais não confirmados, publicações fictícias, portal simulado ou previsão de prazo automática.
 
-O simulador, a tabela e os exemplos dos artigos usam dados fictícios e não executam testes contra sistemas reais.
-A calculadora fornece apenas uma estimativa preliminar. As métricas comerciais existentes foram preservadas e devem ser validadas pelo responsável pelo site.
-Links sociais sem destino confirmado e links legais vazios foram removidos. Políticas legais e outros perfis devem ser adicionados quando houver conteúdo e URLs aprovados.
+O formulário prepara uma mensagem localmente. O visitante precisa revisar e enviar pelo aplicativo de e-mail, ou copiar a mensagem. Não há backend de envio nem armazenamento de dados do formulário. O link direto de e-mail funciona sem JavaScript.
 
-## Validação
+## Identidade e movimento
 
-`npm test` verifica sintaxe, o carregamento do conjunto de dados, integridade dos arquivos compilados, âncoras e metadados.
-Ao alterar interações, confira também menu móvel, filtros e pesquisa, calculadora, artigos e diálogos com teclado (Tab, Shift+Tab e Escape).
+O monograma N é uma composição geométrica em CSS, com extrusão em camadas e movimento lento. Não usa imagem gerada, vídeo, WebGL, fonte ou biblioteca externa. O controle permite pausar o movimento; `prefers-reduced-motion` o desativa automaticamente. Sem JavaScript, o símbolo fica estático.
+
+Preto, vermelho e tipografia ampla preservam a direção escolhida. Linhas de serviço expansíveis e uma seção clara para as entregas substituem a repetição de cartões.
+
+## Verificação
+
+`npm test` verifica scripts, arquivos publicados, IDs, âncoras, rótulos, metadados e conteúdo disponível sem JavaScript. Verifique no navegador menu móvel, serviços expansíveis, pausa do N, formulário e foco dos diálogos. Nenhum teste deve enviar e-mails reais.
+
+## Referências de pesquisa
+
+- Nielsen Norman Group, [Trustworthiness in Web Design](https://www.nngroup.com/articles/trustworthy-design/): conteúdo correto, transparência e organização específica do serviço.
+- Anthropic, [Frontend Design](https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md): evitar padrões genéricos e escolher uma direção adequada ao contexto.
+
+Essas referências orientam decisões de design; não constituem um método para detectar autoria por IA.

@@ -18,12 +18,12 @@
         'Olá, NSEC! Gostaria de solicitar uma proposta de pentest.', '',
         'Nome: ' + document.getElementById('contact-name').value.trim(),
         'E-mail: ' + document.getElementById('contact-email').value.trim(),
-        'Empresa: ' + document.getElementById('company-name').value.trim(),
+        'Empresa: ' + (document.getElementById('company-name').value.trim() || 'Não informada'),
         'Ambientes: ' + (scopes.join(', ') || 'A definir com a equipe'),
         'Prazo desejado: ' + document.getElementById('urgency').selectedOptions[0].text,
         '', 'Detalhes do escopo:', document.getElementById('scope-details').value.trim() || 'A definir.'
       ].join('\n');
-      document.getElementById('request-email-link').href = 'mailto:contato@nsec.com.br?subject=' + encodeURIComponent('Solicitação de proposta de pentest') + '&body=' + encodeURIComponent(message);
+      document.getElementById('request-email-link').href = 'mailto:normanff57@gmail.com?subject=' + encodeURIComponent('Solicitação de proposta de pentest') + '&body=' + encodeURIComponent(message);
       document.getElementById('request-email-preview').value = message;
       form.classList.add('hidden');
       preview.classList.remove('hidden');
