@@ -30,17 +30,17 @@
     if (!container || !window.NSEC_DATA) return;
 
     container.innerHTML = window.NSEC_DATA.services.map(svc => `
-      <div class="glass-panel p-6 sm:p-8 flex flex-col justify-between group hover:border-emerald-500/40 hover:shadow-[0_0_30px_rgba(0,255,135,0.08)] transition-all duration-300">
+      <div class="glass-panel p-6 sm:p-8 flex flex-col justify-between group hover:border-red-500/40 hover:shadow-[0_0_30px_rgba(255,59,48,0.08)] transition-all duration-300">
         <div>
-          <div class="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300">
+          <div class="w-12 h-12 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 mb-6 group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-300">
             <i data-lucide="${svc.icon}" class="w-6 h-6"></i>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">${svc.title}</h3>
+          <h3 class="text-xl font-bold text-white mb-3 group-hover:text-red-400 transition-colors">${svc.title}</h3>
           <p class="text-gray-400 text-sm leading-relaxed mb-6">${svc.description}</p>
         </div>
         <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-          <span class="font-mono text-xs text-gray-500 group-hover:text-emerald-400/80 transition-colors">${svc.techTag}</span>
-          <span class="text-gray-600 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all">→</span>
+          <span class="font-mono text-xs text-gray-500 group-hover:text-red-400/80 transition-colors">${svc.techTag}</span>
+          <span class="text-gray-600 group-hover:text-red-400 group-hover:translate-x-1 transition-all">→</span>
         </div>
       </div>
     `).join('');
@@ -52,12 +52,12 @@
     if (!container || !window.NSEC_DATA) return;
 
     container.innerHTML = window.NSEC_DATA.workflow.map((item, idx) => `
-      <div class="relative flex-1 glass-panel p-6 sm:p-8 hover:border-emerald-500/30 transition-all duration-300 group">
-        <div class="font-mono text-3xl sm:text-4xl font-extrabold text-emerald-500/30 group-hover:text-emerald-400 transition-colors mb-4">${item.step}</div>
+      <div class="relative flex-1 glass-panel p-6 sm:p-8 hover:border-red-500/30 transition-all duration-300 group">
+        <div class="font-mono text-3xl sm:text-4xl font-extrabold text-red-500/30 group-hover:text-red-400 transition-colors mb-4">${item.step}</div>
         <h3 class="text-lg sm:text-xl font-bold text-white mb-3">${item.title}</h3>
         <p class="text-gray-400 text-sm leading-relaxed">${item.description}</p>
         ${idx < window.NSEC_DATA.workflow.length - 1 ? `
-          <div class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-slate-900 border border-emerald-500/30 text-emerald-400 text-xs flex items-center justify-center z-10">
+          <div class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-slate-900 border border-red-500/30 text-red-400 text-xs flex items-center justify-center z-10">
             ›
           </div>
         ` : ''}
@@ -71,9 +71,9 @@
     if (!container || !window.NSEC_DATA) return;
 
     container.innerHTML = window.NSEC_DATA.attackChain.map(stg => `
-      <div class="glass-panel p-6 border-l-2 border-l-emerald-500/40 hover:border-l-emerald-400 hover:bg-white/[0.02] transition-all">
+      <div class="glass-panel p-6 border-l-2 border-l-red-500/40 hover:border-l-red-400 hover:bg-white/[0.02] transition-all">
         <div class="flex items-center gap-3 mb-2">
-          <span class="font-mono text-xs font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">${stg.stage}</span>
+          <span class="font-mono text-xs font-bold text-red-400 bg-red-500/10 px-2 py-0.5 rounded border border-red-500/20">${stg.stage}</span>
           <h4 class="text-base font-bold text-white">${stg.name}</h4>
         </div>
         <p class="text-xs text-gray-400 leading-relaxed">${stg.detail}</p>
@@ -87,12 +87,12 @@
     if (!container || !window.NSEC_DATA) return;
 
     container.innerHTML = window.NSEC_DATA.surfaces.map(surf => `
-      <div class="glass-panel p-5 flex items-start gap-4 group hover:border-emerald-500/40 hover:bg-emerald-500/[0.02] transition-all duration-300">
-        <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-emerald-400 group-hover:border-emerald-500/40 group-hover:scale-105 transition-all">
+      <div class="glass-panel p-5 flex items-start gap-4 group hover:border-red-500/40 hover:bg-red-500/[0.02] transition-all duration-300">
+        <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-red-400 group-hover:border-red-500/40 group-hover:scale-105 transition-all">
           <i data-lucide="${surf.icon}" class="w-5 h-5"></i>
         </div>
         <div>
-          <h4 class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">${surf.name}</h4>
+          <h4 class="text-sm font-bold text-white group-hover:text-red-400 transition-colors">${surf.name}</h4>
           <p class="text-xs text-gray-500 font-mono mt-1">${surf.tag}</p>
         </div>
       </div>
@@ -105,8 +105,8 @@
     if (!container || !window.NSEC_DATA) return;
 
     container.innerHTML = window.NSEC_DATA.methodologies.map(m => `
-      <div class="glass-panel p-6 text-center hover:border-emerald-500/30 transition-all">
-        <div class="font-mono text-lg font-extrabold text-emerald-400 mb-1">${m.name}</div>
+      <div class="glass-panel p-6 text-center hover:border-red-500/30 transition-all">
+        <div class="font-mono text-lg font-extrabold text-red-400 mb-1">${m.name}</div>
         <div class="text-xs text-gray-400">${m.desc}</div>
       </div>
     `).join('');
@@ -118,18 +118,18 @@
     if (!container || !window.NSEC_DATA) return;
 
     container.innerHTML = window.NSEC_DATA.articles.map(art => `
-      <article data-article-id="${art.id}" class="article-card glass-panel p-6 sm:p-8 flex flex-col justify-between group hover:border-emerald-500/40 cursor-pointer transition-all duration-300">
+      <article data-article-id="${art.id}" class="article-card glass-panel p-6 sm:p-8 flex flex-col justify-between group hover:border-red-500/40 cursor-pointer transition-all duration-300">
         <div>
           <div class="flex items-center justify-between text-xs font-mono text-gray-500 mb-4">
-            <span class="text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20">${art.tag}</span>
+            <span class="text-red-400 bg-red-500/10 px-2.5 py-1 rounded border border-red-500/20">${art.tag}</span>
             <span>${art.readTime}</span>
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors leading-snug">${art.title}</h3>
+          <h3 class="text-lg font-bold text-white mb-3 group-hover:text-red-400 transition-colors leading-snug">${art.title}</h3>
           <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6">${art.excerpt}</p>
         </div>
         <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-gray-400 font-mono">
           <span>${art.date}</span>
-          <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">Ler artigo completo →</span>
+          <button type="button" class="article-open text-red-400 text-left" aria-label="Ler artigo: ${art.title}">Ler artigo →</button>
         </div>
       </article>
     `).join('');
@@ -172,12 +172,12 @@
     if (metaEl) metaEl.innerText = `${art.date} • ${art.readTime} • Publicação NSEC Security Lab`;
     if (bodyEl) bodyEl.innerHTML = art.fullContent || `<p>${art.excerpt}</p>`;
 
-    modal.classList.add('active');
+    window.NSEC_DIALOG.open(modal);
   }
 
   function closeArticleModal() {
     const modal = document.getElementById('article-modal');
-    if (modal) modal.classList.remove('active');
+    window.NSEC_DIALOG.close();
   }
 
   // Interactive Scope & Duration Estimator Widget
@@ -191,9 +191,18 @@
     if (!webInput || !apiInput || !cloudInput || !resultDays) return;
 
     function updateEstimate() {
-      const web = parseInt(webInput.value) || 0;
-      const api = parseInt(apiInput.value) || 0;
-      const cloud = parseInt(cloudInput.value) || 0;
+      const inputs = [webInput, apiInput, cloudInput];
+      if (inputs.some(input => input.value === '' || !input.validity.valid)) {
+        resultDays.innerText = 'Revise as quantidades';
+        resultComplexity.innerText = 'Use números inteiros dentro dos limites de cada campo.';
+        return;
+      }
+      const [web, api, cloud] = inputs.map(input => Number(input.value));
+      if (web + api + cloud === 0) {
+        resultDays.innerText = 'Selecione pelo menos um ativo';
+        resultComplexity.innerText = 'Adicione os ambientes que deseja avaliar.';
+        return;
+      }
 
       const totalScore = (web * 3) + (api * 2) + (cloud * 4);
 
@@ -208,7 +217,7 @@
         complexity = 'Avançado (Multi-Camadas)';
       } else {
         days = '10 a 15 dias úteis';
-        complexity = 'Empresarial / Red Team Completo';
+        complexity = 'Amplo (Múltiplos Ambientes)';
       }
 
       resultDays.innerText = days;
@@ -242,27 +251,36 @@
     const navMenu = document.getElementById('mobile-nav-menu');
     if (!toggleBtn || !navMenu) return;
 
-    toggleBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('hidden');
+    function setOpen(open) {
+      navMenu.classList.toggle('hidden', !open);
+      toggleBtn.setAttribute('aria-expanded', String(open));
+      toggleBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    }
+    toggleBtn.addEventListener('click', () => setOpen(navMenu.classList.contains('hidden')));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !navMenu.classList.contains('hidden')) { setOpen(false); toggleBtn.focus(); }
     });
+    navMenu.querySelector('button')?.addEventListener('click', () => setOpen(false));
 
     navMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        navMenu.classList.add('hidden');
+        setOpen(false);
       });
     });
   }
 
   // IntersectionObserver for scroll animations
   function setupScrollAnimations() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('opacity-100', 'translate-y-0');
           entry.target.classList.remove('opacity-0', 'translate-y-6');
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0, rootMargin: '0px 0px 40px 0px' });
 
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
       el.classList.add('opacity-0', 'translate-y-6', 'transition-all', 'duration-700', 'ease-out');
@@ -279,7 +297,9 @@
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
+          target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+          if (href === '#conteudo') target.focus({ preventScroll: true });
+          history.replaceState(null, '', href);
         }
       });
     });

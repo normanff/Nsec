@@ -4,26 +4,6 @@
  */
 
 (function () {
-  const mockEndpoints = [
-    { target: 'api.nsec-labs.com', type: 'REST API', vulns: 'CRITICAL', status: 'BOLA Exploit Risk' },
-    { target: 'auth.example.com', type: 'OAuth 2.0 Auth', vulns: 'HIGH', status: 'JWT Key Misconfig' },
-    { target: 'app.example.com', type: 'Single Page App', vulns: 'MEDIUM', status: 'SSRF via Webhook' },
-    { target: 'cloud.nsec-infra.io', type: 'AWS S3 Bucket', vulns: 'CRITICAL', status: 'Public Read Access' },
-    { target: 'gateway.example.com', type: 'gRPC Endpoint', vulns: 'LOW', status: 'Info Disclosure' }
-  ];
-
-  const logPool = [
-    '[INIT] Mapeando topologia externa de rede em nsec-labs.com...',
-    '[DISCOVERY] 14 endpoints REST e 3 rotas GraphQL identificadas.',
-    '[ANALYSIS] Testando autorização em GET /api/v1/user/account...',
-    '[ALERT] Falha de autorização BOLA detectada em api.nsec-labs.com [CVSS 9.8]',
-    '[SCAN] Verificando cabeçalhos CORS em auth.example.com...',
-    '[ALERT] Chave de assinatura JWT fraca detectada em auth.example.com',
-    '[VALIDATION] Testando injeção em integrador de webhook...',
-    '[COMPLETE] Análise finalizada. 2 falhas críticas e 1 alta validadas com PoC.'
-  ];
-
-  let currentLogIdx = 0;
   let isScanning = false;
 
   function initSimulator() {
@@ -31,14 +11,7 @@
     const runBtn = document.getElementById('btn-run-simulation');
     if (!logContainer || !runBtn) return;
 
-    // Start auto logging
-    setInterval(() => {
-      if (!isScanning) {
-        appendLogMessage(logPool[currentLogIdx % logPool.length]);
-        currentLogIdx++;
-      }
-    }, 2800);
-
+    appendLogMessage('[DEMO] Pronto. Execute a simulação para explorar o processo.');
     runBtn.addEventListener('click', runInteractiveScan);
   }
 

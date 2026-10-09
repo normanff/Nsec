@@ -1,0 +1,28 @@
+{
+  "name": "nsec",
+  "version": "1.0.0",
+  "description": "Site institucional NSEC — segurança ofensiva",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/site.test.cjs",
+    "preview": "node scripts/preview.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/normanff/Nsec.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/normanff/Nsec/issues"
+  },
+  "homepage": "https://github.com/normanff/Nsec#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.0",
+    "esbuild": "0.25.12",
+    "tailwindcss": "4.3.0"
+  },
+  "dependencies": {
+    "lucide": "0.468.0"
+  },
+  "private": true
+}

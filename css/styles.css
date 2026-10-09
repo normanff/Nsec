@@ -1,32 +1,32 @@
+@layer components {
 /* ==========================================================================
    NSEC - Modern Cybersecurity Design System & Styling
-   Palette: Absolute Obsidian (#050608, #0B0E14, #121620), Green Neon (#00FF87), Cyber Metallic Gray
+   Palette: Absolute Obsidian (#050608, #0B0E14, #121620), Green Neon (#ff3b30), Cyber Metallic Gray
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
   /* Color System */
-  --bg-darker: #040507;
-  --bg-base: #07090E;
-  --bg-surface: #0E121B;
+  --bg-darker: #070707;
+  --bg-base: #090909;
+  --bg-surface: #141414;
   --bg-card: rgba(15, 20, 30, 0.7);
   --bg-card-hover: rgba(22, 29, 44, 0.85);
 
-  --accent-green: #00FF87;
-  --accent-green-dim: rgba(0, 255, 135, 0.15);
-  --accent-green-glow: rgba(0, 255, 135, 0.35);
+  --accent-red: #ff3b30;
+  --accent-red-dim: rgba(255, 59, 48, 0.15);
+  --accent-red-glow: rgba(255, 59, 48, 0.35);
 
   --text-main: #F3F4F6;
   --text-muted: #9CA3AF;
   --text-dim: #6B7280;
 
   --border-light: rgba(255, 255, 255, 0.08);
-  --border-green: rgba(0, 255, 135, 0.3);
+  --border-red: rgba(255, 59, 48, 0.3);
 
   /* Severities */
   --sev-critical: #FF3366;
-  --sev-critical-bg: rgba(FF, 51, 102, 0.12);
+  --sev-critical-bg: rgba(255, 51, 102, 0.12);
   --sev-high: #FF9900;
   --sev-high-bg: rgba(255, 153, 0, 0.12);
   --sev-medium: #FFCC00;
@@ -36,7 +36,7 @@
 
   /* Fonts */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-mono: ui-monospace, 'SFMono-Regular', Consolas, monospace;
 
   /* Layout */
   --header-height: 80px;
@@ -91,8 +91,8 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-green {
-  background: linear-gradient(135deg, #FFFFFF 20%, #00FF87 100%);
+.accent-title {
+  background: linear-gradient(135deg, #FFFFFF 20%, #ff3b30 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -114,8 +114,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .glass-panel-accent {
   background: linear-gradient(180deg, rgba(14, 18, 27, 0.8) 0%, rgba(7, 9, 14, 0.9) 100%);
-  border: 1px solid rgba(0, 255, 135, 0.2);
-  box-shadow: 0 0 25px rgba(0, 255, 135, 0.05);
+  border: 1px solid rgba(255, 59, 48, 0.2);
+  box-shadow: 0 0 25px rgba(255, 59, 48, 0.05);
 }
 
 /* Buttons & CTAs */
@@ -124,8 +124,8 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background-color: var(--accent-green);
-  color: #040507;
+  background-color: var(--accent-red);
+  color: #070707;
   font-weight: 600;
   font-size: 0.95rem;
   padding: 14px 28px;
@@ -134,12 +134,12 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 0 20px rgba(0, 255, 135, 0.25);
+  box-shadow: 0 0 20px rgba(255, 59, 48, 0.25);
 }
 
 .btn-primary:hover {
   background-color: #10B981;
-  box-shadow: 0 0 30px rgba(0, 255, 135, 0.45);
+  box-shadow: 0 0 30px rgba(255, 59, 48, 0.45);
   transform: translateY(-2px);
 }
 
@@ -172,9 +172,9 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--accent-green-dim);
-  border: 1px solid var(--border-green);
-  color: var(--accent-green);
+  background: var(--accent-red-dim);
+  border: 1px solid var(--border-red);
+  color: var(--accent-red);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
@@ -187,24 +187,24 @@ h1, h2, h3, h4, h5, h6 {
 .pulse-dot {
   width: 8px;
   height: 8px;
-  background-color: var(--accent-green);
+  background-color: var(--accent-red);
   border-radius: 50%;
-  box-shadow: 0 0 10px var(--accent-green);
+  box-shadow: 0 0 10px var(--accent-red);
   animation: pulse-glow 2s infinite;
 }
 
 @keyframes pulse-glow {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 255, 135, 0.7);
+    box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7);
   }
   70% {
     transform: scale(1);
-    box-shadow: 0 0 0 10px rgba(0, 255, 135, 0);
+    box-shadow: 0 0 0 10px rgba(255, 59, 48, 0);
   }
   100% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 255, 135, 0);
+    box-shadow: 0 0 0 0 rgba(255, 59, 48, 0);
   }
 }
 
@@ -274,12 +274,12 @@ header.scrolled {
 }
 
 .nav-link:hover {
-  color: var(--accent-green);
+  color: var(--accent-red);
 }
 
 /* Code Terminal / Simulator */
 .terminal-card {
-  background: #090C14;
+  background: #100e0e;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   overflow: hidden;
@@ -287,7 +287,7 @@ header.scrolled {
 }
 
 .terminal-header {
-  background: #0E131F;
+  background: #171313;
   padding: 12px 18px;
   display: flex;
   align-items: center;
@@ -354,9 +354,9 @@ header.scrolled {
 }
 
 .modal-content {
-  background: #0E121B;
-  border: 1px solid var(--border-green);
-  box-shadow: 0 0 50px rgba(0, 255, 135, 0.15);
+  background: #141414;
+  border: 1px solid var(--border-red);
+  box-shadow: 0 0 50px rgba(255, 59, 48, 0.15);
   border-radius: 16px;
   max-width: 650px;
   width: 100%;
@@ -393,8 +393,8 @@ header.scrolled {
 }
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
-  border-color: var(--accent-green);
-  box-shadow: 0 0 10px rgba(0, 255, 135, 0.2);
+  border-color: var(--accent-red);
+  box-shadow: 0 0 10px rgba(255, 59, 48, 0.2);
 }
 
 /* Scrollbar Customization */
@@ -404,7 +404,7 @@ header.scrolled {
 }
 
 ::-webkit-scrollbar-track {
-  background: #040507;
+  background: #070707;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -413,7 +413,7 @@ header.scrolled {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-green);
+  background: var(--accent-red);
 }
 
 /* Custom Keyframes */
@@ -428,7 +428,9 @@ header.scrolled {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
-  box-shadow: 0 0 15px var(--accent-green);
+  background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+  box-shadow: 0 0 15px var(--accent-red);
   animation: scan-line 3s linear infinite;
+}
+
 }
