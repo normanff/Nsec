@@ -1,7 +1,7 @@
 {
   "name": "nsec",
   "version": "1.0.0",
-  "description": "Site institucional NSEC — segurança ofensiva",
+  "description": "Site de apresentação do N7 Code Arena — Python, prática e projetos",
   "scripts": {
     "build": "node scripts/build.mjs",
     "test": "node --test tests/site.test.cjs",

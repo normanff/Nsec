@@ -22,7 +22,7 @@ test('runtime scripts parse and compiled files exist', () => {
   assert.equal(structured.url, 'https://www.nsectech.com.br/');
 });
 
-test('core services are available in HTML without JavaScript or fabricated metrics', () => {
+test('core product features are available in HTML without JavaScript or fabricated metrics', () => {
   const html = fs.readFileSync('dist/index.html', 'utf8');
   assert.equal([...html.matchAll(/<details class="service"/g)].length, 8);
   assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
