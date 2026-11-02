@@ -1,8 +1,8 @@
 /* Prepare an email locally. A draft is not a submitted request. */
 (function () {
   document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('pentest-modal');
-    const form = document.getElementById('pentest-request-form');
+    const modal = document.getElementById('contact-modal');
+    const form = document.getElementById('contact-request-form');
     const preview = document.getElementById('modal-success-box');
     document.querySelectorAll('.btn-open-modal').forEach(button => {
       button.addEventListener('click', () => window.NSEC_DIALOG.open(modal));
@@ -15,15 +15,15 @@
       if (!form.reportValidity()) return;
       const scopes = [...form.querySelectorAll('[name="scope"]:checked')].map(input => input.parentElement.innerText.trim());
       const message = [
-        'Olá, NSEC! Gostaria de solicitar uma proposta de pentest.', '',
+        'Olá, N7 Studio! Gostaria de saber mais sobre o Code Arena.', '',
         'Nome: ' + document.getElementById('contact-name').value.trim(),
         'E-mail: ' + document.getElementById('contact-email').value.trim(),
-        'Empresa: ' + (document.getElementById('company-name').value.trim() || 'Não informada'),
-        'Ambientes: ' + (scopes.join(', ') || 'A definir com a equipe'),
-        'Prazo desejado: ' + document.getElementById('urgency').selectedOptions[0].text,
-        '', 'Detalhes do escopo:', document.getElementById('scope-details').value.trim() || 'A definir.'
+        'Nome de preferência: ' + (document.getElementById('contact-nickname').value.trim() || 'Não informado'),
+        'Interesses: ' + (scopes.join(', ') || 'Code Arena em geral'),
+        'Experiência com Python: ' + document.getElementById('experience').selectedOptions[0].text,
+        '', 'Minha dúvida ou ideia:', document.getElementById('contact-details').value.trim() || 'A definir.'
       ].join('\n');
-      document.getElementById('request-email-link').href = 'mailto:normanff57@gmail.com?subject=' + encodeURIComponent('Solicitação de proposta de pentest') + '&body=' + encodeURIComponent(message);
+      document.getElementById('request-email-link').href = 'mailto:normanff57@gmail.com?subject=' + encodeURIComponent('Contato sobre o N7 Code Arena') + '&body=' + encodeURIComponent(message);
       document.getElementById('request-email-preview').value = message;
       form.classList.add('hidden');
       preview.classList.remove('hidden');

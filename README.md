@@ -1,6 +1,6 @@
-# NSEC
+# N7 Code Arena — site de apresentação
 
-Site institucional estático em português. HTML sem dependências de interface, CSS próprio e JavaScript limitado ao menu, controle de movimento e preparação do pedido por e-mail.
+Site estático em português para apresentar o N7 Code Arena. HTML sem dependências de interface, CSS próprio e JavaScript limitado ao menu, controle de movimento e preparação de contato por e-mail.
 
 ## Desenvolvimento
 
@@ -22,7 +22,7 @@ O endereço canônico é https://www.nsectech.com.br/. O e-mail de contato confi
 
 ## Conteúdo e contato
 
-Os oito serviços estão no HTML e podem ser lidos sem JavaScript. A página explica escopo, processo e entregas; não apresenta números comerciais não confirmados, publicações fictícias, portal simulado ou previsão de prazo automática.
+Os oito recursos estão no HTML e podem ser lidos sem JavaScript. A página apresenta a trilha de sete mundos, 49 módulos e 777 atividades, oficinas, Battle Time, revisão, NORI e progresso. Identifica a edição como beta e distingue orientação local de IA online futura. Não há preço, checkout ou download público inventado.
 
 O formulário prepara uma mensagem localmente. O visitante precisa revisar e enviar pelo aplicativo de e-mail, ou copiar a mensagem. Não há backend de envio nem armazenamento de dados do formulário. O link direto de e-mail funciona sem JavaScript.
 
@@ -30,15 +30,14 @@ O formulário prepara uma mensagem localmente. O visitante precisa revisar e env
 
 O monograma N é uma composição geométrica em CSS, com extrusão em camadas e movimento lento. Não usa imagem gerada, vídeo, WebGL, fonte ou biblioteca externa. O controle permite pausar o movimento; `prefers-reduced-motion` o desativa automaticamente. Sem JavaScript, o símbolo fica estático.
 
-Preto, vermelho e tipografia ampla preservam a direção escolhida. Linhas de serviço expansíveis e uma seção clara para as entregas substituem a repetição de cartões.
+Preto, vermelho e tipografia ampla preservam a direção escolhida. Linhas de recursos expansíveis e uma seção clara sobre o percurso substituem a repetição de cartões.
 
 ## Verificação
 
-`npm test` verifica scripts, arquivos publicados, IDs, âncoras, rótulos, metadados e conteúdo disponível sem JavaScript. Verifique no navegador menu móvel, serviços expansíveis, pausa do N, formulário e foco dos diálogos. Nenhum teste deve enviar e-mails reais.
+`npm test` verifica scripts, arquivos publicados, IDs, âncoras, rótulos, metadados e conteúdo disponível sem JavaScript. Verifique no navegador menu móvel, recursos expansíveis, pausa do N, formulário e foco dos diálogos. Nenhum teste deve enviar e-mails reais.
 
-## Referências de pesquisa
+## Conteúdo do Code Arena
 
-- Nielsen Norman Group, [Trustworthiness in Web Design](https://www.nngroup.com/articles/trustworthy-design/): conteúdo correto, transparência e organização específica do serviço.
-- Anthropic, [Frontend Design](https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md): evitar padrões genéricos e escolher uma direção adequada ao contexto.
+O site apresenta o aplicativo Windows em beta, os recursos disponíveis e os que ainda estão planejados. Preço, data de lançamento e acesso público à beta não são anunciados sem confirmação. O contato prepara um rascunho de e-mail; não cadastra automaticamente em lista de espera.
 
-Essas referências orientam decisões de design; não constituem um método para detectar autoria por IA.
+O CSS, o monograma N e as animações foram preservados na adaptação editorial. O repositório mantém o domínio nsectech.com.br na configuração existente.
