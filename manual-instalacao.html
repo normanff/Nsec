@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual de instalação — Code Arena</title>
+  <meta name="description" content="Como abrir o Code Arena no Windows e preparar as oficinas Python com Docker e Node.js.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#manual">Pular para o manual</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="index.html" aria-label="Code Arena — início">N7<span class="wordmark-dot" aria-hidden="true">.</span></a>
+      <span class="header-caption">CODE ARENA</span>
+      <a class="manual-back" href="index.html">Voltar ao site</a>
+    </div>
+  </header>
+  <main id="manual" class="shell installation-guide" tabindex="-1">
+    <p class="eyebrow">CODE ARENA / WINDOWS</p>
+    <h1>Manual de instalação</h1>
+    <p class="manual-intro">Abra o aplicativo para estudar. Configure o executor quando quiser rodar os projetos das oficinas em Python.</p>
+    <p class="manual-notice">O download ainda não está disponível nesta página. O botão será ativado quando o arquivo for publicado.</p>
+    <section aria-labelledby="abrir">
+      <h2 id="abrir">01. Abrir o Code Arena</h2>
+      <p>A distribuição atual é um aplicativo portátil para Windows x64: o arquivo .exe abre o programa diretamente, sem assistente de instalação.</p>
+      <ol>
+        <li>Quando o download estiver disponível, salve o arquivo em uma pasta permanente, como Documentos → Code Arena. Se receber um ZIP, extraia os arquivos antes de abrir.</li>
+        <li>Abra o arquivo .exe do Code Arena.</li>
+        <li>Se o Windows informar que falta o WebView2, instale o <a href="https://developer.microsoft.com/en-us/microsoft-edge/webview2/">WebView2 Runtime da Microsoft</a>, opção Evergreen, e abra o Code Arena novamente.</li>
+      </ol>
+      <p>Você pode estudar as aulas e usar os exercícios com simulador sem instalar Docker. Para executar Python nas oficinas, siga a próxima etapa.</p>
+    </section>
+    <section aria-labelledby="oficinas">
+      <h2 id="oficinas">02. Preparar as oficinas Python</h2>
+      <p>Você precisa do pacote de execução do Code Arena, além do .exe. Ele contém o atalho <strong>Preparar e iniciar Python.cmd</strong>. Se recebeu apenas o aplicativo, solicite também esse pacote ao N7 Studio.</p>
+      <ol>
+        <li>Instale o <a href="https://nodejs.org/en/download">Node.js LTS para Windows</a>, incluindo o npm.</li>
+        <li>Instale o <a href="https://docs.docker.com/desktop/setup/install/windows-install/">Docker Desktop para Windows</a>. Siga os requisitos oficiais de Windows, WSL 2 e virtualização indicados nessa página e use contêineres Linux.</li>
+        <li>Abra o Docker Desktop e aguarde a indicação <strong>Engine running</strong>.</li>
+        <li>Extraia o pacote de execução e abra <strong>Preparar e iniciar Python.cmd</strong>. A primeira preparação precisa de internet: o atalho instala as dependências, prepara o ambiente Python e executa as verificações.</li>
+        <li>Quando o serviço estiver pronto, abra <strong>Oficina Python → Laboratório Python</strong> no aplicativo. Cole o token exibido na janela do serviço e clique em <strong>Conectar executor</strong>.</li>
+      </ol>
+      <p>Mantenha o Docker e a janela do serviço abertos durante as oficinas. Ao reiniciar o serviço, conecte novamente com o novo token. Para encerrar o serviço, pressione Ctrl+C na janela dele.</p>
+      <p>Não é necessário instalar Python separadamente: o executor prepara o ambiente dentro do Docker. Rust, Git e ferramentas de compilação também não são necessários para abrir o aplicativo.</p>
+    </section>
+    <section aria-labelledby="progresso">
+      <h2 id="progresso">03. Guardar seu progresso</h2>
+      <p>O estudo fica salvo no dispositivo. Para usar a nuvem, abra <strong>Conta e nuvem</strong>, entre com Google e confira a primeira sincronização. Se aparecerem versões diferentes de notas ou rascunhos, revise as opções antes de confirmar.</p>
+      <p>Use <strong>Backup completo</strong> antes de trocar de computador ou substituir sua cópia do aplicativo. Guarde esse arquivo em uma pasta sua.</p>
+    </section>
+    <section aria-labelledby="ajuda">
+      <h2 id="ajuda">Se algo não funcionar</h2>
+      <dl>
+        <dt>O aplicativo não abre</dt>
+        <dd>Confira o WebView2 e se o arquivo foi extraído do ZIP. Se o Windows bloquear a execução, anote a mensagem e envie ao suporte.</dd>
+        <dt>O executor não conecta</dt>
+        <dd>Confirme que o Docker está em execução e que a janela do serviço continua aberta. Copie o token atual; ele muda quando o serviço reinicia.</dd>
+        <dt>O atalho parou durante a preparação</dt>
+        <dd>Leia a última mensagem da janela. Confira a conexão com a internet e se Node.js e Docker foram instalados. Feche outra instância do serviço antes de tentar novamente.</dd>
+      </dl>
+      <p>Precisa de ajuda? Escreva para <a href="mailto:normanff57@gmail.com">normanff57@gmail.com</a> com a etapa e a mensagem de erro. Não envie o token do executor.</p>
+    </section>
+  </main>
+</body>
+</html>

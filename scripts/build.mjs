@@ -10,6 +10,7 @@ if (path.dirname(output) !== path.resolve(root) || path.basename(output) !== 'di
 await rm(output, { recursive: true, force: true });
 for (const folder of ['css', 'js', 'assets']) await mkdir(path.join(output, folder), { recursive: true });
 await copyFile(path.join(root, 'index.html'), path.join(output, 'index.html'));
+await copyFile(path.join(root, 'manual-instalacao.html'), path.join(output, 'manual-instalacao.html'));
 await copyFile(path.join(root, 'assets/favicon.svg'), path.join(output, 'assets/favicon.svg'));
 await build({ entryPoints: [path.join(root, 'css/site.css')], outfile: path.join(output, 'css/site.css'), minify: true });
 for (const name of ['dialogs', 'modal', 'app']) {
