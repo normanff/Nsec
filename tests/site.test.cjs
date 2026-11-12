@@ -29,5 +29,9 @@ test('core product features are available in HTML without JavaScript or fabricat
   assert.match(html, /href="mailto:normanff57@gmail.com"/);
   assert.doesNotMatch(html, /\+100|\+500|OPERATIONAL 24\/7|simulator|saasMock|nsec-labs|hero-jellyfish|Solicitação Recebida com Sucesso/);
   assert.deepEqual(fs.readdirSync('dist/js').sort(), ['app.js', 'dialogs.js', 'modal.js']);
-  assert.deepEqual(fs.readdirSync('dist/assets'), ['favicon.svg']);
+  assert.deepEqual(fs.readdirSync('dist/assets').sort(), ['Inter-LICENSE.txt', 'InterVariable.woff2', 'code-arena-academy.jpg', 'favicon.svg']);
+  assert.doesNotMatch(html, /777|brand-monogram|motion-toggle/);
+  assert.match(html, /disabled aria-describedby="download-note"/);
+  assert.ok(fs.existsSync('dist/manual-instalacao.html'));
+  assert.match(html, /Captura real da beta 23/);
 });
