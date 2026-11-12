@@ -68,7 +68,8 @@ test('core product features are available in HTML without JavaScript or fabricat
 
   assert.ok(fs.existsSync('dist/manual-instalacao.html'));
 
-  assert.match(html, /Captura real da beta 23/);
+  assert.doesNotMatch(html, /<figcaption>|shot-enlarge|[—–]/);
+  assert.equal([...html.matchAll(/class="expand"/g)].length, 8);
 
 });
 

@@ -10,14 +10,36 @@
   const mobileLinks = [...menu.querySelectorAll('a')];
   const sections = [...document.querySelectorAll('main section[id]')];
   let active = null, hovered = null, frame = 0;
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let markerAnimation = null;
+  let destination = '';
   function paint() {
     const link = links.find(a => a === document.activeElement) || hovered || active;
     nav.classList.toggle('has-marker', Boolean(link && nav.offsetWidth));
     if (link) {
-      marker.style.width = `${link.offsetWidth}px`;
-      marker.style.transform = `translateX(${link.offsetLeft}px)`;
+      const x = link.offsetLeft, width = link.offsetWidth;
+      const next = `${x}:${width}`;
+      if (next === destination) return;
+      const previous = getComputedStyle(marker);
+      const startX = previous.transform === 'none' ? x : new DOMMatrixReadOnly(previous.transform).m41;
+      const startWidth = parseFloat(previous.width) || width;
+      const wasVisible = Boolean(destination);
+      markerAnimation?.cancel();
+      marker.style.width = `${width}px`;
+      marker.style.transform = `translateX(${x}px)`;
+      destination = next;
+      if (!reducedMotion.matches && wasVisible && nav.offsetWidth && marker.animate) {
+        const distance = x - startX;
+        const stretch = Math.min(24, Math.abs(distance) * .12);
+        markerAnimation = marker.animate([
+          {transform:`translateX(${startX}px)`,width:`${startWidth}px`,offset:0},
+          {transform:`translateX(${x - (distance < 0 ? stretch : 0)}px)`,width:`${width + stretch}px`,offset:.65},
+          {transform:`translateX(${x}px)`,width:`${width}px`,offset:1}
+        ], {duration:480,easing:'cubic-bezier(.22,1,.36,1)'});
+      }
     }
   }
+  reducedMotion.addEventListener('change', () => { markerAnimation?.cancel(); });
   function update() {
     frame = 0;
     let current = sections[0];
