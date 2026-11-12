@@ -125,3 +125,41 @@ h1 em,h2 em{font-family:'Didot Local',Didot,'Bodoni MT',Georgia,serif;font-style
 
 
 .button.download-button{border-radius:16px;padding:15px 20px;min-height:56px}
+
+/* Light blue product direction, inspired by the supplied reference. */
+:root{color-scheme:light;--bg:#eaf3fc;--surface:#fff;--ink:#203c60;--muted:#4f6781;--line:#b3c9dd;--accent:#007b9e;--paper:#f7fbff}
+body{background:linear-gradient(155deg,#f7fbff,#dfedfa 65%,#eef6ff);color:var(--ink)}
+.site-header{background:#eaf3fcf5;border-color:#c8dcec;border-top:6px solid #00aadd;backdrop-filter:blur(16px)}
+.header-caption,.hero h1,.email-link{color:var(--ink)}
+.wordmark-dot,.expand,.button-symbol,.manual-symbol,.manual-arrow,.shot-enlarge>span,.scope-content li::before,.method-list .row-number{color:#007b9e}
+.desktop-nav{background:none;border:0;box-shadow:none;gap:12px}.desktop-nav a{border-radius:5px;font-weight:650;color:#203c60}.desktop-nav a:hover,.desktop-nav a:last-child{background:#fff;color:#203c60}
+.hero{position:relative}.hero-layout{padding-block:60px;gap:48px}.hero h1{font-size:clamp(38px,4.1vw,60px);font-weight:700;line-height:1.18;letter-spacing:-.035em}
+h1 em,h2 em{font-family:Inter,Arial,sans-serif;font-style:normal;font-weight:inherit;color:#203c60;letter-spacing:inherit}
+.hero-description,.scope-content,.service-body,.contact-details>p,.section-description,.section-heading>p:last-child:not(.eyebrow){color:#4f6781}
+.hero-description{font-size:19px;line-height:1.8}
+.product-shot-link{background:#ffffffc9;border:1px solid #bdcfe3;border-radius:16px;box-shadow:0 22px 50px #285f9224;backdrop-filter:none;transition:transform .25s,box-shadow .25s}.product-shot-link:hover{transform:translateY(-4px);border-color:#0089b2;box-shadow:0 28px 56px #285f9230}
+.shot-enlarge{color:#203c60}.product-shot figcaption,.download-note,.hero-foot,.service-hint,.report-bottom,.report-outline dd,.scope-note,.scope-footnote,.site-footer p,.site-footer>a:not(.wordmark),.site-footer>span{color:#4f6781}
+.hero-foot,.service,.service:last-child,.method-list li,.references,.scope-section,.scope-content li,.site-footer,.report-outline dl>div,.report-bottom{border-color:#b3c9dd}
+.button,.download-manual{border-radius:5px;background:#00aadd;color:#102d4d;border:1px solid #0089b2;box-shadow:0 7px 18px #259bcb20;font-size:15px;font-weight:750;transition:background .2s,transform .2s,box-shadow .2s}
+.button:hover,.download-manual:hover,.button-accent:hover{background:#21bde8;color:#102d4d;border-color:#007b9e;box-shadow:0 10px 22px #259bcb30;transform:translateY(-2px)}
+.button-accent{background:#00aadd;color:#102d4d;border-color:#0089b2;box-shadow:0 7px 18px #259bcb20}
+.button:active,.download-manual:active{background:#5acdec;box-shadow:none;transform:translateY(1px)}
+.download-actions .button.download-button:disabled,.download-actions .button.download-button:disabled:hover{border-radius:5px;background:#cee3ee;color:#496376;border:1px solid #91b4c7;box-shadow:none;transform:none;opacity:1}
+.download-button:disabled .button-symbol{color:#496376}.download-manual .manual-symbol,.download-manual .manual-arrow{color:#102d4d}
+.service-list{background:#ffffffb8;border-color:#b3c9dd;border-radius:14px;box-shadow:0 12px 32px #285f9210}.service summary:hover{background:#e3f3fc}.service summary:hover h3{color:#006480}.service[open] .service-body{animation:content-in .24s ease-out}
+.deliverables{background:#dcebf8;color:#203c60;border-color:#b3c9dd;color-scheme:light}.deliverables::before{display:none}
+.report-outline{background:#ffffffdb;border-color:#b3c9dd;border-radius:14px;box-shadow:0 14px 36px #285f9218;backdrop-filter:none}.report-outline dt{color:#203c60}.report-outline h3{color:#203c60}
+.contact{border-color:#0089b2}.contact-details>.button{border-radius:5px}
+.modal-overlay{background:#163b6080}.modal-content{background:#f5faff;border-color:#b3c9dd;border-radius:14px;box-shadow:0 24px 60px #163b6044}.modal-content label,.modal-content legend{color:#203c60}
+input:not([type=checkbox]),textarea,select{background:#fff;color:#203c60;border-color:#789bb9;border-radius:5px;box-shadow:none}input:focus,textarea:focus,select:focus{border-color:#007b9e}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline-color:#006b94}
+::selection{background:#b3eafa;color:#17334f}
+.references a,.text-link{color:#203c60}.desktop-nav a[aria-current="location"]{background:#fff;box-shadow:inset 0 -3px #0089b2}
+@keyframes content-in{from{transform:translateY(5px);opacity:1}to{transform:none;opacity:1}}
+@keyframes hero-in{from{transform:translateY(12px);opacity:1}to{transform:none;opacity:1}}
+@media(prefers-reduced-motion:no-preference){.hero-copy,.product-shot{animation:hero-in .55s ease-out both}.product-shot{animation-delay:.08s}}
+@media(max-width:700px){.js-enabled .menu-toggle{background:#fff;color:#203c60;border-color:#9dbbd2;box-shadow:none;border-radius:5px}.js-enabled .menu-toggle span{color:#007b9e}.mobile-nav a{border-color:#b3c9dd}.hero-description{font-size:17px}.hero-layout{padding-block:40px}}
+@media(prefers-reduced-motion:reduce){.service[open] .service-body,.hero-copy,.product-shot{animation:none}.product-shot-link,.button,.download-manual{transition:none}.product-shot-link:hover,.button:hover,.download-manual:hover{transform:none}}
+@media(forced-colors:active){.download-actions .button.download-button:disabled{color:GrayText;border-color:GrayText}}
+
+

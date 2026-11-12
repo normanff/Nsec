@@ -26,9 +26,8 @@ O formulário prepara um rascunho local de e-mail. O visitante revisa e envia no
 
 `npm test` confere scripts, arquivos publicados, IDs, âncoras, rótulos, metadados e conteúdo. Conferir também menu móvel, recursos expansíveis, abertura da captura, manual, formulário, foco e movimento reduzido no navegador. Não publicar node_modules, relatórios de teste ou capturas alternativas.
 
-## Tipografia e superfícies
+## Visual atual
 
-Inter variável hospedada localmente, sob SIL Open Font License (assets/Inter-LICENSE.txt). Origem: https://rsms.me/inter/ . Destaques usam Didot Itálico local, com Georgia Itálico como alternativa quando Didot não está instalada. Nenhum arquivo comercial Didot é distribuído; a incorporação universal depende de licença web.
+Referência fornecida pelo usuário: fundo azul claro, títulos azul-marinho, botões ciano e tipografia Inter sem serifa. Captura real preservada. Entrada suave, feedback nos controles, recursos expansíveis e navegação com indicação da seção visível. As animações respeitam prefers-reduced-motion. Download desativado; manual disponível.
 
-Rótulos pequenos acima dos títulos foram removidos. Vidro fosco na navegação e nos painéis, relevo nos controles e volume nos botões. Textos auxiliares mantidos têm pelo menos 14px. Movimento reduzido respeitado e download público desativado.
-
+Inter hospedada localmente sob SIL OFL, com licença em assets/Inter-LICENSE.txt. Verificação em 320, 390, 768 e 1440 px, sem overflow e sem violações axe WCAG A/AA detectadas; menu, formulário e manual conferidos.

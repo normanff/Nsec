@@ -20,3 +20,5 @@
   });
 
 })();
+
+const sectionObserver = new IntersectionObserver(entries => { for (const entry of entries) { if (!entry.isIntersecting) continue; document.querySelectorAll('.desktop-nav a').forEach(link => { if (link.hash === '#' + entry.target.id) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current'); }); } }, {rootMargin: '-15% 0px -55% 0px'}); document.querySelectorAll('main section[id]').forEach(section => sectionObserver.observe(section));
