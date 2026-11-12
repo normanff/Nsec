@@ -17,3 +17,5 @@ O aplicativo beta 23 ainda pode exibir Code Arena. Arquivos internos, executáve
 Faixa com rolagem contínua sem botão, conforme solicitado, estática sem JavaScript ou com movimento reduzido. Menu responsivo, recursos expansíveis e contato por rascunho de e-mail. Nenhuma mensagem é enviada automaticamente. Contato: normanff57@gmail.com.
 
 Testes de build, arquivos, IDs, âncoras e scripts via npm test. Conferir também navegação, formulário, manual, responsividade e animação no navegador. Não publicar scripts locais de edição nem node_modules.
+
+Menu com indicador de colchetes deslizante no desktop e painel de abertura escalonada no celular. Suporta foco, Escape, clique externo, seção ativa, redimensionamento e movimento reduzido.
