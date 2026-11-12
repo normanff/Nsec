@@ -28,6 +28,6 @@ O formulário prepara um rascunho local de e-mail. O visitante revisa e envia no
 
 ## Visual atual
 
-Referência fornecida pelo usuário: fundo azul claro, títulos azul-marinho, botões ciano e tipografia Inter sem serifa. Captura real preservada. Entrada suave, feedback nos controles, recursos expansíveis e navegação com indicação da seção visível. As animações respeitam prefers-reduced-motion. Download desativado; manual disponível.
+Composição editorial baseada na imagem fornecida: fundo branco, faixa coral, cabeçalho horizontal, etiquetas cinza, título preto de peso regular e ilustração vetorial lilás. A marca, o conteúdo e os destinos continuam sendo do Code Arena. Nenhuma oferta, garantia ou afiliação da referência foi reproduzida.
 
-Inter hospedada localmente sob SIL OFL, com licença em assets/Inter-LICENSE.txt. Verificação em 320, 390, 768 e 1440 px, sem overflow e sem violações axe WCAG A/AA detectadas; menu, formulário e manual conferidos.
+A captura real do aplicativo está na seção seguinte. Recursos expansíveis, menu móvel, formulário, animações suaves e respeito a movimento reduzido preservados. Download desativado e manual disponível. Inter hospedada localmente sob SIL OFL.
