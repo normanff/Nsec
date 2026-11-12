@@ -35,3 +35,15 @@ test('core product features are available in HTML without JavaScript or fabricat
   assert.ok(fs.existsSync('dist/manual-instalacao.html'));
   assert.match(html, /Captura real da beta 23/);
 });
+
+
+test('UNIO identity keeps the download disabled and documents the transition', () => {
+  const html = fs.readFileSync('dist/index.html', 'utf8');
+  const manual = fs.readFileSync('dist/manual-instalacao.html', 'utf8');
+  assert.match(html, /Baixar UNIO Code/);
+  for (const name of ['UNIO Learn', 'UNIO Arena', 'UNIO Cloud']) assert.ok(html.includes(name));
+  assert.match(manual, /Code Arena agora é UNIO Code/);
+  assert.match(manual, /Não renomeie pastas de dados/);
+  assert.match(html, /interface anterior à marca UNIO Code/);
+  assert.doesNotMatch(html, /N7 Studio/);
+});

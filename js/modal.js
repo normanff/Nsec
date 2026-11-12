@@ -15,15 +15,15 @@
       if (!form.reportValidity()) return;
       const scopes = [...form.querySelectorAll('[name="scope"]:checked')].map(input => input.parentElement.innerText.trim());
       const message = [
-        'Olá, N7 Studio! Gostaria de saber mais sobre o Code Arena.', '',
+        'Olá, Equipe UNIO Code! Gostaria de saber mais sobre o UNIO Code.', '',
         'Nome: ' + document.getElementById('contact-name').value.trim(),
         'E-mail: ' + document.getElementById('contact-email').value.trim(),
         'Nome de preferência: ' + (document.getElementById('contact-nickname').value.trim() || 'Não informado'),
-        'Interesses: ' + (scopes.join(', ') || 'Code Arena em geral'),
+        'Interesses: ' + (scopes.join(', ') || 'UNIO Code em geral'),
         'Experiência com Python: ' + document.getElementById('experience').selectedOptions[0].text,
         '', 'Minha dúvida ou ideia:', document.getElementById('contact-details').value.trim() || 'A definir.'
       ].join('\n');
-      document.getElementById('request-email-link').href = 'mailto:normanff57@gmail.com?subject=' + encodeURIComponent('Contato sobre o N7 Code Arena') + '&body=' + encodeURIComponent(message);
+      document.getElementById('request-email-link').href = 'mailto:normanff57@gmail.com?subject=' + encodeURIComponent('Contato sobre o UNIO Code') + '&body=' + encodeURIComponent(message);
       document.getElementById('request-email-preview').value = message;
       form.classList.add('hidden');
       preview.classList.remove('hidden');
