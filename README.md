@@ -28,6 +28,8 @@ O formulário prepara um rascunho local de e-mail. O visitante revisa e envia no
 
 ## Visual atual
 
-Composição editorial baseada na imagem fornecida: fundo branco, faixa coral, cabeçalho horizontal, etiquetas cinza, título preto de peso regular e ilustração vetorial lilás. A marca, o conteúdo e os destinos continuam sendo do Code Arena. Nenhuma oferta, garantia ou afiliação da referência foi reproduzida.
+Composição editorial branca com faixa coral, etiquetas arredondadas e título preto em Inter de peso regular. Ilustração lilás removida; captura real do Code Arena no bloco principal. Tipografia, margens e proporções refinadas conforme a referência fornecida.
 
-A captura real do aplicativo está na seção seguinte. Recursos expansíveis, menu móvel, formulário, animações suaves e respeito a movimento reduzido preservados. Download desativado e manual disponível. Inter hospedada localmente sob SIL OFL.
+Faixa coral com rolagem horizontal contínua, sem botão de pausa conforme solicitado. Conteúdo duplicado oculto de leitores de tela. O movimento é desativado com prefers-reduced-motion; sem JavaScript, a faixa fica estática e legível. Download desativado, manual e conteúdo preservados.
+
+Inter hospedada localmente sob SIL OFL. Menu móvel, recursos expansíveis e formulário mantidos.
