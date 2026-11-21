@@ -12,7 +12,7 @@
 
   <meta name="description" content="Aprenda Python com exemplos comentados, desafios de código e projetos executáveis. Conheça o UNIO Code para Windows e veja a interface real do aplicativo.">
 
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#0B0B0F">
 
   <link rel="canonical" href="https://www.nsectech.com.br/">
 
@@ -26,7 +26,8 @@
 
   <meta property="og:description" content="Sete mundos para estudar Python, praticar com desafios e construir projetos. Conheça a versão beta do UNIO Code para Windows.">
 
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://www.nsectech.com.br/assets/bancada-unio.webp">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
@@ -54,13 +55,13 @@
 
     <div class="shell header-inner">
 
-      <a class="wordmark" href="#inicio" aria-label="UNIO Code · início">UNIO<span class="wordmark-dot" aria-hidden="true">.</span></a>
+      <a class="wordmark" href="#inicio" aria-label="UNIO Code · início"><img src="assets/favicon.svg" width="36" height="36" alt=""><span>UNIO <b>Code</b></span></a>
 
-      <span class="header-caption">Code</span>
+      
 
       <nav class="desktop-nav" aria-label="Navegação principal"><span class="nav-marker" aria-hidden="true"></span>
 
-        <a href="#recursos">Recursos</a><a href="#como-aprender">Como aprender</a><a href="#percurso">Seu percurso</a><a href="#contato">Contato <span aria-hidden="true">↗</span></a>
+        <a href="#telas">Aplicativo</a><a href="#recursos">Recursos</a><a href="#como-aprender">Como aprender</a><a href="#percurso">Seu percurso</a><a href="#contato">Contato <span aria-hidden="true">↗</span></a>
 
       </nav>
 
@@ -70,7 +71,7 @@
 
     <nav id="mobile-nav-menu" class="mobile-nav shell hidden" aria-label="Navegação móvel">
 
-      <a href="#recursos">Recursos</a><a href="#como-aprender">Como aprender</a><a href="#percurso">Seu percurso</a><a href="#contato">Contato</a>
+      <a href="#telas">Aplicativo</a><a href="#recursos">Recursos</a><a href="#como-aprender">Como aprender</a><a href="#percurso">Seu percurso</a><a href="#contato">Contato</a>
 
     </nav>
 
@@ -78,61 +79,29 @@
 
   <main id="conteudo" tabindex="-1">
 
-    <section id="inicio" class="hero shell" aria-labelledby="hero-title">
-
-      
-
-      <div class="hero-layout">
-
-        <div class="hero-copy">
-
-          <nav class="topic-tags" aria-label="Explore a plataforma"><a href="#recursos">Python</a><a href="#como-aprender">Prática</a><a href="#percurso">Seu percurso</a></nav><h1 id="hero-title">Saia do tutorial <br>e escreva <br>seu próprio <br><em>código</em></h1>
-
-          <p class="hero-description">Entendeu o exemplo, mas travou na hora de fazer sozinho? No UNIO Code, você estuda Python, tenta uma solução e usa o resultado para descobrir o próximo passo. Do primeiro print aos projetos com dados e automação.</p>
-
-          <div class="download-actions">
-
-            <button class="button button-accent download-button" type="button" disabled aria-describedby="download-note"><span class="button-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg></span>Baixar UNIO Code</button>
-
-            <a class="download-manual" href="manual-instalacao.html"><span class="manual-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14H6zM15 3v5h4M9 12h7M9 16h5M3 6v15"/></svg></span>Manual de instalação <span class="manual-arrow" aria-hidden="true">↗</span></a>
-
-          </div>
-
-          <p id="download-note" class="download-note">O download público ainda não foi liberado. O manual já está disponível.</p>
-
+    <section id="inicio" class="hero" aria-labelledby="hero-title">
+      <img class="hero-photo" src="assets/bancada-unio.webp" alt="" width="1672" height="941" fetchpriority="high">
+      <div class="shell hero-layout"><div class="hero-copy">
+        <h1 id="hero-title">Escreva seu próprio <em>código</em></h1>
+        <p class="hero-description">Comece com uma linha de Python. Mude o exemplo, rode os testes e use o que aprendeu para construir seu primeiro projeto.</p>
+        <div class="download-actions">
+          <a class="button button-accent" href="#telas">Ver o aplicativo</a>
+          <a class="button button-quiet" href="manual-instalacao.html">Manual de instalação</a>
         </div>
-
-
-
-      </div>
-
-      <div class="hero-foot"><span>Aplicativo para Windows · versão beta em desenvolvimento.</span><a href="#recursos">Conheça a plataforma <span aria-hidden="true">↓</span></a></div>
-
+        <div class="release-info"><button class="download-button" type="button" disabled aria-describedby="download-note">Baixar UNIO Code</button><span id="download-note">Download público ainda indisponível</span></div>
+      </div></div>
     </section>
-
-
-
-    
-
-
-
-    <section class="screen-gallery" aria-label="Conheça a interface do Code Arena">
-
-      <div class="screen-track" tabindex="0" role="region" aria-label="Galeria de telas. Deslize para os lados para ver todas as imagens.">
-
-        <figure class="screen-card"><a href="assets/code-arena-academy.jpg" target="_blank" rel="noopener" aria-label="Abrir imagem: Python Academy"><img src="assets/code-arena-academy.jpg" width="1440" height="1050" loading="lazy" decoding="async" alt="Aula de Python com explicação, trilha e editor de código"></a><figcaption>Python Academy</figcaption></figure>
-
-        <figure class="screen-card"><a href="assets/code-arena-worlds.jpg" target="_blank" rel="noopener" aria-label="Abrir imagem: Mundos"><img src="assets/code-arena-worlds.jpg" width="1440" height="1050" loading="lazy" decoding="async" alt="Mapa dos mundos de estudo e seus módulos de Python"></a><figcaption>Mundos</figcaption></figure>
-
-        <figure class="screen-card"><a href="assets/code-arena-workshop.jpg" target="_blank" rel="noopener" aria-label="Abrir imagem: Oficina Python"><img src="assets/code-arena-workshop.jpg" width="1440" height="1050" loading="lazy" decoding="async" alt="Oficina Python com projetos disponíveis para praticar"></a><figcaption>Oficina Python</figcaption></figure>
-
+    <section id="telas" class="screen-gallery shell section-space" aria-labelledby="screen-title">
+      <div class="gallery-heading"><h2 id="screen-title">Por dentro do UNIO Code</h2><p>Selecione uma tela para ver os detalhes.</p></div>
+      <div class="screen-track" tabindex="0" role="region" aria-label="Telas do aplicativo">
+        <figure class="screen-card"><a href="assets/academy.webp" target="_blank" rel="noopener" aria-label="Ampliar Python Academy em outra aba"><img src="assets/academy.webp" width="1366" height="864" loading="lazy" decoding="async" alt="Aula de Nexus com as condições and e not no exemplo de Python"></a><figcaption><strong>Python Academy</strong><span>Explore uma condição linha por linha.</span></figcaption></figure>
+        <figure class="screen-card"><a href="assets/map.webp" target="_blank" rel="noopener" aria-label="Ampliar Mapa mental em outra aba"><img src="assets/map.webp" width="1366" height="864" loading="lazy" decoding="async" alt="Mapa dos sete mundos com Gênesis selecionado"></a><figcaption><strong>Mapa mental</strong><span>Encontre o módulo que quer estudar.</span></figcaption></figure>
+        <figure class="screen-card"><a href="assets/battle.webp" target="_blank" rel="noopener" aria-label="Ampliar Battle Time em outra aba"><img src="assets/battle.webp" width="1366" height="864" loading="lazy" decoding="async" alt="Rodada Reserva de oxigênio com código no editor e relógio em andamento"></a><figcaption><strong>Battle Time</strong><span>Escreva sua solução antes de o tempo acabar.</span></figcaption></figure>
       </div>
-
     </section>
-
     <section id="recursos" class="services shell section-space" aria-labelledby="services-title">
 
-      <div class="section-heading"><h2 id="services-title">Quando der branco<br><em>você tem por onde seguir</em></h2><p>A proposta é encurtar a distância entre entender um exemplo e resolver um problema sozinho. Por isso, explicação, editor e revisão ficam no mesmo aplicativo.</p></div>
+      <div class="section-heading"><h2 id="services-title">Ferramentas para <em>estudar Python</em></h2><p>A proposta é encurtar a distância entre entender um exemplo e resolver um problema sozinho. Por isso, explicação, editor e revisão ficam no mesmo aplicativo.</p></div>
 
       <div class="service-list">
 
@@ -148,7 +117,7 @@
 
         <details class="service"><summary><span class="row-number">06</span><h3>Revisão e glossário</h3><span class="service-hint">Volte ao que precisa de atenção</span><span class="expand" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></span></summary><div class="service-body"><p>Consulte termos de Python, retome atividades e use a revisão espaçada para organizar novas tentativas conforme os erros e o tempo desde o estudo.</p><p class="scope-note">Caderno, favoritos e rascunhos ajudam você a continuar de onde parou.</p></div></details>
 
-        <details class="service"><summary><span class="row-number">07</span><h3>NORI</h3><span class="service-hint">Pistas no contexto do seu estudo</span><span class="expand" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></span></summary><div class="service-body"><p>Consulte a orientação local e peça pistas graduais sobre a atividade. A integração com IA online está preparada para uma ativação futura, com consentimento para analisar código.</p><p class="scope-note">As explicações do NORI ficam separadas dos resultados obtidos ao executar seu código.</p></div></details>
+        <details class="service"><summary><span class="row-number">07</span><h3>Unio</h3><span class="service-hint">Pistas no contexto do seu estudo</span><span class="expand" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></span></summary><div class="service-body"><p>Consulte a orientação local e peça pistas graduais sobre a atividade. A integração com IA online está preparada para uma ativação futura, com consentimento para analisar código.</p><p class="scope-note">As explicações do Unio ficam separadas dos resultados obtidos ao executar seu código.</p></div></details>
 
         <details class="service"><summary><span class="row-number">08</span><h3>Progresso e conquistas</h3><span class="service-hint">Veja suas tentativas, não só o XP</span><span class="expand" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></span></summary><div class="service-body"><p>Acompanhe XP, conquistas e histórico de tentativas. A conta Google permite sincronizar o estudo, com revisão quando dois dispositivos alteram os mesmos dados.</p><p class="scope-note">Você consegue ver em quais tentativas usou pistas e em quais chegou à resposta sem pedir ajuda.</p></div></details>
 
@@ -162,7 +131,7 @@
 
       <div class="shell deliverables-layout">
 
-        <div><h2 id="deliverables-title">Acertou com uma pista<br><em>vale tentar de novo</em></h2><p class="section-description">Nem sempre acertar uma vez significa que o assunto ficou claro. Seu histórico mostra as tentativas, as pistas usadas e os pontos que merecem outra revisão.</p><a class="text-link" href="#como-aprender">Veja como estudar <span aria-hidden="true">↘</span></a></div>
+        <div><h2 id="deliverables-title">O que vale a pena <em>revisar?</em></h2><p class="section-description">Nem sempre acertar uma vez significa que o assunto ficou claro. Seu histórico mostra as tentativas, as pistas usadas e os pontos que merecem outra revisão.</p><a class="text-link" href="#como-aprender">Veja como estudar <span aria-hidden="true">↘</span></a></div>
 
         <div class="report-outline" aria-label="Etapas do aprendizado no UNIO Code">
 
@@ -184,9 +153,9 @@
 
     <section id="como-aprender" class="method shell section-space" aria-labelledby="method-title">
 
-      <div class="section-heading"><h2 id="method-title">Abra uma aula<br><em>e ponha a mão no código</em></h2><p>Você pode fazer uma aula curta ou dedicar mais tempo a um projeto. A dificuldade aumenta ao longo dos mundos, com menos instruções prontas e mais decisões por sua conta.</p></div>
+      <div class="section-heading"><h2 id="method-title">Da aula <em>à prática</em></h2><p>Você pode fazer uma aula curta ou dedicar mais tempo a um projeto. A dificuldade aumenta ao longo dos mundos, com menos instruções prontas e mais decisões por sua conta.</p></div>
 
-      <ol class="method-list"><li><span class="row-number">01</span><div><h3>Escolha uma aula</h3><p>Se está começando, siga por Gênesis. Cada módulo indica o que você vai aprender e quais assuntos precisa conhecer antes.</p></div></li><li><span class="row-number">02</span><div><h3>Escreva e teste seu código</h3><p>Leia o exemplo, mude os valores e observe o resultado. Quando chegar ao exercício, tente escrever a solução e use as mensagens de erro para corrigir o que não funcionou.</p></div></li><li><span class="row-number">03</span><div><h3>Use uma pista se travar</h3><p>As pistas aparecem aos poucos, para você continuar pensando na solução. O NORI também oferece orientação local sobre a atividade. Usar ajuda não retira seu XP.</p></div></li><li><span class="row-number">04</span><div><h3>Leve a ideia para um projeto</h3><p>Uma coisa é acertar o exercício. Outra é usar a mesma ideia em um estoque, uma automação ou uma análise de dados. As oficinas juntam os conceitos para você dar esse próximo passo.</p></div></li></ol>
+      <ol class="method-list"><li><span class="row-number">01</span><div><h3>Escolha uma aula</h3><p>Se está começando, siga por Gênesis. Cada módulo indica o que você vai aprender e quais assuntos precisa conhecer antes.</p></div></li><li><span class="row-number">02</span><div><h3>Escreva e teste seu código</h3><p>Leia o exemplo, mude os valores e observe o resultado. Quando chegar ao exercício, tente escrever a solução e use as mensagens de erro para corrigir o que não funcionou.</p></div></li><li><span class="row-number">03</span><div><h3>Use uma pista se travar</h3><p>As pistas aparecem aos poucos, para você continuar pensando na solução. O Unio também oferece orientação local sobre a atividade. Usar ajuda não retira seu XP.</p></div></li><li><span class="row-number">04</span><div><h3>Leve a ideia para um projeto</h3><p>Uma coisa é acertar o exercício. Outra é usar a mesma ideia em um estoque, uma automação ou uma análise de dados. As oficinas juntam os conceitos para você dar esse próximo passo.</p></div></li></ol>
 
       <div class="references"><p>Encontre seu próximo passo</p><a href="#recursos">Explorar os recursos <span aria-hidden="true">↗</span></a><a href="#percurso">Entender o percurso <span aria-hidden="true">↗</span></a><a href="#comecar">Preparar o ambiente <span aria-hidden="true">↗</span></a></div>
 
@@ -196,19 +165,19 @@
 
     <section id="comecar" class="scope-section shell section-space" aria-labelledby="scope-title">
 
-      <div class="section-heading"><h2 id="scope-title">Antes de instalar<br>a versão beta.</h2></div>
+      <div class="section-heading"><h2 id="scope-title">Antes de instalar</h2></div>
 
-      <div class="scope-content"><p class="scope-intro">O UNIO Code está em beta para Windows. A venda está planejada como compra única, com o conteúdo da edição inicial incluído. O preço e a data de lançamento ainda não foram definidos.</p><ul><li>Comece do zero com a Python Academy e avance respeitando os pré-requisitos.</li><li>As oficinas executáveis usam um serviço Python isolado com Docker. As configurações do aplicativo orientam a preparação.</li><li>O estudo fica salvo no seu computador. Para entrar com Google e sincronizar entre dispositivos, você precisa de internet.</li><li>A integração de IA do NORI será ativada futuramente. O Battle Arena 1v1 online também está planejado.</li></ul><p class="scope-footnote">Battle Time já é um modo solo contra o relógio. Ele é diferente do futuro Battle Arena online.</p></div>
+      <div class="scope-content"><p class="scope-intro">O UNIO Code está em beta para Windows. A licença é de compra única e fica vinculada à conta Google usada na compra.</p><ul><li>Comece do zero com a Python Academy e avance respeitando os pré-requisitos.</li><li>As oficinas executáveis usam um serviço Python isolado com Docker. As configurações do aplicativo orientam a preparação.</li><li>Entre com Google ao abrir o aplicativo. O estudo fica no computador e pode ser sincronizado entre dispositivos.</li><li>A integração de IA do Unio será ativada futuramente. O Battle Arena 1v1 online também está planejado.</li></ul><p class="scope-footnote">Battle Time já é um modo solo contra o relógio. Ele é diferente do futuro Battle Arena online.</p></div>
 
     </section>
 
 
 
-    <section id="contato" class="contact shell" aria-labelledby="contact-title"><div class="contact-layout"><h2 id="contact-title">Travou em alguma parte<br><em>conta pra gente</em></h2><div class="contact-details"><p>Pode ser uma dúvida antes de instalar, um erro chato ou algo que fez falta no estudo. Se já usa o UNIO Code, mande a versão e conte o que estava tentando fazer.</p><a class="email-link" href="mailto:normanff57@gmail.com">normanff57@gmail.com <span aria-hidden="true">↗</span></a><button class="button btn-open-modal js-only" type="button">Falar com a equipe UNIO Code <span aria-hidden="true">↗</span></button></div></div></section>
+    <section id="contato" class="contact shell" aria-labelledby="contact-title"><div class="contact-layout"><h2 id="contact-title">Precisa de ajuda?</h2><div class="contact-details"><p>Pode ser uma dúvida antes de instalar, um erro chato ou algo que fez falta no estudo. Se já usa o UNIO Code, mande a versão e conte o que estava tentando fazer.</p><a class="email-link" href="mailto:normanff57@gmail.com">normanff57@gmail.com <span aria-hidden="true">↗</span></a><button class="button btn-open-modal js-only" type="button">Falar com a equipe UNIO Code <span aria-hidden="true">↗</span></button></div></div></section>
 
   </main>
 
-  <footer class="shell site-footer"><a class="wordmark" href="#inicio" aria-label="UNIO Code · voltar ao início">UNIO<span class="wordmark-dot" aria-hidden="true">.</span></a><p>UNIO Code<br>Python, prática e projetos. Em desenvolvimento.</p><a href="https://github.com/normanff/Nsec">Código do site <span aria-hidden="true">↗</span></a><span>© 2026 UNIO Code</span><div class="studio-signature"><span>Desenvolvido por</span> <strong>NSEC<span class="studio-tech">Tech</span></strong></div></footer>
+  <footer class="shell site-footer"><a class="wordmark" href="#inicio" aria-label="UNIO Code · voltar ao início"><img src="assets/favicon.svg" width="36" height="36" alt=""><span>UNIO <b>Code</b></span></a><p>UNIO Code<br>Python, prática e projetos. Em desenvolvimento.</p><a href="https://github.com/normanff/Nsec">Código do site <span aria-hidden="true">↗</span></a><span>© 2026 UNIO Code</span><div class="studio-signature"><span>Desenvolvido por</span> <strong>NSEC<span class="studio-tech">Tech</span></strong></div></footer>
 
 
 

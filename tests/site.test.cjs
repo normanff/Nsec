@@ -122,7 +122,7 @@ test('core product features are available in HTML without JavaScript or fabricat
 
 
 
-  assert.deepEqual(fs.readdirSync('dist/assets').sort(), ['Inter-LICENSE.txt', 'InterVariable.woff2', 'code-arena-academy.jpg', 'code-arena-workshop.jpg', 'code-arena-worlds.jpg', 'favicon.svg']);
+  assert.deepEqual(fs.readdirSync('dist/assets').sort(), ['favicon.svg', 'bancada-unio.webp', 'academy.webp', 'map.webp', 'battle.webp', 'InterVariable.woff2', 'Inter-LICENSE.txt'].sort());
 
 
 
