@@ -252,11 +252,24 @@
   if (!links.length || !viewer || typeof viewer.showModal !== 'function') return;
   const photo = viewer.querySelector('img');
   const title = viewer.querySelector('#viewer-title');
+  const canvas = viewer.querySelector('.viewer-canvas');
+  const zoom = viewer.querySelector('[data-zoom]');
+  function setZoom(enabled) {
+    canvas.classList.toggle('full-size', enabled);
+    zoom.setAttribute('aria-pressed', String(enabled));
+    canvas.scrollTo(0, 0);
+  }
+  zoom.addEventListener('click', () => {
+    const enabled = zoom.getAttribute('aria-pressed') !== 'true';
+    setZoom(enabled);
+    if (enabled) canvas.focus({preventScroll: true});
+  });
   let index = 0;
   let trigger;
   function display(next) {
     index = (next + links.length) % links.length;
     const link = links[index];
+    setZoom(false);
     photo.src = link.href;
     photo.alt = link.querySelector('img').alt;
     title.textContent = link.closest('figure').querySelector('strong').textContent + ' · ' + (index + 1) + ' de ' + links.length;
@@ -275,6 +288,7 @@
   viewer.querySelector('[data-prev]').addEventListener('click', () => display(index - 1));
   viewer.querySelector('[data-next]').addEventListener('click', () => display(index + 1));
   viewer.addEventListener('keydown', event => {
+    if (event.target === canvas && canvas.classList.contains('full-size')) return;
     if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
     event.preventDefault();
     display(index + (event.key === 'ArrowRight' ? 1 : -1));
@@ -292,14 +306,23 @@
   if (!form) return;
   const result = document.querySelector('#exercise-result');
   const feedback = {
-    name: 'A saída foi “Nova”. Falta juntar o texto “Piloto: ” ao nome. Tente outra linha.',
-    join: 'Acertou! A saída foi “Piloto: Nova”. O sinal + juntou o prefixo à variável, incluindo o espaço.',
-    space: 'A saída foi “Piloto:Nova”. A concatenação funcionou. Veja onde o espaço precisa entrar.'
+    name: ['Nova', 'Falta juntar o texto “Piloto: ” ao nome. Tente outra linha.'],
+    join: ['Piloto: Nova', 'Acertou! O sinal + junta o prefixo ao nome e preserva o espaço.'],
+    space: ['Piloto:Nova', 'Quase. Compare o espaço entre os dois-pontos e o nome.']
   };
   form.hidden = false;
   form.addEventListener('change', () => { result.textContent = ''; });
   form.addEventListener('submit', event => {
     event.preventDefault();
-    result.textContent = feedback[new FormData(form).get('line')];
+    const choice = new FormData(form).get('line');
+    const [output, message] = feedback[choice];
+    const label = document.createElement('strong');
+    label.textContent = 'Saída da linha escolhida';
+    const sample = document.createElement('samp');
+    sample.textContent = output;
+    const explanation = document.createElement('p');
+    explanation.textContent = message;
+    result.dataset.correct = String(choice === 'join');
+    result.replaceChildren(label, sample, explanation);
   });
 })();

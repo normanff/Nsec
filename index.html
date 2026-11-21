@@ -64,20 +64,20 @@
     <section id="inicio" class="hero" aria-labelledby="hero-title">
       <img class="hero-photo" src="assets/bancada-unio.webp" alt="" width="1672" height="941" fetchpriority="high">
       <div class="shell hero-layout"><div class="hero-copy">
-        <h1 id="hero-title">Aprenda Python testando seu código</h1>
-        <p class="hero-description">No UNIO Code, você passa da aula ao editor e descobre onde sua solução falhou. Um aplicativo da <a href="sobre.html">NSEC Tech</a> para Windows, em beta.</p>
+        <h1 id="hero-title">Aprenda Python <em>testando seu código</em></h1>
+        <p class="hero-description">Altere um exemplo, compare as saídas e corrija sua solução no mesmo editor. O UNIO Code é um aplicativo da <a href="sobre.html">NSEC Tech</a> para Windows, em beta.</p>
         <div class="download-actions"><a class="button button-accent" href="#demo">Experimentar um desafio</a><a class="button button-quiet" href="#telas">Ver as telas</a></div>
       </div></div>
     </section>
     <section class="shell section-space demo-section" id="demo" aria-labelledby="demo-title">
-      <div><h2 id="demo-title">Codinome Nova</h2><p>O piloto se chama Nova. Qual linha usa a variável <code>nome</code> para exibir <samp>Piloto: Nova</samp>?</p><small>Uma etapa do desafio de variáveis do UNIO Code, adaptada para o navegador.</small></div>
+      <div><h2 id="demo-title">Codinome Nova</h2><p>Você já guardou o nome do piloto. Escolha a linha que junta o prefixo ao nome e produz a saída abaixo.</p><div class="expected-output"><span>Saída esperada</span><samp>Piloto: Nova</samp></div></div>
       <div class="exercise"><pre><code>nome = <b>"Nova"</b></code></pre>
         <form id="exercise-form" hidden><fieldset><legend>Escolha a próxima linha</legend>
           <label><input type="radio" required name="line" value="name"><code>print(nome)</code></label>
           <label><input type="radio" name="line" value="join"><code>print("Piloto: " + nome)</code></label>
           <label><input type="radio" name="line" value="space"><code>print("Piloto:" + nome)</code></label>
         </fieldset><button class="button button-accent" type="submit">Conferir resposta</button></form>
-        <p id="exercise-result" role="status" aria-live="polite"></p>
+        <div id="exercise-result" role="status" aria-live="polite" aria-atomic="true"></div>
         <noscript><details><summary>Conferir a solução</summary><p><code>print("Piloto: " + nome)</code> junta o prefixo à variável e preserva o espaço depois dos dois-pontos.</p></details></noscript>
       </div>
     </section>
@@ -93,7 +93,7 @@
       </div>
     </section>
     <section id="recursos" class="shell section-space services" aria-labelledby="services-title">
-      <div class="section-heading"><h2 id="services-title">O que você faz no aplicativo</h2></div>
+      <div class="section-heading"><h2 id="services-title">Da aula ao projeto</h2></div>
       <div class="pillars"><article id="como-aprender"><h3>Leia e altere um exemplo</h3><p>Na Python Academy, acompanhe uma condição linha por linha. Depois mude uma entrada e tente prever a saída.</p></article>
       <article><h3>Escreva contra o relógio</h3><p>Na Code Arena, resolva desafios no editor. No Battle Time, o cronômetro acrescenta um limite a cada rodada individual.</p></article>
       <article><h3>Teste um projeto em Python</h3><p>Nas oficinas, rode sua solução com entradas diferentes. Compare a saída esperada com a obtida e corrija o caso que falhou.</p></article>
@@ -106,9 +106,9 @@
         <details><summary>A licença é uma assinatura?</summary><p>A licença da edição é de compra única, associada à conta Google usada no pedido. Confira os <a href="termos.html">termos de uso</a> para entender o acesso durante a beta.</p></details>
         <details><summary>O que ainda está em desenvolvimento?</summary><p>Battle Time já oferece desafios individuais. As disputas online 1v1 e o mentor com IA online estão planejados. A orientação disponível na beta usa conteúdo local.</p></details>
       </div></section>
-    <section id="contato" class="shell contact contact-layout"><div><h2>Suporte e feedback</h2><p class="section-description">Se uma atividade falhou, conte em qual tela você estava, o que tentou e qual mensagem apareceu.</p></div><div class="contact-details"><a class="button button-quiet" href="mailto:suporte.nsectech@gmail.com?subject=Suporte%20UNIO%20Code">Escrever para o suporte</a><a class="email-link" href="mailto:suporte.nsectech@gmail.com">suporte.nsectech@gmail.com</a><p>O botão abre seu aplicativo de e-mail. Você também pode copiar o endereço.</p></div></section>
+    <section id="contato" class="shell contact contact-layout"><div><h2>Suporte e feedback</h2><p class="section-description">Se uma atividade falhou, conte em qual tela você estava, o que tentou e qual mensagem apareceu.</p></div><div class="contact-details"><a class="email-link" href="mailto:suporte.nsectech@gmail.com">suporte.nsectech@gmail.com</a><p>Escreva pelo seu aplicativo de e-mail.</p></div></section>
   </main>
   <footer class="shell site-footer"><a class="wordmark" href="/"><img src="assets/favicon.svg" width="32" height="32" alt="">UNIO Code</a><nav aria-label="Informações do site"><a href="sobre.html">Sobre a NSEC Tech</a><a href="manual-instalacao.html">Manual</a><a href="privacidade.html">Privacidade</a><a href="termos.html">Termos de uso</a><a href="/#contato">Suporte</a></nav></footer>
-  <dialog class="viewer" id="viewer" aria-labelledby="viewer-title"><div class="viewer-bar"><strong id="viewer-title" aria-live="polite"></strong><button type="button" data-close autofocus>Fechar</button></div><img alt="" width="1366" height="864"><div class="viewer-bar"><button type="button" data-prev>Anterior</button><button type="button" data-next>Próxima</button></div></dialog>
+  <dialog class="viewer" id="viewer" aria-labelledby="viewer-title"><div class="viewer-bar"><strong id="viewer-title" aria-live="polite"></strong><button type="button" data-close autofocus>Fechar</button></div><div class="viewer-canvas" role="region" aria-label="Detalhes da captura" tabindex="0"><img alt="" width="1366" height="864"></div><div class="viewer-bar"><button type="button" data-prev>Anterior</button><button type="button" data-zoom aria-pressed="false">Tamanho original</button><button type="button" data-next>Próxima</button></div></dialog>
 </body>
 </html>
