@@ -65,6 +65,9 @@ h2{font-size:clamp(2rem,3.7vw,3.9rem);font-weight:650;letter-spacing:-.065em}h2 
   scroll-snap-type:x mandatory; padding:8px var(--edge) 20px; scrollbar-width:thin;
   scrollbar-color:#63636b var(--ink); outline-offset:-3px;
 }
+@media (min-width:901px) and (hover:hover) and (pointer:fine) {
+  .screen-track {--edge:max(18%,calc((100% - 48rem)/2));}
+}
 .screen-card {flex:0 0 100%; min-width:0; scroll-snap-align:center;}
 .screen-card a {
   display:block; overflow:hidden; border:1px solid #4d4d55; border-radius:14px;
