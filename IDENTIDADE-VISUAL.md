@@ -9,4 +9,4 @@ O símbolo U do aplicativo aparece no cabeçalho, no rodapé, no manual e no íc
 | Destaque | `#E10600` |
 | Texto principal | `#E5E5E5` |
 
-A fotografia enviada para o site foi otimizada em WebP. Na abertura, o texto ocupa a área escura ao lado do notebook. Em telas estreitas, a foto aparece acima do título. A galeria contém três capturas da ferramenta e abre cada imagem na resolução original. O movimento acompanha a preferência de acessibilidade do visitante.
+A fotografia enviada para o site foi otimizada em WebP. Na abertura, o texto ocupa a área escura ao lado do notebook. Em telas estreitas, a foto aparece acima do título. A galeria contém três capturas da ferramenta e permite ampliar as imagens em um visualizador na própria página. O movimento acompanha a preferência de acessibilidade do visitante.

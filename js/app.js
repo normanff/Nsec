@@ -245,3 +245,61 @@
     cards.forEach(card => reveal.observe(card));
   }
 })();
+
+(() => {
+  const viewer = document.querySelector('#viewer');
+  const links = [...document.querySelectorAll('.screen-card a')];
+  if (!links.length || !viewer || typeof viewer.showModal !== 'function') return;
+  const photo = viewer.querySelector('img');
+  const title = viewer.querySelector('#viewer-title');
+  let index = 0;
+  let trigger;
+  function display(next) {
+    index = (next + links.length) % links.length;
+    const link = links[index];
+    photo.src = link.href;
+    photo.alt = link.querySelector('img').alt;
+    title.textContent = link.closest('figure').querySelector('strong').textContent + ' · ' + (index + 1) + ' de ' + links.length;
+  }
+  links.forEach((link, position) => {
+    link.setAttribute('aria-haspopup', 'dialog');
+    link.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
+      event.preventDefault();
+      trigger = link;
+      display(position);
+      viewer.showModal();
+    });
+  });
+  viewer.querySelector('[data-close]').addEventListener('click', () => viewer.close());
+  viewer.querySelector('[data-prev]').addEventListener('click', () => display(index - 1));
+  viewer.querySelector('[data-next]').addEventListener('click', () => display(index + 1));
+  viewer.addEventListener('keydown', event => {
+    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+    event.preventDefault();
+    display(index + (event.key === 'ArrowRight' ? 1 : -1));
+  });
+  viewer.addEventListener('click', event => {
+    if (event.target !== viewer) return;
+    const box = viewer.getBoundingClientRect();
+    if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) viewer.close();
+  });
+  viewer.addEventListener('close', () => trigger?.focus({preventScroll:true}));
+})();
+
+(() => {
+  const form = document.querySelector('#exercise-form');
+  if (!form) return;
+  const result = document.querySelector('#exercise-result');
+  const feedback = {
+    name: 'A saída foi “Nova”. Falta juntar o texto “Piloto: ” ao nome. Tente outra linha.',
+    join: 'Acertou! A saída foi “Piloto: Nova”. O sinal + juntou o prefixo à variável, incluindo o espaço.',
+    space: 'A saída foi “Piloto:Nova”. A concatenação funcionou. Veja onde o espaço precisa entrar.'
+  };
+  form.hidden = false;
+  form.addEventListener('change', () => { result.textContent = ''; });
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    result.textContent = feedback[new FormData(form).get('line')];
+  });
+})();

@@ -20,19 +20,15 @@ await rm(output, { recursive: true, force: true });
 
 for (const folder of ['css', 'js', 'assets']) await mkdir(path.join(output, folder), { recursive: true });
 
-await copyFile(path.join(root, 'index.html'), path.join(output, 'index.html'));
+for (const file of ['index.html', 'manual-instalacao.html', 'sobre.html', 'privacidade.html', 'termos.html', 'robots.txt', 'sitemap.xml']) {
+  await copyFile(path.join(root, file), path.join(output, file));
+}
 
-await copyFile(path.join(root, 'manual-instalacao.html'), path.join(output, 'manual-instalacao.html'));
-
-for (const asset of ['favicon.svg', 'bancada-unio.webp', 'academy.webp', 'map.webp', 'battle.webp', 'InterVariable.woff2', 'Inter-LICENSE.txt']) await copyFile(path.join(root, 'assets', asset), path.join(output, 'assets', asset));
+for (const asset of ['favicon.svg', 'preview-unio.jpg', 'bancada-unio.webp', 'academy.webp', 'map.webp', 'battle.webp', 'InterVariable.woff2', 'Inter-LICENSE.txt']) await copyFile(path.join(root, 'assets', asset), path.join(output, 'assets', asset));
 
 await build({ entryPoints: [path.join(root, 'css/site.css')], outfile: path.join(output, 'css/site.css'), minify: true });
 
-for (const name of ['dialogs', 'modal', 'app']) {
-
-  await build({ entryPoints: [path.join(root, `js/${name}.js`)], outfile: path.join(output, `js/${name}.js`), minify: true, target: 'es2020' });
-
-}
+await build({ entryPoints: [path.join(root, 'js/app.js')], outfile: path.join(output, 'js/app.js'), minify: true, target: 'es2020' });
 
 console.log('Site compilado em dist/');
 

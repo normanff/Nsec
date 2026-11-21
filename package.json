@@ -1,7 +1,7 @@
 {
   "name": "nsec",
   "version": "1.0.0",
-  "description": "Site de apresentação do N7 Code Arena — Python, prática e projetos",
+  "description": "Site da NSEC Tech sobre o UNIO Code, a beta e o manual de instalação",
   "scripts": {
     "build": "node scripts/build.mjs",
     "test": "node --test tests/site.test.cjs",
