@@ -140,7 +140,14 @@
 
   button.addEventListener('click', () => setMenu(button.getAttribute('aria-expanded') !== 'true'));
 
-  mobileLinks.forEach(a => a.addEventListener('click', () => setMenu(false)));
+  mobileLinks.forEach(link => link.addEventListener('click', () => {
+    setMenu(false);
+    const target = document.getElementById(link.hash.slice(1));
+    if (target) {
+      target.tabIndex = -1;
+      target.focus({preventScroll:true});
+    }
+  }));
 
   document.addEventListener('keydown', e => {
 
@@ -171,28 +178,70 @@
 
 
 (() => {
+  const track = document.getElementById('capturas');
+  if (!track) return;
+  const gallery = track.closest('.screen-gallery');
+  const picker = gallery.querySelector('.gallery-picker');
+  const cards = Array.from(track.querySelectorAll('figure'));
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  if (!cards.length) return;
 
- const gallery=document.querySelector('.screen-gallery');
+  function centerOf(card) {
+    const rect = card.getBoundingClientRect();
+    return rect.left + rect.width / 2;
+  }
 
- if(!gallery) return;
+  function goTo(index) {
+    const left = track.scrollLeft + centerOf(cards[index]) - centerOf(track);
+    track.scrollTo({left, behavior: motion.matches ? 'auto' : 'smooth'});
+  }
 
- const cards=[...gallery.querySelectorAll('.screen-card')];
+  const buttons = cards.map((card, index) => {
+    const control = document.createElement('button');
+    control.type = 'button';
+    control.textContent = card.querySelector('figcaption strong').textContent;
+    control.setAttribute('aria-controls', track.id);
+    control.addEventListener('click', () => goTo(index));
+    picker.append(control);
+    return control;
+  });
+  picker.hidden = false;
 
- const motion=matchMedia('(prefers-reduced-motion: reduce)');
+  let selected = -1;
+  let frame = 0;
+  function syncSelection() {
+    frame = 0;
+    const middle = centerOf(track);
+    const distances = cards.map(card => Math.abs(centerOf(card) - middle));
+    const next = distances.indexOf(Math.min(...distances));
+    if (selected === next) return;
+    selected = next;
+    buttons.forEach((button, index) => button.setAttribute('aria-pressed', String(index === next)));
+    cards.forEach((card, index) => card.classList.toggle('is-current', index === next));
+  }
+  function schedule() {
+    if (!frame) frame = requestAnimationFrame(syncSelection);
+  }
+  track.addEventListener('scroll', schedule, {passive:true});
+  if ('ResizeObserver' in window) new ResizeObserver(schedule).observe(track);
+  else window.addEventListener('resize', schedule);
+  track.addEventListener('keydown', event => {
+    if (event.target !== track || event.altKey || event.metaKey || event.ctrlKey) return;
+    const targets = {ArrowLeft:selected-1, ArrowRight:selected+1, Home:0, End:cards.length-1};
+    if (!(event.key in targets)) return;
+    event.preventDefault();
+    goTo(Math.max(0, Math.min(cards.length-1, targets[event.key])));
+  });
+  syncSelection();
 
- const mobile=matchMedia('(max-width:760px)');
-
- let frame=0,visible=false;
-
- function paint(){frame=0;const rect=gallery.getBoundingClientRect();const progress=Math.max(-1,Math.min(1,(innerHeight/2-rect.top-rect.height/2)/(innerHeight/2+rect.height/2)));cards.forEach((card,i)=>card.style.setProperty('--drift',motion.matches||mobile.matches?'0px':`${progress*(i%2?-18:18)}px`));}
-
- function update(){if(visible&&!frame) frame=requestAnimationFrame(paint);}
-
- if('IntersectionObserver' in window){gallery.classList.add('is-observed');new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible){gallery.classList.add('is-visible');update();}},{threshold:.08}).observe(gallery);}
-
- else visible=true;
-
- addEventListener('scroll',update,{passive:true});addEventListener('resize',update,{passive:true});motion.addEventListener('change',paint);mobile.addEventListener('change',paint);paint();
-
+  if ('IntersectionObserver' in window) {
+    const reveal = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add('has-entered');
+        reveal.unobserve(entry.target);
+      }
+    }, {threshold:.12});
+    cards.forEach(card => reveal.observe(card));
+  }
 })();
-

@@ -61,7 +61,7 @@
 
       <nav class="desktop-nav" aria-label="Navegação principal"><span class="nav-marker" aria-hidden="true"></span>
 
-        <a href="#telas">Aplicativo</a><a href="#recursos">Recursos</a><a href="#como-aprender">Como aprender</a><a href="#percurso">Seu percurso</a><a href="#contato">Contato <span aria-hidden="true">↗</span></a>
+        <a href="#telas">Galeria</a><a href="#recursos">Recursos</a><a href="#percurso">Seu percurso</a><a href="#como-aprender">Como estudar</a><a href="#contato">Contato</a>
 
       </nav>
 
@@ -71,7 +71,7 @@
 
     <nav id="mobile-nav-menu" class="mobile-nav shell hidden" aria-label="Navegação móvel">
 
-      <a href="#telas">Aplicativo</a><a href="#recursos">Recursos</a><a href="#como-aprender">Como aprender</a><a href="#percurso">Seu percurso</a><a href="#contato">Contato</a>
+      <a href="#telas">Galeria</a><a href="#recursos">Recursos</a><a href="#percurso">Seu percurso</a><a href="#como-aprender">Como estudar</a><a href="#contato">Contato</a>
 
     </nav>
 
@@ -88,12 +88,15 @@
           <a class="button button-accent" href="#telas">Ver o aplicativo</a>
           <a class="button button-quiet" href="manual-instalacao.html">Manual de instalação</a>
         </div>
-        <div class="release-info"><button class="download-button" type="button" disabled aria-describedby="download-note">Baixar UNIO Code</button><span id="download-note">Download público ainda indisponível</span></div>
+        <div class="release-info"><button class="download-button" type="button" disabled aria-describedby="download-note"><svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></svg>Baixar UNIO Code</button><span id="download-note">Download público ainda indisponível</span></div>
       </div></div>
     </section>
-    <section id="telas" class="screen-gallery shell section-space" aria-labelledby="screen-title">
-      <div class="gallery-heading"><h2 id="screen-title">Por dentro do UNIO Code</h2><p>Selecione uma tela para ver os detalhes.</p></div>
-      <div class="screen-track" tabindex="0" role="region" aria-label="Telas do aplicativo">
+    <section id="telas" class="screen-gallery section-space" aria-labelledby="screen-title">
+      <div class="gallery-heading shell">
+        <div><h2 id="screen-title">Por dentro do UNIO Code</h2><p>Escolha uma captura para abrir em tamanho original.</p></div>
+        <div class="gallery-picker" role="group" aria-label="Escolher captura" hidden></div>
+      </div>
+      <div class="screen-track" id="capturas" tabindex="0" role="region" aria-label="Telas do aplicativo">
         <figure class="screen-card"><a href="assets/academy.webp" target="_blank" rel="noopener" aria-label="Ampliar Python Academy em outra aba"><img src="assets/academy.webp" width="1366" height="864" loading="lazy" decoding="async" alt="Aula de Nexus com as condições and e not no exemplo de Python"></a><figcaption><strong>Python Academy</strong><span>Explore uma condição linha por linha.</span></figcaption></figure>
         <figure class="screen-card"><a href="assets/map.webp" target="_blank" rel="noopener" aria-label="Ampliar Mapa mental em outra aba"><img src="assets/map.webp" width="1366" height="864" loading="lazy" decoding="async" alt="Mapa dos sete mundos com Gênesis selecionado"></a><figcaption><strong>Mapa mental</strong><span>Encontre o módulo que quer estudar.</span></figcaption></figure>
         <figure class="screen-card"><a href="assets/battle.webp" target="_blank" rel="noopener" aria-label="Ampliar Battle Time em outra aba"><img src="assets/battle.webp" width="1366" height="864" loading="lazy" decoding="async" alt="Rodada Reserva de oxigênio com código no editor e relógio em andamento"></a><figcaption><strong>Battle Time</strong><span>Escreva sua solução antes de o tempo acabar.</span></figcaption></figure>

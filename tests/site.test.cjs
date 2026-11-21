@@ -148,3 +148,12 @@ test('core product features are available in HTML without JavaScript or fabricat
 
 
 
+
+test('published download control includes a decorative icon and stays disabled', () => {
+  const html = fs.readFileSync('dist/index.html', 'utf8');
+  const button = html.match(/<button class="download-button"[^>]*>[\s\S]*?<\/button>/)?.[0];
+  assert.ok(button);
+  assert.match(button, / disabled /);
+  assert.match(button, /<svg aria-hidden="true"/);
+  assert.match(button, /Baixar UNIO Code/);
+});
