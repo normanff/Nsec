@@ -23,7 +23,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/site.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.nsectech.com.br/#nsec","name":"NSEC Tech","url":"https://www.nsectech.com.br/sobre.html","email":"suporte.nsectech@gmail.com"},{"@type":"WebSite","@id":"https://www.nsectech.com.br/#site","url":"https://www.nsectech.com.br/","name":"NSEC Tech","publisher":{"@id":"https://www.nsectech.com.br/#nsec"}},{"@type":"WebPage","@id":"https://www.nsectech.com.br/#pagina","url":"https://www.nsectech.com.br/","name":"UNIO Code · Aprenda Python com desafios e testes | NSEC Tech","inLanguage":"pt-BR","isPartOf":{"@id":"https://www.nsectech.com.br/#site"},"mainEntity":{"@id":"https://www.nsectech.com.br/#unio"}},{"@type":"SoftwareApplication","@id":"https://www.nsectech.com.br/#unio","name":"UNIO Code","operatingSystem":"Windows x64","applicationCategory":"EducationalApplication","publisher":{"@id":"https://www.nsectech.com.br/#nsec"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.nsectech.com.br/#nsec","name":"NSEC Tech","url":"https://www.nsectech.com.br/sobre.html","email":"suporte@nsectech.com.br"},{"@type":"WebSite","@id":"https://www.nsectech.com.br/#site","url":"https://www.nsectech.com.br/","name":"NSEC Tech","publisher":{"@id":"https://www.nsectech.com.br/#nsec"}},{"@type":"WebPage","@id":"https://www.nsectech.com.br/#pagina","url":"https://www.nsectech.com.br/","name":"UNIO Code · Aprenda Python com desafios e testes | NSEC Tech","inLanguage":"pt-BR","isPartOf":{"@id":"https://www.nsectech.com.br/#site"},"mainEntity":{"@id":"https://www.nsectech.com.br/#unio"}},{"@type":"SoftwareApplication","@id":"https://www.nsectech.com.br/#unio","name":"UNIO Code","operatingSystem":"Windows x64","applicationCategory":"EducationalApplication","publisher":{"@id":"https://www.nsectech.com.br/#nsec"}}]}</script>
   <script defer src="js/app.js"></script>
 </head>
 
@@ -72,13 +72,14 @@
     <section class="shell section-space demo-section" id="demo" aria-labelledby="demo-title">
       <div><h2 id="demo-title">Codinome Nova</h2><p>Você já guardou o nome do piloto. Escolha a linha que junta o prefixo ao nome e produz a saída abaixo.</p><div class="expected-output"><span>Saída esperada</span><samp>Piloto: Nova</samp></div></div>
       <div class="exercise"><pre><code>nome = <b>"Nova"</b></code></pre>
-        <form id="exercise-form" hidden><fieldset><legend>Escolha a próxima linha</legend>
+        <form id="exercise-form"><fieldset><legend>Escolha a próxima linha</legend>
           <label><input type="radio" required name="line" value="name"><code>print(nome)</code></label>
           <label><input type="radio" name="line" value="join"><code>print("Piloto: " + nome)</code></label>
           <label><input type="radio" name="line" value="space"><code>print("Piloto:" + nome)</code></label>
-        </fieldset><button class="button button-accent" type="submit">Conferir resposta</button></form>
+        </fieldset><button class="button button-accent" type="submit" hidden>Conferir resposta</button></form>
         <div id="exercise-result" role="status" aria-live="polite" aria-atomic="true"></div>
-        <noscript><details><summary>Conferir a solução</summary><p><code>print("Piloto: " + nome)</code> junta o prefixo à variável e preserva o espaço depois dos dois-pontos.</p></details></noscript>
+        <details id="exercise-key"><summary>Conferir a solução</summary><p><code>print("Piloto: " + nome)</code> junta o prefixo à variável e preserva o espaço depois dos dois-pontos.</p></details>
+        <p id="exercise-next">Quer continuar no aplicativo? <a href="#aviso">Peça o aviso de lançamento</a>.</p>
       </div>
     </section>
     <section id="telas" class="screen-gallery section-space" aria-labelledby="screen-title">
@@ -99,16 +100,23 @@
       <article><h3>Teste um projeto em Python</h3><p>Nas oficinas, rode sua solução com entradas diferentes. Compare a saída esperada com a obtida e corrija o caso que falhou.</p></article>
       <article id="percurso"><h3>Retome o que deu trabalho</h3><p>O percurso distingue acertos com ajuda de soluções independentes. A revisão espaçada traz de volta os conceitos que você precisa praticar.</p></article></div>
     </section>
-    <section id="comecar" class="shell section-space scope-section" aria-labelledby="faq-title"><div><h2 id="faq-title">Antes de instalar</h2><p class="section-description">A demonstração acima funciona no navegador. O aplicativo completo está em beta para Windows x64.</p><div class="release-info"><button class="download-button" type="button" disabled aria-describedby="download-note"><svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></svg>Baixar UNIO Code</button><span id="download-note">Download público ainda indisponível</span></div></div>
+    <section id="comecar" class="shell section-space scope-section" aria-labelledby="faq-title"><div><h2 id="faq-title">Antes de instalar</h2><p class="section-description">A demonstração acima funciona no navegador. O aplicativo completo está em beta para Windows x64.</p><div class="release-info"><button class="download-button" type="button" disabled aria-describedby="download-note"><svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></svg>Baixar UNIO Code</button><span id="download-note">Download público ainda indisponível. <a href="#aviso">Avise-me quando abrir</a>.</span></div></div>
       <div class="faq">
         <details open><summary>Preciso instalar Docker para começar?</summary><p>As aulas, o mapa, a revisão e os exercícios com simulador funcionam no aplicativo com WebView2. Só as oficinas com execução real e o laboratório precisam de Docker Desktop, Node.js e do pacote do executor. Veja o <a href="manual-instalacao.html">passo a passo de instalação</a>.</p></details>
         <details><summary>Para que serve a conta Google?</summary><p>Ela identifica a licença e permite sincronizar seu estudo. O progresso também fica no computador. Você pode pausar a sincronização ou exportar um backup nas Preferências.</p></details>
         <details><summary>A licença é uma assinatura?</summary><p>A licença da edição é de compra única, associada à conta Google usada no pedido. Confira os <a href="termos.html">termos de uso</a> para entender o acesso durante a beta.</p></details>
         <details><summary>O que ainda está em desenvolvimento?</summary><p>Battle Time já oferece desafios individuais. As disputas online 1v1 e o mentor com IA online estão planejados. A orientação disponível na beta usa conteúdo local.</p></details>
       </div></section>
-    <section id="contato" class="shell contact contact-layout"><div><h2>Suporte e feedback</h2><p class="section-description">Se uma atividade falhou, conte em qual tela você estava, o que tentou e qual mensagem apareceu.</p></div><div class="contact-details"><a class="email-link" href="mailto:suporte.nsectech@gmail.com">suporte.nsectech@gmail.com</a><p>Escreva pelo seu aplicativo de e-mail.</p></div></section>
+    <section id="aviso" class="shell launch-notice" aria-labelledby="launch-title">
+      <div><h2 id="launch-title">Receba o aviso de lançamento</h2>
+        <p>Quer saber quando o download público abrir? Peça um aviso à NSEC Tech. Usaremos o endereço do remetente para avisar você uma vez.</p></div>
+      <div><a class="button button-accent" href="mailto:suporte@nsectech.com.br?subject=Aviso%20de%20lan%C3%A7amento%20do%20UNIO%20Code&amp;body=Ol%C3%A1%21%20Quero%20receber%20neste%20endere%C3%A7o%20um%20aviso%20quando%20o%20download%20p%C3%BAblico%20do%20UNIO%20Code%20estiver%20dispon%C3%ADvel.">Pedir aviso por e-mail</a>
+        <p>Revise a mensagem no seu aplicativo de e-mail e envie. Se preferir usar o webmail, escreva para suporte@nsectech.com.br com o assunto “Aviso de lançamento do UNIO Code”.</p>
+        <a href="privacidade.html#aviso-de-lancamento">Como usamos seu e-mail</a></div>
+    </section>
+    <section id="contato" class="shell contact contact-layout"><div><h2>Suporte e feedback</h2><p class="section-description">Se uma atividade falhou, conte em qual tela você estava, o que tentou e qual mensagem apareceu.</p></div><div class="contact-details"><a class="email-link" href="mailto:suporte@nsectech.com.br">suporte@nsectech.com.br</a><p>Escreva pelo seu aplicativo de e-mail.</p></div></section>
   </main>
-  <footer class="shell site-footer"><a class="wordmark" href="/"><img src="assets/favicon.svg" width="32" height="32" alt="">UNIO Code</a><nav aria-label="Informações do site"><a href="sobre.html">Sobre a NSEC Tech</a><a href="manual-instalacao.html">Manual</a><a href="privacidade.html">Privacidade</a><a href="termos.html">Termos de uso</a><a href="/#contato">Suporte</a></nav></footer>
-  <dialog class="viewer" id="viewer" aria-labelledby="viewer-title"><div class="viewer-bar"><strong id="viewer-title" aria-live="polite"></strong><button type="button" data-close autofocus>Fechar</button></div><div class="viewer-canvas" role="region" aria-label="Detalhes da captura" tabindex="0"><img alt="" width="1366" height="864"></div><div class="viewer-bar"><button type="button" data-prev>Anterior</button><button type="button" data-zoom aria-pressed="false">Tamanho original</button><button type="button" data-next>Próxima</button></div></dialog>
+  <footer class="shell site-footer"><a class="studio-wordmark" href="sobre.html">NSEC <span>Tech</span></a><nav aria-label="Informações do site"><a href="/#inicio">UNIO Code</a><a href="manual-instalacao.html">Manual</a><a href="privacidade.html">Privacidade</a><a href="termos.html">Termos de uso</a><a href="/#contato">Suporte</a></nav></footer>
+  <dialog class="viewer" id="viewer" aria-labelledby="viewer-title"><div class="viewer-bar"><strong id="viewer-title" aria-live="polite"></strong><form method="dialog"><button type="submit" data-close autofocus>Fechar galeria</button></form></div><div class="viewer-canvas" role="region" aria-label="Detalhes da captura" tabindex="0"><img alt="" width="1366" height="864"></div><div class="viewer-bar"><button type="button" data-prev>Anterior</button><button type="button" data-zoom aria-pressed="false">Tamanho original</button><button type="button" data-next>Próxima</button></div></dialog>
 </body>
 </html>

@@ -151,3 +151,17 @@ body:has(.viewer[open]) {overflow:hidden}
   .viewer-bar button {padding-inline:.55rem}
   .guide-nav {display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+.exercise [hidden] {display:none!important}
+#exercise-key,#exercise-next {margin-top:1rem}
+#exercise-key summary {font-weight:650;padding:.65rem 0}
+#exercise-next a,.launch-notice a:not(.button) {text-underline-offset:.22em}
+.viewer .viewer-bar:first-child {position:sticky;top:0;z-index:1;background:var(--ink)}
+.viewer [data-close] {font-weight:650;background:var(--surface);border-color:#85858e}
+.launch-notice {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);align-items:start;gap:clamp(2rem,7vw,7rem);padding:clamp(1.4rem,4vw,3.6rem);margin-bottom:clamp(3rem,6vw,6rem);border-radius:1rem;border:1px solid var(--line);background:var(--surface)}
+.launch-notice p {max-width:48ch;margin:1rem 0 .7rem;overflow-wrap:anywhere}
+.studio-wordmark {font-size:1.38rem;font-weight:780;letter-spacing:-.045em;text-decoration:none}
+.studio-wordmark span {color:var(--mute);font-weight:480}
+.site-footer .studio-wordmark {margin-right:auto}
+.studio-intro {margin-bottom:2rem;border-left:.25rem solid var(--red);padding-left:clamp(1rem,3vw,2rem)}
+@media(max-width:700px){.launch-notice {grid-template-columns:1fr;gap:.8rem}}

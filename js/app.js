@@ -284,7 +284,6 @@
       viewer.showModal();
     });
   });
-  viewer.querySelector('[data-close]').addEventListener('click', () => viewer.close());
   viewer.querySelector('[data-prev]').addEventListener('click', () => display(index - 1));
   viewer.querySelector('[data-next]').addEventListener('click', () => display(index + 1));
   viewer.addEventListener('keydown', event => {
@@ -310,8 +309,11 @@
     join: ['Piloto: Nova', 'Acertou! O sinal + junta o prefixo ao nome e preserva o espaço.'],
     space: ['Piloto:Nova', 'Quase. Compare o espaço entre os dois-pontos e o nome.']
   };
-  form.hidden = false;
-  form.addEventListener('change', () => { result.textContent = ''; });
+  const nextStep = document.querySelector('#exercise-next');
+  form.addEventListener('change', () => {
+    result.textContent = '';
+    nextStep.hidden = true;
+  });
   form.addEventListener('submit', event => {
     event.preventDefault();
     const choice = new FormData(form).get('line');
@@ -324,5 +326,9 @@
     explanation.textContent = message;
     result.dataset.correct = String(choice === 'join');
     result.replaceChildren(label, sample, explanation);
+    nextStep.hidden = choice !== 'join';
   });
+  document.querySelector('#exercise-key').hidden = true;
+  nextStep.hidden = true;
+  form.querySelector('[type="submit"]').hidden = false;
 })();

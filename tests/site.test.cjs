@@ -26,7 +26,7 @@ for (const page of pages) {
       if (url.hash) assert.ok(fs.readFileSync(target,'utf8').includes('id="' + url.hash.slice(1) + '"'), ref);
     }
     const graph = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
-    assert.ok(graph.some(entity => entity['@type'] === 'Organization' && entity.name === 'NSEC Tech' && entity.email === 'suporte.nsectech@gmail.com'));
+    assert.ok(graph.some(entity => entity['@type'] === 'Organization' && entity.name === 'NSEC Tech' && entity.email === 'suporte@nsectech.com.br'));
     assert.ok(fs.readFileSync('dist/sitemap.xml','utf8').includes('<loc>' + canonical + '</loc>'));
   });
 }
@@ -35,14 +35,46 @@ test('the preview is free to try, with an integrated gallery and no download or 
   assert.doesNotThrow(() => new vm.Script(fs.readFileSync('dist/js/app.js','utf8')));
   assert.match(home, /href="#demo">Experimentar um desafio/);
   assert.match(home, /id="exercise-form"/);
-  assert.match(home, /<noscript>/);
+  assert.match(home, /<details id="exercise-key"><summary>Conferir a solução/);
   assert.match(home, /<dialog[^>]+id="viewer"/);
   assert.equal([...home.matchAll(/<figure class="screen-card">/g)].length,3);
   assert.equal([...home.matchAll(/<article\b/g)].length,4);
-  assert.match(home, /href="mailto:suporte.nsectech@gmail.com"/);
+  assert.match(home, /href="mailto:suporte@nsectech.com.br"/);
   assert.doesNotMatch(home, /target="_blank"|contact-modal|github.com\/normanff|onclick=|777/);
   const button = home.match(/<button class="download-button"[^>]*>[\s\S]*?<\/button>/)[0];
   assert.match(button,/disabled aria-describedby="download-note"/);
   assert.match(button,/<svg aria-hidden="true"/);
   assert.match(button,/Baixar UNIO Code/);
+});
+
+test('pages have distinct search and social titles and descriptions', () => {
+  const titles = new Set(), descriptions = new Set();
+  for (const page of pages) {
+    const html = fs.readFileSync('dist/' + page, 'utf8');
+    const title = html.match(/<title>([^<]+)<\/title>/)[1];
+    const description = html.match(/<meta name="description" content="([^"]+)"/)[1];
+    titles.add(title);
+    descriptions.add(description);
+    assert.ok(html.includes('property="og:title" content="' + title + '"'));
+    assert.ok(html.includes('property="og:description" content="' + description + '"'));
+    const image = new URL(html.match(/property="og:image" content="([^"]+)"/)[1]);
+    assert.equal(image.origin, new URL(domain).origin);
+    assert.ok(fs.statSync(path.join('dist',image.pathname)).size > 0);
+    assert.match(html, /<footer[^>]*><a class="studio-wordmark" href="sobre.html">NSEC/);
+  }
+  assert.equal(titles.size, pages.length);
+  assert.equal(descriptions.size, pages.length);
+  assert.match(fs.readFileSync('dist/robots.txt', 'utf8'), /Sitemap: https:\/\/www\.nsectech\.com\.br\/sitemap\.xml/);
+});
+
+test('gallery controls, exercise choices and launch request are available in the HTML', () => {
+  const dialog = home.match(/<dialog\b[\s\S]+?<\/dialog>/)[0];
+  for (const text of ['Fechar galeria','Anterior','Próxima']) assert.ok(dialog.includes('>' + text + '</button>'));
+  assert.match(home, /<section id="contato"/);
+  assert.match(home, /<form id="exercise-form">/);
+  assert.equal([...home.matchAll(/type="radio"/g)].length,3);
+  const mail = new URL(home.match(/href="(mailto:[^"]+)">Pedir aviso por e-mail/)[1].replaceAll('&amp;','&'));
+  assert.equal(mail.pathname,'suporte@nsectech.com.br');
+  assert.equal(mail.searchParams.get('subject'),'Aviso de lançamento do UNIO Code');
+  assert.match(mail.searchParams.get('body'), /download público/);
 });
