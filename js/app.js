@@ -284,6 +284,7 @@
       viewer.showModal();
     });
   });
+  viewer.querySelector('[data-close]').addEventListener('click', () => viewer.close());
   viewer.querySelector('[data-prev]').addEventListener('click', () => display(index - 1));
   viewer.querySelector('[data-next]').addEventListener('click', () => display(index + 1));
   viewer.addEventListener('keydown', event => {
@@ -331,4 +332,24 @@
   document.querySelector('#exercise-key').hidden = true;
   nextStep.hidden = true;
   form.querySelector('[type="submit"]').hidden = false;
+})();
+
+(() => {
+  const status = document.getElementById('copy-status');
+  if (!status) return;
+  for (const button of document.querySelectorAll('[data-copy]')) {
+    const field = document.getElementById(button.dataset.copy);
+    button.addEventListener('click', async () => {
+      const label = field.labels[0].textContent;
+      try {
+        await navigator.clipboard.writeText(field.value);
+        status.textContent = label + ' copiado. Cole no seu webmail.';
+      } catch {
+        field.focus();
+        field.select();
+        status.textContent = label + ' selecionado. Use o comando Copiar do seu dispositivo.';
+      }
+    });
+    button.hidden = false;
+  }
 })();

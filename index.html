@@ -111,12 +111,17 @@
       <div><h2 id="launch-title">Receba o aviso de lançamento</h2>
         <p>Quer saber quando o download público abrir? Peça um aviso à NSEC Tech. Usaremos o endereço do remetente para avisar você uma vez.</p></div>
       <div><a class="button button-accent" href="mailto:suporte@nsectech.com.br?subject=Aviso%20de%20lan%C3%A7amento%20do%20UNIO%20Code&amp;body=Ol%C3%A1%21%20Quero%20receber%20neste%20endere%C3%A7o%20um%20aviso%20quando%20o%20download%20p%C3%BAblico%20do%20UNIO%20Code%20estiver%20dispon%C3%ADvel.">Pedir aviso por e-mail</a>
-        <p>Revise a mensagem no seu aplicativo de e-mail e envie. Se preferir usar o webmail, escreva para suporte@nsectech.com.br com o assunto “Aviso de lançamento do UNIO Code”.</p>
+        <p>Envie a mensagem para pedir o aviso. Se o aplicativo de e-mail não abrir, use os dados abaixo no seu webmail.</p>
+        <details class="webmail"><summary>Usar meu webmail</summary>
+          <div class="copy-field"><label for="notice-recipient">Destinatário</label><input id="notice-recipient" value="suporte@nsectech.com.br" readonly><button type="button" class="button" data-copy="notice-recipient" hidden>Copiar e-mail</button></div>
+          <div class="copy-field"><label for="notice-subject">Assunto</label><input id="notice-subject" value="Aviso de lançamento do UNIO Code" readonly><button type="button" class="button" data-copy="notice-subject" hidden>Copiar assunto</button></div>
+          <p id="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        </details>
         <a href="privacidade.html#aviso-de-lancamento">Como usamos seu e-mail</a></div>
     </section>
     <section id="contato" class="shell contact contact-layout"><div><h2>Suporte e feedback</h2><p class="section-description">Se uma atividade falhou, conte em qual tela você estava, o que tentou e qual mensagem apareceu.</p></div><div class="contact-details"><a class="email-link" href="mailto:suporte@nsectech.com.br">suporte@nsectech.com.br</a><p>Escreva pelo seu aplicativo de e-mail.</p></div></section>
   </main>
-  <footer class="shell site-footer"><a class="studio-wordmark" href="sobre.html">NSEC <span>Tech</span></a><nav aria-label="Informações do site"><a href="/#inicio">UNIO Code</a><a href="manual-instalacao.html">Manual</a><a href="privacidade.html">Privacidade</a><a href="termos.html">Termos de uso</a><a href="/#contato">Suporte</a></nav></footer>
-  <dialog class="viewer" id="viewer" aria-labelledby="viewer-title"><div class="viewer-bar"><strong id="viewer-title" aria-live="polite"></strong><form method="dialog"><button type="submit" data-close autofocus>Fechar galeria</button></form></div><div class="viewer-canvas" role="region" aria-label="Detalhes da captura" tabindex="0"><img alt="" width="1366" height="864"></div><div class="viewer-bar"><button type="button" data-prev>Anterior</button><button type="button" data-zoom aria-pressed="false">Tamanho original</button><button type="button" data-next>Próxima</button></div></dialog>
+  <footer class="shell site-footer"><a class="studio-wordmark" href="sobre.html">NSEC <span>Tech</span></a><nav aria-label="Informações do site"><a href="/#inicio">UNIO Code</a><a href="manual-instalacao.html">Manual</a><a href="privacidade.html">Privacidade</a><a href="termos.html">Termos de uso</a><a href="/#aviso">Aviso de lançamento</a><a href="/#contato">Suporte</a></nav></footer>
+  <dialog class="viewer" id="viewer" aria-labelledby="viewer-title"><div class="viewer-bar"><strong id="viewer-title" aria-live="polite"></strong><button type="button" data-close aria-label="Fechar galeria" autofocus>Fechar galeria</button></div><div class="viewer-canvas" role="region" aria-label="Detalhes da captura" tabindex="0"><img alt="" width="1366" height="864"></div><div class="viewer-bar"><button type="button" data-prev>Anterior</button><button type="button" data-zoom aria-pressed="false">Tamanho original</button><button type="button" data-next>Próxima</button></div></dialog>
 </body>
 </html>
