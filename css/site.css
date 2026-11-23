@@ -70,7 +70,7 @@ h2{font-size:clamp(2rem,3.7vw,3.9rem);font-weight:650;letter-spacing:-.065em}h2 
 }
 .screen-card {flex:0 0 100%; min-width:0; scroll-snap-align:center;}
 .screen-card a {
-  display:block; overflow:hidden; border:1px solid #4d4d55; border-radius:14px;
+  display:block; overflow:hidden; border:1px solid #484954; border-radius:14px;
   background:var(--surface); box-shadow:0 8px 16px #0005;
 }
 .screen-card img {width:100%; height:auto;}
@@ -78,8 +78,8 @@ h2{font-size:clamp(2rem,3.7vw,3.9rem);font-weight:650;letter-spacing:-.065em}h2 
 .screen-card figcaption strong {font-size:clamp(1.125rem,1.7vw,1.55rem);}
 .screen-card figcaption span {margin:0;}
 @media (prefers-reduced-motion:no-preference) {
-  .screen-card a {transition:transform .32s ease-out, border-color .25s ease; transform:scale(.985);}
-  .screen-card.is-current a,.screen-card:focus-within a {transform:scale(1); border-color:#72727a;}
+  .screen-card a {transition:border-color .22s ease, box-shadow .22s ease;}
+  
 }
 @media(max-width:700px) {
   .screen-track {--edge:clamp(8%,calc(22% - 3.4rem),15%); gap:8px; padding-bottom:12px;}
@@ -233,7 +233,7 @@ body:has(.viewer[open]) {overflow:hidden}
 .world-frame figcaption {text-align:center;flex:none}
 .world-frame figcaption span {display:block;color:var(--world-color);font-size:.9rem}
 .world-frame figcaption strong {display:block;color:var(--paper);font-size:clamp(1.1rem,2.2vw,1.7rem)}
-.worlds-story .stage-meter {background:linear-gradient(90deg,#57ead4,#c59bff,#f0d180)}
+.worlds-story .stage-meter {background:var(--stage-accent,var(--focus));transition:background-color .22s ease}
 .gallery-picker {justify-content:flex-end}
 @media (max-width:700px) { .world-index a {min-height:44px} .gallery-picker {justify-content:stretch} }
 .world-1 {--world-color:#57ead4;--world-glow:#57ead426}
@@ -253,4 +253,40 @@ body:has(.viewer[open]) {overflow:hidden}
     .worlds-story .story-steps li::after {content:"";position:absolute;inset:0 auto 0 -1px;width:2px;background:var(--world-color);transform-origin:top;animation:world-route linear both;animation-timeline:--chapter;animation-range:entry 18% exit 22%}
     @keyframes world-route {from{transform:scaleY(0)}to{transform:scaleY(1)}}
   }
+}
+
+/* Treat the artwork and its identifying caption as two surfaces. */
+.world-frame {
+  --atlas-edge:color-mix(in srgb,var(--world-color) 29%,#34333d);
+  display:grid;grid-template-rows:minmax(0,1fr) auto;align-items:stretch;justify-content:stretch;
+  gap:0;padding:0;border-color:var(--atlas-edge);border-radius:14px;
+  background:radial-gradient(ellipse at 50% 42%,var(--world-glow),transparent 70%),#15151d;
+}
+.world-frame svg {width:100%;height:100%;max-height:none;padding:.45rem}
+.world-frame figcaption,.stage-caption {
+  padding:.75rem clamp(1rem,2vw,1.6rem);text-align:left;border-top:1px solid #3b3c47;
+  background:#181820;color:#f0eef4;
+}
+.world-frame figcaption span,.stage-caption span {display:block;font-size:.9rem;font-weight:550;color:var(--world-color,var(--stage-accent))}
+.world-frame figcaption strong,.stage-caption strong {display:block;margin-top:.12rem;font-size:clamp(1.03rem,2vw,1.5rem);font-weight:640;line-height:1.2;letter-spacing:-.025em;color:#f0eef4}
+.world-index a {background:#15151c;border-color:#45444e}
+.world-index a:hover {background:#202028}
+.screen-card.is-current a,.screen-card:focus-within a {border-color:#a08482;box-shadow:0 4px 16px #0004}
+.screen-card a:focus-visible,.gallery-picker button:focus-visible {outline:2px solid var(--focus);outline-offset:3px}
+.viewer {border-color:#68636d;background:#121217}
+.viewer-canvas {border:1px solid #393942;border-radius:.45rem}
+@media (min-width:850px) and (min-height:580px) and (prefers-reduced-motion:no-preference) {
+  .worlds-story.story-enhanced .story-stage {
+    border-color:color-mix(in srgb,var(--stage-accent) 28%,#363640);
+    transition:border-color .22s ease;border-radius:14px;
+  }
+  .stage-frames .world-frame {transform:none;grid-template-rows:minmax(0,1fr)}
+  .stage-frames .world-frame svg {transform:translateY(var(--offset,0px))}
+  .stage-frames .world-frame figcaption {display:none}
+  .worlds-story .stage-frames {aspect-ratio:1.95;max-height:49vh}
+  .worlds-story .story-steps li.is-reading::before {background:var(--world-color)}
+}
+@media(max-width:700px) {
+  .world-frame {aspect-ratio:1.45}
+  .world-frame figcaption {padding:.6rem .9rem}
 }

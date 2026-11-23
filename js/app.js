@@ -354,6 +354,14 @@ function setupScrollStory(story) {
   let near = false;
 
   const tank = story.classList.contains('oxygen-story');
+  const isAtlas = story.classList.contains('worlds-story');
+  const caption = isAtlas ? document.createElement('div') : null;
+  let activeWorld = -1;
+  if (caption) {
+    caption.className = 'stage-caption';
+    stage.append(caption);
+  }
+
 
   function paint() {
     frame = 0;
@@ -372,9 +380,22 @@ function setupScrollStory(story) {
       const draining = Math.max(0, Math.min(1, (position - 1.55) / .62));
       stage.style.setProperty('--reserve', 1 - draining * (240 / 420));
     }
+    const nearest = Math.round(position);
+    if (isAtlas && nearest !== activeWorld) {
+      const step = steps[nearest];
+      const label = step.querySelector('figcaption');
+      caption.replaceChildren(...Array.from(label.children, child => child.cloneNode(true)));
+      stage.style.setProperty('--stage-accent', getComputedStyle(step).getPropertyValue('--world-color'));
+      activeWorld = nearest;
+    }
+    const lower = Math.floor(position);
+    const blend = Math.max(0, Math.min(1, (position - lower - .26) / .48));
+    const eased = blend * blend * (3 - 2 * blend);
     for (let i = 0; i < steps.length; i++) {
       const distance = position - i;
-      const opacity = Math.max(0, Math.min(1, (0.7 - Math.abs(distance)) / .4));
+      // Keep an opaque illustration behind the incoming one throughout the dissolve.
+      let opacity = Math.max(0, Math.min(1, (0.7 - Math.abs(distance)) / .4));
+      if (isAtlas) opacity = i === lower ? 1 : i === lower + 1 ? eased : 0;
       frames.children[i].style.setProperty('--exposure', opacity);
       frames.children[i].style.setProperty('--offset', (Math.max(-1, Math.min(distance, 1)) * -12) + 'px');
       steps[i].classList.toggle('is-reading', i === Math.round(position));
