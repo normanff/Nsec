@@ -28,7 +28,7 @@ for (const asset of ['favicon.svg', 'preview-unio.jpg', 'bancada-unio.webp', 'ac
 
 await build({ entryPoints: [path.join(root, 'css/site.css')], outfile: path.join(output, 'css/site.css'), minify: true });
 
-await build({ entryPoints: [path.join(root, 'js/app.js')], outfile: path.join(output, 'js/app.js'), minify: true, target: 'es2020' });
+await build({ entryPoints: ['app', 'reveal'].map(name => path.join(root, 'js', name + '.js')), outdir: path.join(output, 'js'), minify: true, target: 'es2020' });
 
 console.log('Site compilado em dist/');
 

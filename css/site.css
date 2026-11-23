@@ -80,8 +80,6 @@ h2{font-size:clamp(2rem,3.7vw,3.9rem);font-weight:650;letter-spacing:-.065em}h2 
 @media (prefers-reduced-motion:no-preference) {
   .screen-card a {transition:transform .32s ease-out, border-color .25s ease; transform:scale(.985);}
   .screen-card.is-current a,.screen-card:focus-within a {transform:scale(1); border-color:#72727a;}
-  .screen-card.has-entered {animation:screen-arrive .45s cubic-bezier(.2,.7,.3,1) both;}
-  @keyframes screen-arrive {from{opacity:.76;translate:0 8px}to{opacity:1;translate:0 0}}
 }
 @media(max-width:700px) {
   .screen-track {--edge:clamp(8%,calc(22% - 3.4rem),15%); gap:8px; padding-bottom:12px;}

@@ -234,16 +234,7 @@
   });
   syncSelection();
 
-  if ('IntersectionObserver' in window) {
-    const reveal = new IntersectionObserver(entries => {
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        entry.target.classList.add('has-entered');
-        reveal.unobserve(entry.target);
-      }
-    }, {threshold:.12});
-    cards.forEach(card => reveal.observe(card));
-  }
+
 })();
 
 (() => {
