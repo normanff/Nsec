@@ -344,3 +344,66 @@
     button.hidden = false;
   }
 })();
+
+(() => {
+  const story = document.querySelector('.oxygen-story');
+  if (!story || !('IntersectionObserver' in window)) return;
+  const steps = [...story.querySelectorAll('.story-steps li')];
+  const stage = story.querySelector('.story-stage');
+  const frames = story.querySelector('.stage-frames');
+  const layout = matchMedia('(min-width:850px) and (min-height:580px) and (prefers-reduced-motion:no-preference)');
+  let frame = 0;
+  let near = false;
+
+  function paint() {
+    frame = 0;
+    const centers = steps.map(step => {
+      const box = step.getBoundingClientRect();
+      return box.top + box.height / 2;
+    });
+    const line = innerHeight * 0.52;
+    let position = 0;
+    for (let i = 1; i < centers.length; i++) {
+      position += Math.max(0, Math.min(1, (line - centers[i-1]) / (centers[i] - centers[i-1])));
+    }
+    stage.style.setProperty('--journey', position / (steps.length - 1));
+    // Empty the illustrated tank as the calculation comes into view.
+    const draining = Math.max(0, Math.min(1, (position - 1.55) / .62));
+    stage.style.setProperty('--reserve', 1 - draining * (240 / 420));
+    for (let i = 0; i < steps.length; i++) {
+      const distance = position - i;
+      const opacity = Math.max(0, Math.min(1, (0.7 - Math.abs(distance)) / .4));
+      frames.children[i].style.setProperty('--exposure', opacity);
+      frames.children[i].style.setProperty('--offset', (Math.max(-1, Math.min(distance, 1)) * -12) + 'px');
+      steps[i].classList.toggle('is-reading', i === Math.round(position));
+    }
+  }
+
+  function schedule() {
+    if (layout.matches && near && !frame) frame = requestAnimationFrame(paint);
+  }
+  const observer = new IntersectionObserver(([entry]) => {
+    near = entry.isIntersecting;
+    schedule();
+  }, {rootMargin:'100px'});
+
+  function configure() {
+    cancelAnimationFrame(frame);
+    frame = 0;
+    observer.disconnect();
+    near = false;
+    stage.hidden = !layout.matches;
+    story.classList.toggle('story-enhanced', layout.matches);
+    if (!layout.matches) return;
+    if (!frames.childElementCount) {
+      for (const step of steps) frames.append(step.querySelector('figure').cloneNode(true));
+    }
+    paint();
+    observer.observe(story);
+  }
+  layout.addEventListener('change', configure);
+  addEventListener('scroll', schedule, {passive:true});
+  addEventListener('resize', schedule);
+  document.fonts?.ready.then(schedule);
+  configure();
+})();

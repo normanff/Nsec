@@ -67,7 +67,7 @@
       <div class="shell hero-layout"><div class="hero-copy">
         <h1 id="hero-title">Aprenda Python <em>testando seu código</em></h1>
         <p class="hero-description">Altere um exemplo, compare as saídas e corrija sua solução no mesmo editor. O UNIO Code é um aplicativo da <a href="sobre.html">NSEC Tech</a> para Windows, em beta.</p>
-        <div class="download-actions"><a class="button button-accent" href="#demo">Experimentar um desafio</a><a class="button button-quiet" href="#telas">Ver as telas</a></div>
+        <div class="download-actions"><a class="button button-accent" href="#demo">Experimentar um desafio</a><a class="button button-quiet" href="#reserva">Acompanhar uma missão</a></div>
       </div></div>
     </section>
     <section class="shell section-space demo-section" id="demo" aria-labelledby="demo-title">
@@ -92,6 +92,39 @@
         <figure class="screen-card"><a href="assets/academy.webp" aria-label="Ampliar Python Academy"><img src="assets/academy.webp" width="1366" height="864" loading="lazy" decoding="async" alt="Aula de Nexus com as condições and e not no exemplo de Python"></a><figcaption><strong>Python Academy</strong><span>Explore uma condição linha por linha.</span></figcaption></figure>
         <figure class="screen-card"><a href="assets/map.webp" aria-label="Ampliar Mapa mental"><img src="assets/map.webp" width="1366" height="864" loading="lazy" decoding="async" alt="Mapa dos sete mundos com Gênesis selecionado"></a><figcaption><strong>Mapa mental</strong><span>Encontre o módulo que quer estudar.</span></figcaption></figure>
         <figure class="screen-card"><a href="assets/battle.webp" aria-label="Ampliar Battle Time"><img src="assets/battle.webp" width="1366" height="864" loading="lazy" decoding="async" alt="Rodada Reserva de oxigênio com código no editor e relógio em andamento"></a><figcaption><strong>Battle Time</strong><span>Escreva sua solução antes de o tempo acabar.</span></figcaption></figure>
+      </div>
+    </section>
+    <section id="reserva" class="shell oxygen-story section-space" aria-labelledby="oxygen-title">
+      <header class="story-intro">
+        <h2 id="oxygen-title">Reserva de oxigênio</h2>
+        <p>Uma missão do Battle Time começa com 420 unidades no tanque. Acompanhe a conta até a saída que o desafio pede.</p>
+        <a href="#recursos">Pular demonstração</a>
+      </header>
+      <div class="story-layout">
+        <div class="story-stage" aria-hidden="true" hidden><div class="stage-meter"></div><div class="stage-frames"></div></div>
+        <ol class="story-steps">
+          <li id="reserva-missao"><h3>Leia a missão</h3>
+            <p>A tripulação ficará cinco horas fora da base. Seu programa precisa informar quanto oxigênio sobrará na volta.</p>
+            <figure class="mission-frame mission-screen"><img src="assets/battle.webp" alt="Desafio Reserva de oxigênio aberto no editor do Battle Time" width="1366" height="864" loading="lazy"><figcaption>Battle Time · Reserva de oxigênio</figcaption></figure>
+          </li>
+          <li id="reserva-hora"><h3>Calcule uma hora</h3>
+            <p>São seis tripulantes. Cada um consome oito unidades por hora. Multiplique antes de incluir o tempo da missão.</p>
+            <figure class="mission-frame crew-frame"><figcaption>Consumo por hora</figcaption>
+              <div class="crew-units" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <samp>6 × 8 = <strong>48</strong></samp></figure>
+          </li>
+          <li id="reserva-tanque"><h3>Desconte a viagem</h3>
+            <p>Cinco horas a 48 unidades por hora consomem 240 unidades. Subtraia esse gasto da reserva inicial.</p>
+            <figure class="mission-frame tank-frame"><figcaption>Reserva após cinco horas</figcaption>
+              <div class="tank-shell" aria-hidden="true"><div class="tank-fill"></div></div>
+              <samp>420 − 240 = <strong>180</strong></samp></figure>
+          </li>
+          <li id="reserva-saida"><h3>Compare a saída</h3>
+            <p>O teste espera duas linhas. A primeira identifica a reserva. A segunda mostra o valor que o programa calculou.</p>
+            <figure class="mission-frame console-frame"><figcaption>Saída esperada</figcaption><pre><samp>Reserva:
+180</samp></pre></figure>
+          </li>
+        </ol>
       </div>
     </section>
     <section id="recursos" class="shell section-space services" aria-labelledby="services-title">
