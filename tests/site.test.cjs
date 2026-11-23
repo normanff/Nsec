@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 
-const pages = ['index.html', 'sobre.html', 'manual-instalacao.html', 'privacidade.html', 'termos.html'];
+const pages = ['index.html', 'mundos.html', 'sobre.html', 'manual-instalacao.html', 'privacidade.html', 'termos.html'];
 const home = fs.readFileSync('dist/index.html', 'utf8');
 const domain = 'https://www.nsectech.com.br/';
 
@@ -87,4 +87,13 @@ test('the world trail has seven ordered and directly reachable chapters', () => 
     assert.ok(story.includes('href="#mundo-' + slug + '"'));
     assert.ok(story.includes('assets/world-atlas.svg#world-' + (i + 1)));
   }
+});
+
+test('the homepage leads to the launch notice and the mobile world guide', () => {
+  assert.doesNotMatch(home, /id="reserva"|href="#reserva"/);
+  assert.match(home, /class="download-actions">[^\n]*href="#aviso"/);
+  assert.match(home, /href="mundos.html">Expandir mundos/);
+  const guide = fs.readFileSync('dist/mundos.html', 'utf8');
+  assert.equal([...guide.matchAll(/<details id="mundo-/g)].length, 7);
+  assert.ok(!guide.includes('<!-- world-chapters -->'));
 });

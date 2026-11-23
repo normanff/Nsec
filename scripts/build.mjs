@@ -1,4 +1,4 @@
-import { mkdir, copyFile, rm } from 'node:fs/promises';
+import { mkdir, copyFile, rm, readFile, writeFile } from 'node:fs/promises';
 
 import { fileURLToPath } from 'node:url';
 
@@ -23,6 +23,16 @@ for (const folder of ['css', 'js', 'assets']) await mkdir(path.join(output, fold
 for (const file of ['index.html', 'manual-instalacao.html', 'sobre.html', 'privacidade.html', 'termos.html', 'robots.txt', 'sitemap.xml']) {
   await copyFile(path.join(root, file), path.join(output, file));
 }
+
+const home = await readFile(path.join(root, 'index.html'), 'utf8');
+const worldList = home.match(/<ol class="story-steps">([\s\S]*?)<\/ol>/)[1];
+const entries = [...worldList.matchAll(/<li id="(mundo-[a-z]+)" class="(world-\d+)"><h3>([^<]+)<\/h3>([\s\S]*?)<\/li>/g)];
+if (entries.length !== 7) throw new Error('A trilha precisa conter os sete mundos.');
+const chapters = entries.map(([, id, theme, name, body]) =>
+  `<details id="${id}" class="world-chapter ${theme}"><summary>${name}</summary><div class="chapter-body">${body}</div></details>`
+).join('\n');
+const atlas = await readFile(path.join(root, 'mundos.html'), 'utf8');
+await writeFile(path.join(output, 'mundos.html'), atlas.replace('<!-- world-chapters -->', chapters));
 
 for (const asset of ['favicon.svg', 'preview-unio.jpg', 'bancada-unio.webp', 'academy.webp', 'map.webp', 'battle.webp', 'world-atlas.svg', 'worlds.webp', 'workshop.webp', 'achievements.webp', 'InterVariable.woff2', 'Inter-LICENSE.txt']) await copyFile(path.join(root, 'assets', asset), path.join(output, 'assets', asset));
 

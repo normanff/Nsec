@@ -345,92 +345,97 @@
   }
 })();
 
-function setupScrollStory(story) {
-  const steps = [...story.querySelectorAll('.story-steps li')];
-  const stage = story.querySelector('.story-stage');
-  const frames = story.querySelector('.stage-frames');
-  const layout = matchMedia('(min-width:850px) and (min-height:580px) and (prefers-reduced-motion:no-preference)');
-  let frame = 0;
-  let near = false;
+// The original links and panels remain useful when scripting is unavailable.
+(() => {
+  const atlas = document.querySelector('.worlds-story');
+  if (!atlas) return;
+  const desktop = matchMedia('(min-width:850px)');
+  const nav = atlas.querySelector('.world-index');
+  const tabs = [...nav.querySelectorAll('a')];
+  const panels = tabs.map(tab => document.getElementById(tab.hash.slice(1)));
+  let selected = 0;
 
-  const tank = story.classList.contains('oxygen-story');
-  const isAtlas = story.classList.contains('worlds-story');
-  const caption = isAtlas ? document.createElement('div') : null;
-  let activeWorld = -1;
-  if (caption) {
-    caption.className = 'stage-caption';
-    stage.append(caption);
-  }
-
-
-  function paint() {
-    frame = 0;
-    const centers = steps.map(step => {
-      const box = step.getBoundingClientRect();
-      return box.top + box.height / 2;
+  function select(index) {
+    selected = index;
+    tabs.forEach((tab, i) => {
+      const active = i === index;
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+      panels[i].hidden = !active;
     });
-    const line = innerHeight * 0.52;
-    let position = 0;
-    for (let i = 1; i < centers.length; i++) {
-      position += Math.max(0, Math.min(1, (line - centers[i-1]) / (centers[i] - centers[i-1])));
-    }
-    stage.style.setProperty('--journey', position / (steps.length - 1));
-    // Empty the illustrated tank as the calculation comes into view.
-    if (tank) {
-      const draining = Math.max(0, Math.min(1, (position - 1.55) / .62));
-      stage.style.setProperty('--reserve', 1 - draining * (240 / 420));
-    }
-    const nearest = Math.round(position);
-    if (isAtlas && nearest !== activeWorld) {
-      const step = steps[nearest];
-      const label = step.querySelector('figcaption');
-      caption.replaceChildren(...Array.from(label.children, child => child.cloneNode(true)));
-      stage.style.setProperty('--stage-accent', getComputedStyle(step).getPropertyValue('--world-color'));
-      activeWorld = nearest;
-    }
-    const lower = Math.floor(position);
-    const blend = Math.max(0, Math.min(1, (position - lower - .26) / .48));
-    const eased = blend * blend * (3 - 2 * blend);
-    for (let i = 0; i < steps.length; i++) {
-      const distance = position - i;
-      // Keep an opaque illustration behind the incoming one throughout the dissolve.
-      let opacity = Math.max(0, Math.min(1, (0.7 - Math.abs(distance)) / .4));
-      if (isAtlas) opacity = i === lower ? 1 : i === lower + 1 ? eased : 0;
-      frames.children[i].style.setProperty('--exposure', opacity);
-      frames.children[i].style.setProperty('--offset', (Math.max(-1, Math.min(distance, 1)) * -12) + 'px');
-      steps[i].classList.toggle('is-reading', i === Math.round(position));
-    }
   }
-
-  function schedule() {
-    if (layout.matches && near && !frame) frame = requestAnimationFrame(paint);
+  function syncLocation() {
+    const index = tabs.findIndex(tab => tab.hash === location.hash);
+    if (index < 0) return;
+    if (desktop.matches) select(index);
+    else location.replace('mundos.html' + tabs[index].hash);
   }
-  const observer = new IntersectionObserver(([entry]) => {
-    near = entry.isIntersecting;
-    schedule();
-  }, {rootMargin:'100px'});
-
+  function activate(index) {
+    select(index);
+    if (location.hash !== tabs[index].hash) history.pushState(null, '', tabs[index].hash);
+    tabs[index].focus({preventScroll:true});
+  }
+  tabs.forEach((tab, index) => {
+    tab.id = 'tab-' + panels[index].id;
+    tab.addEventListener('click', event => {
+      if (!desktop.matches || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      activate(index);
+    });
+    tab.addEventListener('keydown', event => {
+      if (!desktop.matches) return;
+      const keys = {ArrowLeft:(index + tabs.length - 1) % tabs.length, ArrowRight:(index + 1) % tabs.length, Home:0, End:tabs.length - 1};
+      if (!(event.key in keys)) return;
+      event.preventDefault();
+      activate(keys[event.key]);
+    });
+  });
   function configure() {
-    cancelAnimationFrame(frame);
-    frame = 0;
-    observer.disconnect();
-    near = false;
-    stage.hidden = !layout.matches;
-    story.classList.toggle('story-enhanced', layout.matches);
-    if (!layout.matches) return;
-    if (!frames.childElementCount) {
-      for (const step of steps) frames.append(step.querySelector('figure').cloneNode(true));
+    atlas.classList.toggle('tabbed', desktop.matches);
+    if (desktop.matches) {
+      nav.setAttribute('role','tablist');
+      tabs.forEach((tab, i) => {
+        tab.setAttribute('role','tab');
+        tab.setAttribute('aria-controls',panels[i].id);
+        panels[i].setAttribute('role','tabpanel');
+        panels[i].setAttribute('aria-labelledby',tab.id);
+        panels[i].tabIndex = 0;
+      });
+      select(selected);
+    } else {
+      nav.removeAttribute('role');
+      tabs.forEach((tab, i) => {
+        for (const attr of ['role','aria-controls','aria-selected','tabindex']) tab.removeAttribute(attr);
+        for (const attr of ['role','aria-labelledby','tabindex','hidden']) panels[i].removeAttribute(attr);
+      });
     }
-    paint();
-    observer.observe(story);
+    syncLocation();
   }
-  layout.addEventListener('change', configure);
-  addEventListener('scroll', schedule, {passive:true});
-  addEventListener('resize', schedule);
-  document.fonts?.ready.then(schedule);
+  desktop.addEventListener('change',configure);
+  addEventListener('hashchange',syncLocation);
   configure();
-}
+})();
 
-if ('IntersectionObserver' in window) {
-  document.querySelectorAll('[data-scroll-story]').forEach(setupScrollStory);
-}
+(() => {
+  const button = document.getElementById('expand-all');
+  if (!button) return;
+  const chapters = [...document.querySelectorAll('.world-chapter')];
+  function refresh() {
+    const allOpen = chapters.every(chapter => chapter.open);
+    button.textContent = allOpen ? 'Recolher todos' : 'Expandir todos';
+  }
+  function openLinkedWorld() {
+    const linked = chapters.find(chapter => '#' + chapter.id === location.hash);
+    if (linked) linked.open = true;
+  }
+  button.addEventListener('click', () => {
+    const open = !chapters.every(chapter => chapter.open);
+    chapters.forEach(chapter => { chapter.open = open; });
+    refresh();
+  });
+  chapters.forEach(chapter => chapter.addEventListener('toggle', refresh));
+  addEventListener('hashchange', openLinkedWorld);
+  openLinkedWorld();
+  refresh();
+  button.hidden = false;
+})();

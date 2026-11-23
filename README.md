@@ -13,3 +13,5 @@ O site usa o símbolo U da edição desktop, a foto da bancada e a fonte Inter h
 O manual de instalação está disponível e o download público permanece desativado. O desafio Codinome Nova confere a escolha no navegador. O suporte abre o aplicativo de e-mail do visitante. As páginas sobre a NSEC Tech, privacidade e termos de uso ficam acessíveis no rodapé de todas as páginas.
 
 Os pedidos de aviso chegam a suporte@nsectech.com.br com o assunto “Aviso de lançamento do UNIO Code”. Ao abrir o download, a equipe deve responder individualmente aos interessados, deduplicar remetentes e excluir da fila quem pediu cancelamento. O site não dispara e-mails automaticamente.
+
+O conteúdo editorial dos sete mundos fica na lista da página inicial. Durante o build, o site usa essa lista para montar as seções expansíveis de `mundos.html`.
