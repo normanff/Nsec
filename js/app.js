@@ -296,10 +296,12 @@
   const form = document.querySelector('#exercise-form');
   if (!form) return;
   const result = document.querySelector('#exercise-result');
+  const template = document.querySelector('#exercise-feedback');
+  const expected = document.querySelector('.expected-output samp').textContent;
   const feedback = {
-    name: ['Nova', 'Falta juntar o texto “Piloto: ” ao nome. Tente outra linha.'],
-    join: ['Piloto: Nova', 'Acertou! O sinal + junta o prefixo ao nome e preserva o espaço.'],
-    space: ['Piloto:Nova', 'Quase. Compare o espaço entre os dois-pontos e o nome.']
+    name: ['Nova', 'Essa linha mostra só o nome. Inclua o prefixo antes dele.'],
+    join: [expected, 'O sinal + junta o prefixo ao nome. O espaço vem do final da primeira string.'],
+    space: ['Piloto:Nova', 'Faltou um espaço entre os dois-pontos e o nome.']
   };
   const nextStep = document.querySelector('#exercise-next');
   form.addEventListener('change', () => {
@@ -310,15 +312,16 @@
     event.preventDefault();
     const choice = new FormData(form).get('line');
     const [output, message] = feedback[choice];
-    const label = document.createElement('strong');
-    label.textContent = 'Saída da linha escolhida';
-    const sample = document.createElement('samp');
-    sample.textContent = output;
-    const explanation = document.createElement('p');
-    explanation.textContent = message;
-    result.dataset.correct = String(choice === 'join');
-    result.replaceChildren(label, sample, explanation);
-    nextStep.hidden = choice !== 'join';
+    const correct = output === expected;
+    const panel = template.content.cloneNode(true);
+    panel.querySelector('strong').textContent = correct ? 'Correto!' : 'Quase.';
+    panel.querySelector('p span').textContent = message;
+    const [target, actual] = panel.querySelectorAll('samp');
+    target.textContent = expected;
+    actual.textContent = output;
+    result.dataset.correct = String(correct);
+    result.replaceChildren(panel);
+    nextStep.hidden = !correct;
   });
   document.querySelector('#exercise-key').hidden = true;
   nextStep.hidden = true;

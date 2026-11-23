@@ -72,13 +72,20 @@
     </section>
     <section class="shell section-space demo-section" id="demo" aria-labelledby="demo-title">
       <div><h2 id="demo-title">Codinome Nova</h2><p>Você já guardou o nome do piloto. Escolha a linha que junta o prefixo ao nome e produz a saída abaixo.</p><div class="expected-output"><span>Saída esperada</span><samp>Piloto: Nova</samp></div></div>
-      <div class="exercise"><pre><code>nome = <b>"Nova"</b></code></pre>
+      <div class="exercise"><pre><span class="line-number" aria-hidden="true">1</span><code>nome = <b>"Nova"</b></code></pre>
         <form id="exercise-form"><fieldset><legend>Escolha a próxima linha</legend>
           <label><input type="radio" required name="line" value="name"><code>print(nome)</code></label>
           <label><input type="radio" name="line" value="join"><code>print("Piloto: " + nome)</code></label>
           <label><input type="radio" name="line" value="space"><code>print("Piloto:" + nome)</code></label>
         </fieldset><button class="button button-accent" type="submit" hidden>Conferir resposta</button></form>
         <div id="exercise-result" role="status" aria-live="polite" aria-atomic="true"></div>
+        <template id="exercise-feedback">
+          <p><strong></strong> <span></span></p>
+          <dl class="output-comparison">
+            <div><dt>Saída esperada</dt><dd><samp></samp></dd></div>
+            <div><dt>Saída obtida</dt><dd><samp></samp></dd></div>
+          </dl>
+        </template>
         <details id="exercise-key"><summary>Conferir a solução</summary><p><code>print("Piloto: " + nome)</code> junta o prefixo à variável e preserva o espaço depois dos dois-pontos.</p></details>
         <p id="exercise-next">Quer continuar no aplicativo? <a href="#aviso">Peça o aviso de lançamento</a>.</p>
       </div>
