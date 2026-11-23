@@ -34,7 +34,7 @@ const chapters = entries.map(([, id, theme, name, body]) =>
 const atlas = await readFile(path.join(root, 'mundos.html'), 'utf8');
 await writeFile(path.join(output, 'mundos.html'), atlas.replace('<!-- world-chapters -->', chapters));
 
-for (const asset of ['favicon.svg', 'preview-unio.jpg', 'bancada-unio.webp', 'academy.webp', 'map.webp', 'battle.webp', 'world-atlas.svg', 'worlds.webp', 'workshop.webp', 'achievements.webp', 'InterVariable.woff2', 'Inter-LICENSE.txt']) await copyFile(path.join(root, 'assets', asset), path.join(output, 'assets', asset));
+for (const asset of ['favicon.svg', 'ambient-particles.svg', 'ambient-particles-still.svg', 'preview-unio.jpg', 'bancada-unio.webp', 'academy.webp', 'map.webp', 'battle.webp', 'world-atlas.svg', 'worlds.webp', 'workshop.webp', 'achievements.webp', 'InterVariable.woff2', 'Inter-LICENSE.txt']) await copyFile(path.join(root, 'assets', asset), path.join(output, 'assets', asset));
 
 await build({ entryPoints: [path.join(root, 'css/site.css')], outfile: path.join(output, 'css/site.css'), minify: true });
 

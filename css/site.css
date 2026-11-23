@@ -1,6 +1,15 @@
 @font-face{font-family:Inter;src:url("../assets/InterVariable.woff2") format("woff2");font-weight:100 900;font-display:swap}
 :root{color-scheme:dark;--ink:#0b0b0f;--surface:#1a1a1f;--paper:#e5e5e5;--red:#e10600;--mute:#bcbcc4;--line:#393940;--focus:#ff8c88;font-family:Inter,Arial,sans-serif;background:var(--ink);color:var(--paper);line-height:1.55}
 *{box-sizing:border-box}body,h1,h2,h3,p,figure,dl,dd,ol,ul{margin:0}a{color:inherit}button,input,textarea,select{font:inherit}button,summary{cursor:pointer}button:disabled{cursor:not-allowed}img{display:block;max-width:100%}button{color:inherit}button,a,summary,input,select,textarea{outline-offset:5px}:focus-visible{outline:2px solid var(--focus)}[id]{scroll-margin-top:6rem}.hidden{display:none!important}.js-only{display:none!important}.js-enabled .js-only{display:inline-flex!important}
+/* A single decorative plane sits behind the page, including its opaque photo hero. */
+body {isolation:isolate}
+body::before {
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:var(--ink) url("../assets/ambient-particles.svg") center top / clamp(36rem,56vw,62rem) auto repeat;
+  opacity:.58;
+}
+@media (prefers-reduced-motion:reduce) {body::before {background-image:url("../assets/ambient-particles-still.svg")}}
+@media print, (forced-colors:active) {body::before {display:none}}
 .shell{width:min(88%,82rem);margin-inline:auto}.section-space{padding-block:clamp(4rem,7.6vw,7rem)}.skip-link{position:fixed;z-index:50;top:.6rem;left:.6rem;transform:translateY(-160%);padding:.6rem 1rem;background:white;color:#111}.skip-link:focus{transform:none}
 .announcement{overflow:hidden;background:var(--red);color:white;font-weight:640;font-size:.875rem;line-height:2.1}.marquee-track,.marquee-group{display:flex;width:max-content}.marquee-group{align-items:center;justify-content:space-around;min-width:100vw;gap:clamp(2rem,5vw,6rem);padding-inline:1.6rem}.js-enabled .marquee-track{animation:marquee 44s linear infinite}@keyframes marquee{to{transform:translateX(-50%)}}
 .site-header{position:sticky;z-index:9;top:0;background:#0b0b0ffa;border-bottom:1px solid var(--line)}.header-inner,.desktop-nav,.wordmark,.mobile-nav{display:flex;align-items:center}.header-inner{min-height:4.5rem;gap:2rem;justify-content:space-between}.wordmark{gap:.55rem;text-decoration:none;font-size:1.38rem;font-weight:780;letter-spacing:-.055em;white-space:nowrap}.wordmark img{width:2.45rem;height:2.45rem}.wordmark b{font-weight:520}.desktop-nav{position:relative;gap:.25rem}.desktop-nav a,.mobile-nav a,.manual-back{padding:.7rem .9rem;font-size:.95rem;text-decoration:none}.desktop-nav a:hover,.desktop-nav a[aria-current],.mobile-nav a:hover,.manual-back:hover{color:#fff}.nav-marker{position:absolute;height:2px;bottom:.18rem;left:0;background:var(--red);opacity:0;pointer-events:none}.has-marker .nav-marker{opacity:1}.menu-toggle,.mobile-nav{display:none}
