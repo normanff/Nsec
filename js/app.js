@@ -345,15 +345,15 @@
   }
 })();
 
-(() => {
-  const story = document.querySelector('.oxygen-story');
-  if (!story || !('IntersectionObserver' in window)) return;
+function setupScrollStory(story) {
   const steps = [...story.querySelectorAll('.story-steps li')];
   const stage = story.querySelector('.story-stage');
   const frames = story.querySelector('.stage-frames');
   const layout = matchMedia('(min-width:850px) and (min-height:580px) and (prefers-reduced-motion:no-preference)');
   let frame = 0;
   let near = false;
+
+  const tank = story.classList.contains('oxygen-story');
 
   function paint() {
     frame = 0;
@@ -368,8 +368,10 @@
     }
     stage.style.setProperty('--journey', position / (steps.length - 1));
     // Empty the illustrated tank as the calculation comes into view.
-    const draining = Math.max(0, Math.min(1, (position - 1.55) / .62));
-    stage.style.setProperty('--reserve', 1 - draining * (240 / 420));
+    if (tank) {
+      const draining = Math.max(0, Math.min(1, (position - 1.55) / .62));
+      stage.style.setProperty('--reserve', 1 - draining * (240 / 420));
+    }
     for (let i = 0; i < steps.length; i++) {
       const distance = position - i;
       const opacity = Math.max(0, Math.min(1, (0.7 - Math.abs(distance)) / .4));
@@ -406,4 +408,8 @@
   addEventListener('resize', schedule);
   document.fonts?.ready.then(schedule);
   configure();
-})();
+}
+
+if ('IntersectionObserver' in window) {
+  document.querySelectorAll('[data-scroll-story]').forEach(setupScrollStory);
+}

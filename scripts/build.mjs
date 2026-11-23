@@ -24,7 +24,7 @@ for (const file of ['index.html', 'manual-instalacao.html', 'sobre.html', 'priva
   await copyFile(path.join(root, file), path.join(output, file));
 }
 
-for (const asset of ['favicon.svg', 'preview-unio.jpg', 'bancada-unio.webp', 'academy.webp', 'map.webp', 'battle.webp', 'InterVariable.woff2', 'Inter-LICENSE.txt']) await copyFile(path.join(root, 'assets', asset), path.join(output, 'assets', asset));
+for (const asset of ['favicon.svg', 'preview-unio.jpg', 'bancada-unio.webp', 'academy.webp', 'map.webp', 'battle.webp', 'world-atlas.svg', 'worlds.webp', 'workshop.webp', 'achievements.webp', 'InterVariable.woff2', 'Inter-LICENSE.txt']) await copyFile(path.join(root, 'assets', asset), path.join(output, 'assets', asset));
 
 await build({ entryPoints: [path.join(root, 'css/site.css')], outfile: path.join(output, 'css/site.css'), minify: true });
 

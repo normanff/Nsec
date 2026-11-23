@@ -37,7 +37,7 @@ test('the preview is free to try, with an integrated gallery and no download or 
   assert.match(home, /id="exercise-form"/);
   assert.match(home, /<details id="exercise-key"><summary>Conferir a solução/);
   assert.match(home, /<dialog[^>]+id="viewer"/);
-  assert.equal([...home.matchAll(/<figure class="screen-card">/g)].length,3);
+  assert.equal([...home.matchAll(/<figure class="screen-card">/g)].length,6);
   assert.equal([...home.matchAll(/<article\b/g)].length,4);
   assert.match(home, /href="mailto:suporte@nsectech.com.br"/);
   assert.doesNotMatch(home, /target="_blank"|contact-modal|github.com\/normanff|onclick=|777/);
@@ -77,4 +77,14 @@ test('gallery controls, exercise choices and launch request are available in the
   assert.equal(mail.pathname,'suporte@nsectech.com.br');
   assert.equal(mail.searchParams.get('subject'),'Aviso de lançamento do UNIO Code');
   assert.match(mail.searchParams.get('body'), /download público/);
+});
+
+test('the world trail has seven ordered and directly reachable chapters', () => {
+  const slugs = ['genesis','nexus','prisma','vortice','orbita','aurora','ascensao'];
+  const story = home.match(/<section id="mundos"[\s\S]*?<\/section>/)[0];
+  assert.deepEqual([...story.matchAll(/<li id="mundo-([^"]+)"/g)].map(match => match[1]), slugs);
+  for (const [i,slug] of slugs.entries()) {
+    assert.ok(story.includes('href="#mundo-' + slug + '"'));
+    assert.ok(story.includes('assets/world-atlas.svg#world-' + (i + 1)));
+  }
 });
